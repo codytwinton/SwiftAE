@@ -26,7 +26,21 @@ class RunLengthCoder {
 	}
 
 	static func decode(_ val: String) -> String {
-		return ""
+		guard val.count > 0 else { return "" }
+
+		var decoded = ""
+		var count = 0
+
+		for char in val {
+			switch Int(char.description) {
+			case let c?:
+				count = c
+			case nil:
+				decoded += String(repeating: char, count: count)
+			}
+		}
+
+		return decoded
 	}
 }
 
