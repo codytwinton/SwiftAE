@@ -5,7 +5,24 @@ import Foundation
 class RunLengthCoder {
 
 	static func encode(_ val: String) -> String {
-		return ""
+
+		guard var currentChar = val.first else { return "" }
+		var count = 0
+		var encoded = ""
+
+		for char in val {
+			guard char != currentChar else {
+				count += 1
+				continue
+			}
+
+			encoded += "\(count)\(currentChar)"
+			currentChar = char
+			count = 1
+		}
+
+		encoded += "\(count)\(currentChar)"
+		return encoded
 	}
 
 	static func decode(_ val: String) -> String {
