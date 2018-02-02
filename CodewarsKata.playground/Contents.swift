@@ -1,33 +1,63 @@
-
-
 //: Playground - noun: a place where people can play
 
 import Foundation
 
-func removNb(_ n: Int) -> [(Int,Int)] {
+extension String {
 
-	let sequence = (1...n)
-	let total = sequence.reduce(0, { $0 + $1 })
-	let firstSequence = sequence.filter { $0 * n >= total }
+	var hasBalancedScope: Bool {
+		let closedChars = "})]"
+		var count = (open: 0, closed: 0)
 
-	for first in firstSequence {
+		for (i, char) in self.enumerated() {
 
-		let subtractTotal = total - first
+			guard closedChars.contains(char) else {
+				count.open += 1
+				continue
+			}
 
-		for second in (first...n).reversed() {
-			let multiple = first * second
-			let smallTotal = subtractTotal - second
-			guard multiple >= smallTotal else { break }
-			guard multiple == smallTotal else { continue }
-			return [(first, second), (second, first)]
+			guard i > 0 else { return false }
+
+			count.closed += 1
+			let previous = self[i - 1]
+
+			guard !closedChars.contains(previous) else { continue }
+
+			switch char {
+			case "}" where previous == "{",
+				 ")" where previous == "(",
+				 "]" where previous == "[":
+				continue
+			default:
+				return false
+			}
 		}
+
+		return count.open == count.closed;
 	}
 
-	return []
+	subscript (i: Int) -> Character {
+		return self[index(startIndex, offsetBy: i)]
+	}
 }
 
-for (index, test) in [26, 906, 10].enumerated() {
-	print("\n\ntest number: \(test)")
-	let result = removNb(test)
-	print("result: \(result)")
+
+// Tests
+
+struct TestValues {
+	var data: String
+	var result: Bool
+}
+
+var tests: [TestValues] = [
+	TestValues(data: "([])[]({})", result: true),
+	TestValues(data: "([)]", result: false),
+	TestValues(data: "({[()]}]", result: false),
+	TestValues(data: "]", result: false),
+	TestValues(data: "((()", result: false)
+]
+
+for test in tests {
+	let result = test.data.hasBalancedScope
+	guard result != test.result else { continue }
+	print("data: \(test.data) expected: \(test.result) actual: \(result)")
 }
