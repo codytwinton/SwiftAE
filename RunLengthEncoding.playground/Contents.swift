@@ -39,7 +39,8 @@ struct TestValues {
 }
 
 var tests: [TestValues] = [
-	TestValues(encoded: "4A3B2C1D2A", decoded: "AAAABBBCCDAA")
+	TestValues(encoded: "4A3B2C1D2A", decoded: "AAAABBBCCDAA"),
+	TestValues(encoded: "", decoded: "")
 ]
 
 var hasFailed = false
@@ -50,12 +51,12 @@ for test in tests {
 	let encoded = RunLengthCoder.encode(test.decoded)
 
 	if decoded != test.decoded {
-		print("Decoding Failed. Expected: \(test.decoded) Actual: \(decoded)")
+		print("Decoding \(test.encoded) failed. Expected: \(test.decoded) Actual: \(decoded)")
 		hasFailed = true
 	}
 
 	if encoded != test.encoded {
-		print("Encoding Failed. Expected: \(test.encoded) Actual: \(encoded)")
+		print("Encoding \(test.decoded) failed. Expected: \(test.encoded) Actual: \(encoded)")
 		hasFailed = true
 	}
 }
