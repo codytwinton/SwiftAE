@@ -33,12 +33,12 @@ for test in tests {
 	let encoded = RunLengthCoder.encode(test.decoded)
 
 	if decoded != test.decoded {
-		print("Test Failed. Expected: \(test.decoded) Actual: \(decoded)")
+		print("Decoding Failed. Expected: \(test.decoded) Actual: \(decoded)")
 		hasFailed = true
 	}
 
 	if encoded != test.encoded {
-		print("Test Failed. Expected: \(test.encoded) Actual: \(encoded)")
+		print("Encoding Failed. Expected: \(test.encoded) Actual: \(encoded)")
 		hasFailed = true
 	}
 }
