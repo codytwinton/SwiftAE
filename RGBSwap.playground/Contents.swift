@@ -13,85 +13,42 @@ import Foundation
 
 extension Array where Iterator.Element == String {
 
-	public func rgbSwap() -> [String] {
+	public mutating func rgbSwap() -> [String] {
 		guard !self.isEmpty else { return self }
 
-		var updated = self
-
-		for (i, el) in self.enumerated() {
-			guard "R" == el else { continue }
-			updated.swapAt(0, i)
-		}
-
-		print(updated)
-
-		for i in 1..<(updated.count - 1) {
+		for i in 0..<(self.count - 1) {
 			var swapIndex = i
 
-			for j in (i + 1)..<(updated.count) {
-				let current = updated[swapIndex]
-				let next = updated[j]
+			for j in (i + 1)..<(self.count) {
+				let current = self[swapIndex]
+				let next = self[j]
 
 				guard next >= current else { continue }
 				swapIndex = j
 			}
 
-			print("\ni: \(i) swapIndex: \(swapIndex)")
-			updated.swapAt(i, swapIndex)
-			print("updated: \(updated)")
+			self.swapAt(i, swapIndex)
 		}
 
-		return updated
+		return self
 	}
-
-	/*
-	public func rgbSwap() -> [String] {
-		guard !self.isEmpty else { return self }
-
-		var updated = self
-
-		var count = (r: 0, g: 0, b: 0)
-
-		for i in 0..<updated.count {
-			let current = updated[i]
-
-			let swapIndex: Int
-
-			switch current {
-			case "R":
-				swapIndex = count.r
-				count.r += 1
-			case "G":
-				swapIndex = count.r + count.g
-				count.g += 1
-			case "B":
-				swapIndex = count.r + count.g + count.b
-				count.b += 1
-			default:
-				continue
-			}
-
-			print("\(current).swapAt(\(i), \(swapIndex))")
-			updated.swapAt(i, swapIndex)
-		}
-
-		return updated
-	}
-	*/
 }
 
 // Tests
 
 struct TestValues {
-	let input: [String]
+	var input: [String]
 	let result: [String]
 }
 
 var tests: [TestValues] = [
+	TestValues(input: [],  result: []),
+	TestValues(input: [""],  result: [""]),
+	TestValues(input: ["B", "G", "R"],  result: ["R", "G", "B"]),
 	TestValues(input: ["G", "B", "R", "R", "B", "R", "G"],  result: ["R", "R", "R", "G", "G", "B", "B"])
 ]
 
-for (index, test) in tests.enumerated() {
+for (index, var test) in tests.enumerated() {
 	let result = test.input.rgbSwap()
 
 	switch result == test.result {
