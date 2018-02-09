@@ -13,40 +13,38 @@ import Foundation
 
 extension Array where Iterator.Element == String {
 
-	/*
 	public func rgbSwap() -> [String] {
 		guard !self.isEmpty else { return self }
 
 		var updated = self
 
+		for (i, el) in self.enumerated() {
+			guard "R" == el else { continue }
+			updated.swapAt(0, i)
+		}
 
-		for i in 0..<updated.count {
-			guard i < updated.count - 1 else { break }
+		print(updated)
 
-			let current = updated[i]
+		for i in 1..<(updated.count - 1) {
+			var swapIndex = i
 
-			print("\nindex: \(i) current: \(current)")
-
-			for j in (i + 1)..<updated.count {
+			for j in (i + 1)..<(updated.count) {
+				let current = updated[swapIndex]
 				let next = updated[j]
-				guard current != next else { continue }
-				print("current: \(current) next: \(next)")
 
-				switch current {
-				case "G" where next == "R", "B" where next == "R":
-					updated.swapAt(i, j)
-					print("updated \(updated)")
-					break
-				default:
-					continue
-				}
+				guard next >= current else { continue }
+				swapIndex = j
 			}
+
+			print("\ni: \(i) swapIndex: \(swapIndex)")
+			updated.swapAt(i, swapIndex)
+			print("updated: \(updated)")
 		}
 
 		return updated
 	}
-	*/
 
+	/*
 	public func rgbSwap() -> [String] {
 		guard !self.isEmpty else { return self }
 
@@ -79,6 +77,7 @@ extension Array where Iterator.Element == String {
 
 		return updated
 	}
+	*/
 }
 
 // Tests
