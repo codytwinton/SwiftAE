@@ -13,9 +13,71 @@ import Foundation
 
 extension Array where Iterator.Element == String {
 
+	/*
 	public func rgbSwap() -> [String] {
 		guard !self.isEmpty else { return self }
-		return self
+
+		var updated = self
+
+
+		for i in 0..<updated.count {
+			guard i < updated.count - 1 else { break }
+
+			let current = updated[i]
+
+			print("\nindex: \(i) current: \(current)")
+
+			for j in (i + 1)..<updated.count {
+				let next = updated[j]
+				guard current != next else { continue }
+				print("current: \(current) next: \(next)")
+
+				switch current {
+				case "G" where next == "R", "B" where next == "R":
+					updated.swapAt(i, j)
+					print("updated \(updated)")
+					break
+				default:
+					continue
+				}
+			}
+		}
+
+		return updated
+	}
+	*/
+
+	public func rgbSwap() -> [String] {
+		guard !self.isEmpty else { return self }
+
+		var updated = self
+
+		var count = (r: 0, g: 0, b: 0)
+
+		for i in 0..<updated.count {
+			let current = updated[i]
+
+			let swapIndex: Int
+
+			switch current {
+			case "R":
+				swapIndex = count.r
+				count.r += 1
+			case "G":
+				swapIndex = count.r + count.g
+				count.g += 1
+			case "B":
+				swapIndex = count.r + count.g + count.b
+				count.b += 1
+			default:
+				continue
+			}
+
+			print("\(current).swapAt(\(i), \(swapIndex))")
+			updated.swapAt(i, swapIndex)
+		}
+
+		return updated
 	}
 }
 
@@ -35,9 +97,9 @@ for (index, test) in tests.enumerated() {
 
 	switch result == test.result {
 	case false:
-		print("Failed test \(index). expected: \(test.result) actual: \(result)")
+		print("\n\nFailed test \(index):\n\tinput: \(test.input)\n\texpected: \(test.result)\n\tactual: \(result)")
 	case true:
-		print("Passed test \(index). result: \(result)")
+		print("\n\nPassed test \(index). result: \(result)")
 	}
 }
 
