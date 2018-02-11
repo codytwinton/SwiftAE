@@ -111,13 +111,13 @@ struct TestValues {
 }
 
 var tests: [TestValues] = [
-	//TestValues(input: [], result: []),
-	TestValues(input: [1], result: [1]),
-	TestValues(input: [1, 2], result: [1, 2]),
-	TestValues(input: [1, 2, 3], result: [1, 3, 2]),
-	TestValues(input: [1, 2, 3, 4], result: [1, 4, 2, 3]),
-	TestValues(input: [1, 2, 3, 4, 5], result: [1, 5, 2, 4, 3]),
-	TestValues(input: [1, 2, 3, 4, 5, 6], result: [1, 6, 2, 5, 3, 4])
+	TestValues(input: [], result: []),
+	TestValues(input: Array(1...1), result: [1]),
+	TestValues(input: Array(1...2), result: [1, 2]),
+	TestValues(input: Array(1...3), result: [1, 3, 2]),
+	TestValues(input: Array(1...4), result: [1, 4, 2, 3]),
+	TestValues(input: Array(1...5), result: [1, 5, 2, 4, 3]),
+	TestValues(input: Array(1...6), result: [1, 6, 2, 5, 3, 4])
 ]
 
 // MARK: Tests
