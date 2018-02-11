@@ -65,27 +65,33 @@ extension Stack where T == Int {
 // MARK: Test Structure
 
 struct TestValues {
-	var input: Stack<Int>
-	let result: Stack<Int>
+	var input: [Int]
+	let result: [Int]
 }
 
 var tests: [TestValues] = [
-	TestValues(input: Stack<Int>(items: [1, 2, 3, 4, 5]), result: Stack<Int>(items: [1, 2, 3, 4, 5])),
-	TestValues(input: Stack<Int>(items: [1, 2, 3, 4]), result: Stack<Int>(items: [1, 4, 2, 3]))
+	TestValues(input: [], result: []),
+	TestValues(input: [1, 2, 3, 4, 5], result: [1, 2, 3, 4, 5]),
+	TestValues(input: [1, 2, 3, 4], result: [1, 4, 2, 3])
 ]
 
 // MARK: Tests
 
-for (index, var test) in tests.enumerated() {
-	let result = test.input.reverseLastHalf()
+for (index, test) in tests.enumerated() {
+	// Arrange
+	var stack = Stack<Int>(items: test.input)
 
-	let wasSuccess = result.items == test.result.items
+	// Act
+	let result = stack.reverseLastHalf().items
+
+	// Assert
+	let wasSuccess = result == test.result
 
 	print("""
 		\(wasSuccess ? "Passed" : "Failed") Test \(index):
-		input: "\(test.input)"
-		expected: \(test.result)
-		actual: \(result)
+			input: \(test.input)
+			expected: \(test.result)
+			actual: \(result)
 
 		""")
 }
