@@ -14,7 +14,7 @@ import Foundation
 
 extension String {
 
-	var powerSet: [String] {
+	var powerSet: Set<String> {
 		var set: [String] = [""]
 
 		for char in self {
@@ -25,7 +25,7 @@ extension String {
 			}
 		}
 
-		return set
+		return Set(set)
 	}
 }
 
@@ -33,7 +33,7 @@ extension String {
 
 struct TestValues {
 	var input: String
-	let result: [String]
+	let result: Set<String>
 }
 
 var tests: [TestValues] = [
@@ -47,7 +47,7 @@ var tests: [TestValues] = [
 for (index, test) in tests.enumerated() {
 	let result = test.input.powerSet
 
-	let wasSuccess = result.sorted() == test.result.sorted()
+	let wasSuccess = result == test.result
 
 	print("""
 	\(wasSuccess ? "Passed" : "Failed") Test \(index):
