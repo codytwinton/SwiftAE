@@ -25,11 +25,6 @@ extension String {
 			}
 		}
 
-		var setTest: Set<String> = Set
-		setTest.insert("")
-
-		print(setTest)
-
 		return set
 	}
 }
