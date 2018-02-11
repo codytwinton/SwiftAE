@@ -20,7 +20,8 @@ struct Stack<T> {
 		return items.last
 	}
 
-	mutating func push(_ item: T) {
+	mutating func push(_ item: T?) {
+		guard let item = item else { return }
 		items.append(item)
 	}
 
@@ -41,7 +42,8 @@ struct Queue<T> {
 		return items.first
 	}
 
-	mutating func enqueue(_ item: T) {
+	mutating func enqueue(_ item: T?) {
+		guard let item = item else { return }
 		items.append(item)
 	}
 
@@ -60,6 +62,38 @@ struct Queue<T> {
 extension Stack where T == Int {
 
 	mutating func reverseLastHalf() -> Stack<T> {
+		guard self.items.count > 2 else { return self }
+
+		var queue = Queue<T>()
+
+		for _ in 1..<self.items.count {
+			queue.enqueue(self.pop())
+		}
+
+		var previous = self.peek() ?? 1
+		var next = queue.peek() ?? 1
+		var highNum = true
+
+		while !queue.items.isEmpty {
+
+			guard queue.peek() == next else {
+				queue.enqueue(queue.dequeue())
+				continue
+			}
+
+			self.push(queue.dequeue())
+
+			if highNum {
+				next = previous + 1
+			}
+			else {
+				next = previous - 1
+			}
+
+			previous = self.peek() ?? 1
+			highNum = !highNum
+		}
+
 		return self
 	}
 }
@@ -72,9 +106,13 @@ struct TestValues {
 }
 
 var tests: [TestValues] = [
-	TestValues(input: [], result: []),
-	TestValues(input: [1, 2, 3, 4, 5], result: [1, 2, 3, 4, 5]),
-	TestValues(input: [1, 2, 3, 4], result: [1, 4, 2, 3])
+	//TestValues(input: [], result: []),
+	TestValues(input: [1], result: [1]),
+	TestValues(input: [1, 2], result: [1, 2]),
+	TestValues(input: [1, 2, 3], result: [1, 3, 2]),
+	TestValues(input: [1, 2, 3, 4], result: [1, 4, 2, 3]),
+	TestValues(input: [1, 2, 3, 4, 5], result: [1, 5, 2, 4, 3]),
+	TestValues(input: [1, 2, 3, 4, 5, 6], result: [1, 6, 2, 5, 3, 4])
 ]
 
 // MARK: Tests
