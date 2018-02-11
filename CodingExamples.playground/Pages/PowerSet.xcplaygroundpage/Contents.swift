@@ -17,15 +17,18 @@ extension String {
 	var powerSet: [String] {
 		var set: [String] = [""]
 
-		for el in self {
-			var elSet: [String] = []
+		for char in self {
+			let next = String(char)
 
-			for previous in set {
-				elSet.append(previous + String(el))
+			for index in 0..<set.count {
+				set.append(set[index] + next)
 			}
-
-			set.append(contentsOf: elSet)
 		}
+
+		var setTest: Set<String> = Set
+		setTest.insert("")
+
+		print(setTest)
 
 		return set
 	}
@@ -40,7 +43,8 @@ struct TestValues {
 
 var tests: [TestValues] = [
 	TestValues(input: "",  result: [""]),
-	TestValues(input: "abc",  result: ["", "a", "b", "c", "ab", "ac", "bc", "abc"])
+	TestValues(input: "abc",  result: ["", "a", "b", "c", "ab", "ac", "bc", "abc"]),
+	TestValues(input: "asdf",  result: ["", "a", "s", "as", "d", "ad", "sd", "asd", "f", "af", "sf", "asf", "df", "adf", "sdf", "asdf"])
 ]
 
 // Tests
@@ -52,7 +56,7 @@ for (index, test) in tests.enumerated() {
 
 	print("""
 	\(wasSuccess ? "Passed" : "Failed") Test \(index):
-		input: \(test.input)
+		input: "\(test.input)"
 		expected: \(test.result)
 		actual: \(result)
 
