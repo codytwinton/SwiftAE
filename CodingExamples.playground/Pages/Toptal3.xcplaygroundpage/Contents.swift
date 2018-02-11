@@ -38,3 +38,4 @@ for (index, var array) in [firstArray, secondArray, thirdArray].enumerated() {
 	let distance = distances[index]
 	print("\(solution(&array, distance))")
 }
+

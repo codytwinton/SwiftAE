@@ -52,3 +52,4 @@ var large = [0, 2, 1, 3, 1, 0, 6, 7, 8, 9, 10, 10, 1, 100000, 1022347, 21394, 23
 for (index, var array) in [first, second, third, fourth, fifth, large].enumerated() {
 	print("\(index) solution: \(solution(&array))\n")
 }
+

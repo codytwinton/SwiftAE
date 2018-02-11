@@ -61,3 +61,4 @@ for test in tests {
 	guard result != test.result else { continue }
 	print("data: \(test.data) expected: \(test.result) actual: \(result)")
 }
+

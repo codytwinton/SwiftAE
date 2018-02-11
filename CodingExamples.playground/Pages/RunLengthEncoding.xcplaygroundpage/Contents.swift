@@ -76,3 +76,4 @@ for test in tests {
 }
 
 if !hasFailed { print("All tests passed") }
+

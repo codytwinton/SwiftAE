@@ -20,3 +20,4 @@ public func solution(_ T : Tree?) -> Int {
 
 var leaf = Tree()
 leaf.x = 9
+
