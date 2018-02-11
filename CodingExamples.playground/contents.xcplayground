@@ -5,6 +5,7 @@
         <page name='JustifyTextAlgorithm'/>
         <page name='Other'/>
         <page name='PowerSet'/>
+        <page name='ReverseLastHalf'/>
         <page name='RGBSwap'/>
         <page name='RunLengthEncoding'/>
         <page name='Toptal1'/>
