@@ -86,22 +86,17 @@ extension Stack where T == Int {
 			queue.enqueue(self.pop())
 		}
 
-		var previous = self.peek() ?? 1
 		var next = queue.peek() ?? 1
-		var highNum = true
 
 		while !queue.isEmpty {
-
 			guard queue.peek() == next else {
 				queue.enqueue(queue.dequeue())
 				continue
 			}
 
+			let current = self.peek() ?? 1
+			next = (next > current) ? current + 1 : current - 1
 			self.push(queue.dequeue())
-
-			next = highNum ? previous + 1 : previous - 1
-			previous = self.peek() ?? 1
-			highNum = !highNum
 		}
 
 		return self
