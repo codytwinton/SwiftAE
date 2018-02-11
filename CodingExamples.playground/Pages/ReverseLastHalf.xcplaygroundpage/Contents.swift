@@ -14,7 +14,11 @@ import Foundation
 // MARK: Setup
 
 struct Stack<T> {
-	var items: [T]
+
+	var count: Int { return items.count }
+	var isEmpty: Bool { return items.isEmpty }
+
+	private var items: [T]
 
 	func peek() -> T? {
 		return items.last
@@ -30,13 +34,21 @@ struct Stack<T> {
 		return items.removeLast()
 	}
 
+	func all() -> [T] {
+		return items
+	}
+
 	init(_ items: [T] = []) {
 		self.items = items
 	}
 }
 
 struct Queue<T> {
-	var items: [T]
+
+	var count: Int { return items.count }
+	var isEmpty: Bool { return items.isEmpty }
+
+	private var items: [T]
 
 	func peek() -> T? {
 		return items.first
@@ -52,6 +64,10 @@ struct Queue<T> {
 		return items.removeFirst()
 	}
 
+	func all() -> [T] {
+		return items
+	}
+
 	init(_ items: [T] = []) {
 		self.items = items
 	}
@@ -62,11 +78,11 @@ struct Queue<T> {
 extension Stack where T == Int {
 
 	mutating func reverseLastHalf() -> Stack<T> {
-		guard self.items.count > 2 else { return self }
+		guard self.count > 2 else { return self }
 
 		var queue = Queue<T>()
 
-		for _ in 1..<self.items.count {
+		for _ in 1..<self.count {
 			queue.enqueue(self.pop())
 		}
 
@@ -74,7 +90,7 @@ extension Stack where T == Int {
 		var next = queue.peek() ?? 1
 		var highNum = true
 
-		while !queue.items.isEmpty {
+		while !queue.isEmpty {
 
 			guard queue.peek() == next else {
 				queue.enqueue(queue.dequeue())
@@ -83,13 +99,7 @@ extension Stack where T == Int {
 
 			self.push(queue.dequeue())
 
-			if highNum {
-				next = previous + 1
-			}
-			else {
-				next = previous - 1
-			}
-
+			next = highNum ? previous + 1 : previous - 1
 			previous = self.peek() ?? 1
 			highNum = !highNum
 		}
@@ -122,7 +132,7 @@ for (index, test) in tests.enumerated() {
 	var stack = Stack<Int>(test.input)
 
 	// Act
-	let result = stack.reverseLastHalf().items
+	let result = stack.reverseLastHalf().all()
 
 	// Assert
 	let wasSuccess = result == test.result
