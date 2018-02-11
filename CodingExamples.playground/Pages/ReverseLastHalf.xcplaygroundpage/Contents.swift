@@ -14,7 +14,7 @@ import Foundation
 // MARK: Setup
 
 struct Stack<T> {
-	var items: [T] = []
+	var items: [T]
 
 	func peek() -> T? {
 		return items.last
@@ -24,17 +24,18 @@ struct Stack<T> {
 		items.append(item)
 	}
 
-	mutating func pop() -> T {
+	mutating func pop() -> T? {
+		guard !items.isEmpty else { return nil }
 		return items.removeLast()
 	}
 
-	init(items: [T]) {
+	init(_ items: [T] = []) {
 		self.items = items
 	}
 }
 
 struct Queue<T> {
-	var items: [T] = []
+	var items: [T]
 
 	func peek() -> T? {
 		return items.first
@@ -44,11 +45,12 @@ struct Queue<T> {
 		items.append(item)
 	}
 
-	mutating func dequeue() -> T {
+	mutating func dequeue() -> T? {
+		guard !items.isEmpty else { return nil }
 		return items.removeFirst()
 	}
 
-	init(items: [T]) {
+	init(_ items: [T] = []) {
 		self.items = items
 	}
 }
@@ -79,7 +81,7 @@ var tests: [TestValues] = [
 
 for (index, test) in tests.enumerated() {
 	// Arrange
-	var stack = Stack<Int>(items: test.input)
+	var stack = Stack<Int>(test.input)
 
 	// Act
 	let result = stack.reverseLastHalf().items
