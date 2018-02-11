@@ -45,15 +45,16 @@ var tests: [TestValues] = [
 
 // Tests
 
-let date = Date()
-
-print("Begin Tests: \(date.timeIntervalSinceNow)\n\n----------------\n")
-
 for (index, test) in tests.enumerated() {
 	let result = test.input.powerSet
 
 	let wasSuccess = result.sorted() == test.result.sorted()
-	print("\(wasSuccess ? "Passed" : "Failed") Test \(index):\n\tinput: \(test.input)\n\texpected: \(test.result)\n\tactual: \(result)\n")
-}
 
-print("\n----------------\n\nEnd Tests: \(date.timeIntervalSinceNow)")
+	print("""
+	\(wasSuccess ? "Passed" : "Failed") Test \(index):
+		input: \(test.input)
+		expected: \(test.result)
+		actual: \(result)
+
+	""")
+}
