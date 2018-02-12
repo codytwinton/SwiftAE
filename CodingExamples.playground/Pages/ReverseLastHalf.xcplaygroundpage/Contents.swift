@@ -11,68 +11,6 @@ Hint: Try working backwords from the end state.
 
 import Foundation
 
-// MARK: Setup
-
-struct Stack<T> {
-
-	var count: Int { return items.count }
-	var isEmpty: Bool { return items.isEmpty }
-
-	private var items: [T]
-
-	func peek() -> T? {
-		return items.last
-	}
-
-	mutating func push(_ item: T?) {
-		guard let item = item else { return }
-		items.append(item)
-	}
-
-	mutating func pop() -> T? {
-		guard !items.isEmpty else { return nil }
-		return items.removeLast()
-	}
-
-	func all() -> [T] {
-		return items
-	}
-
-	init(_ items: [T] = []) {
-		self.items = items
-	}
-}
-
-struct Queue<T> {
-
-	var count: Int { return items.count }
-	var isEmpty: Bool { return items.isEmpty }
-
-	private var items: [T]
-
-	func peek() -> T? {
-		return items.first
-	}
-
-	mutating func enqueue(_ item: T?) {
-		guard let item = item else { return }
-		items.append(item)
-	}
-
-	mutating func dequeue() -> T? {
-		guard !items.isEmpty else { return nil }
-		return items.removeFirst()
-	}
-
-	func all() -> [T] {
-		return items
-	}
-
-	init(_ items: [T] = []) {
-		self.items = items
-	}
-}
-
 // MARK: Solution
 
 extension Stack where T == Int {
