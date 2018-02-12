@@ -15,9 +15,9 @@ public extension Testable {
 	func log(success: Bool, actual: Expected) {
 		print("""
 			\(success ? "Passed" : "Failed") Test:
-				input: \(input)
-				expected: \(expected)
-				actual: \(actual)
+				input:		\(input)
+				expected:	\(expected)
+				actual:		\(actual)
 
 			""")
 	}

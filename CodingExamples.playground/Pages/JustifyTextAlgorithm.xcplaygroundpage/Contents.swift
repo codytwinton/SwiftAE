@@ -46,30 +46,15 @@ extension Array where Iterator.Element == String {
 
 // Tests
 
-struct TestValues {
-	let words: [String]
-	let charCount: Int
-	let result: [String]
-}
+for test in TestData.tests {
+	// Arrange
+	let input = test.input
 
-var tests: [TestValues] = [
-	TestValues(words: ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"],
-			   charCount: 16,
-			   result: ["the  quick brown", "fox  jumps  over", "the   lazy   dog"]
-	)
-]
+	// Act
+	let actual = input.words.justify(with: input.charCount)
 
-for (index, test) in tests.enumerated() {
-	let result = test.words.justify(with: test.charCount)
-
-	switch result == test.result {
-	case false:
-		print("test \(index) expected: \(test.result) actual: \(result)")
-	case true:
-		print("test \(index) passed with actual: \(result)")
-	}
-	guard result != test.result else {  continue }
-	print("test \(index) expected: \(test.result) actual: \(result)")
+	// Assert
+	test.assert(with: actual)
 }
 
 
