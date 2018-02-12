@@ -1,4 +1,6 @@
-/* This problem was asked by Uber.
+/* Daily Coding Problem: Problem #2
+
+This problem was asked by Uber.
 
 Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i. Solve it without using division and in O(n) time.
 
