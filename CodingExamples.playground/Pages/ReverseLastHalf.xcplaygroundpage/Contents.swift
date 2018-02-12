@@ -41,41 +41,16 @@ extension Stack where T == Int {
 	}
 }
 
-// MARK: Test Structure
-
-struct TestValues {
-	var input: [Int]
-	let result: [Int]
-}
-
-var tests: [TestValues] = [
-	TestValues(input: [], result: []),
-	TestValues(input: Array(1...1), result: [1]),
-	TestValues(input: Array(1...2), result: [1, 2]),
-	TestValues(input: Array(1...3), result: [1, 3, 2]),
-	TestValues(input: Array(1...4), result: [1, 4, 2, 3]),
-	TestValues(input: Array(1...5), result: [1, 5, 2, 4, 3]),
-	TestValues(input: Array(1...6), result: [1, 6, 2, 5, 3, 4])
-]
-
 // MARK: Tests
 
-for (index, test) in tests.enumerated() {
+for test in TestData.tests {
 	// Arrange
 	var stack = Stack<Int>(test.input)
 
 	// Act
-	let result = stack.reverseLastHalf().all()
+	let actual = stack.reverseLastHalf().all()
 
 	// Assert
-	let wasSuccess = result == test.result
-
-	print("""
-		\(wasSuccess ? "Passed" : "Failed") Test \(index):
-			input: \(test.input)
-			expected: \(test.result)
-			actual: \(result)
-
-		""")
+	test.assert(with: actual)
 }
 
