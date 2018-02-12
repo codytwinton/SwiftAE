@@ -4,6 +4,8 @@ public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
 		TestData(input: [], expected: []),
+		TestData(input: [0], expected: [0]),
+		TestData(input: [0, 1], expected: [1, 0]),
 		TestData(input: [1, 2, 3, 4, 5], expected: [120, 60, 40, 30, 24]),
 		TestData(input: [3, 2, 1], expected: [2, 3, 6]),
 	]
