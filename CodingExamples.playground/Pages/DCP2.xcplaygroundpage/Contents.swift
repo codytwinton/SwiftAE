@@ -16,7 +16,15 @@ extension Array where Iterator.Element == Int {
 	/// Returns an array of the product of all the numbers in the original array except the one at i
 	public func productExcept() -> [Int] {
 		guard !self.isEmpty else { return self }
-		return self
+
+		var updated: [Int] = []
+
+		for i in 0..<self.count {
+			let product = self.enumerated().filter { $0.offset != i }.map { $0.element }.reduce(1, *)
+			updated.append(product)
+		}
+
+		return updated
 	}
 }
 
