@@ -14,17 +14,25 @@ import Foundation
 extension Array where Iterator.Element == Int {
 
 	/// Returns an array of the product of all the numbers in the original array except the one at i
-	public func productExcept() -> [Int] {
-		guard count > 1 else { return self }
+	public func productsExcept() -> [Int] {
+		guard count >= 2 else { return self }
 
-		var updated: [Int] = []
+		var products: [Int] = []
+		var productSoFar = 1
 
 		for i in 0..<count {
-			let product = enumerated().flatMap { $0.offset == i ? nil : $0.element }.reduce(1, *)
-			updated.append(product)
+			products.append(productSoFar)
+			productSoFar *= self[i]
 		}
 
-		return updated
+		productSoFar = 1
+
+		for i in (0..<count).reversed() {
+			products[i] *= productSoFar
+			productSoFar *= self[i]
+		}
+
+		return products
 	}
 }
 
@@ -35,7 +43,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = input.productExcept()
+	let actual = input.productsExcept()
 
 	// Assert
 	test.assert(with: actual)
