@@ -15,7 +15,7 @@ import Foundation
 
 extension Array where Iterator.Element == Int {
 
-	/// Returns an array of the product of all the numbers in the original array except the one at i
+	/// Returns the unique integer of an array where every other integer occurs 3 times
 	public func uniqueInt() -> Int {
 		return 0
 	}
