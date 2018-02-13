@@ -17,7 +17,19 @@ extension Array where Iterator.Element == Int {
 
 	/// Returns the unique integer of an array where every other integer occurs 3 times
 	public func uniqueInt() -> Int {
-		return 0
+		guard !isEmpty, count % 3 == 1 else { return 0 }
+
+		var previous = self.first ?? 0
+
+		for (index, num) in sorted().enumerated() {
+			switch index % 3 {
+			case 0: previous = num
+			case 1: if previous != num { return previous }
+			default: continue
+			}
+		}
+
+		return previous
 	}
 }
 
