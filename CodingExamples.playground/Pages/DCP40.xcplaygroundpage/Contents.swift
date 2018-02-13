@@ -16,7 +16,7 @@ import Foundation
 extension Array where Iterator.Element == Int {
 
 	/// Returns the unique integer of an array where every other integer occurs 3 times
-	public func uniqueInt() -> Int {
+	public func uniqueIntSorting() -> Int {
 		guard !isEmpty, count % 3 == 1 else { return 0 }
 
 		var previous = self.first ?? 0
@@ -31,6 +31,12 @@ extension Array where Iterator.Element == Int {
 
 		return previous
 	}
+
+	/// Returns the unique integer of an array where every other integer occurs 3 times
+	public func uniqueIntMath() -> Int {
+		guard !isEmpty, count % 3 == 1 else { return 0 }
+		return (Set(self).reduce(0, +) * 3 - self.reduce(0, +))/2
+	}
 }
 
 // MARK: Tests
@@ -43,7 +49,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = input.uniqueInt()
+	let actual = input.uniqueIntMath()
 
 	// Assert
 	test.assert(with: actual)
