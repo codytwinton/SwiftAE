@@ -144,30 +144,3 @@ func incorrectPasscodeAttempts(passcode: String, attempts: [String]) -> Bool {
 incorrectPasscodeAttempts(passcode: "1111", attempts: ["1111", "4444", "9999", "3333", "8888", "2222", "7777", "0000", "6666", "7285", "5555", "1111"])
 incorrectPasscodeAttempts(passcode: "1234", attempts: ["9999", "9999", "9999", "9999", "9999", "9999", "9999", "9999", "9999", "9999", "9999", "9999"])
 incorrectPasscodeAttempts(passcode: "1112", attempts: ["1112", "1111", "1111", "1111", "1111",  "1111",  "1111",  "1111",  "1111",  "1111",  "1111"])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

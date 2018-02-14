@@ -17,9 +17,7 @@ extension Array where Iterator.Element == Int {
 
 	/// Returns the unique integer of an array where every other integer occurs 3 times
 	public func uniqueIntSorting() -> Int {
-		guard !isEmpty, count % 3 == 1 else { return 0 }
-
-		var previous = self.first ?? 0
+		guard !isEmpty, count % 3 == 1, var previous = first else { return 0 }
 
 		for (index, num) in sorted().enumerated() {
 			switch index % 3 {
@@ -35,7 +33,7 @@ extension Array where Iterator.Element == Int {
 	/// Returns the unique integer of an array where every other integer occurs 3 times
 	public func uniqueIntMath() -> Int {
 		guard !isEmpty, count % 3 == 1 else { return 0 }
-		return (Set(self).reduce(0, +) * 3 - self.reduce(0, +))/2
+		return (Set(self).reduce(0, +) * 3 - reduce(0, +))/2
 	}
 }
 
