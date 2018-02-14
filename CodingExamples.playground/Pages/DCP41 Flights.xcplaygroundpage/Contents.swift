@@ -18,7 +18,6 @@ import Foundation
 func buildItinerary(start: String, flights: [(origin: String, destination: String)]) -> [String]? {
 
 	var itinerary: [String] = [start]
-	var next = start
 
 	var oldFlights = flights
 
@@ -26,10 +25,9 @@ func buildItinerary(start: String, flights: [(origin: String, destination: Strin
 		var index = 0
 
 		for (i, flight) in oldFlights.enumerated() {
-			guard flight.origin == next else { continue }
-			next = flight.destination
+			guard itinerary.last == flight.origin  else { continue }
 			index = i
-			itinerary.append(next)
+			itinerary.append(flight.destination)
 			break
 		}
 
