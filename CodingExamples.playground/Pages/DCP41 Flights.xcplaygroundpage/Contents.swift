@@ -16,7 +16,28 @@ import Foundation
 // MARK: Solution
 
 func itinerary(start: String, flights: [(origin: String, destination: String)]) -> [String]? {
-	return nil
+
+	var oldFlights = flights
+
+	var newFlights: [String] = [start]
+
+	var next = start
+
+	while !oldFlights.isEmpty {
+		var index = 0
+
+		for (i, flight) in oldFlights.enumerated() {
+			guard flight.origin == next else { continue }
+			next = flight.destination
+			index = i
+			newFlights.append(next)
+			break
+		}
+
+		oldFlights.remove(at: index)
+	}
+
+	return newFlights.count == (flights.count + 1) ? newFlights : nil
 }
 
 // MARK: Tests
