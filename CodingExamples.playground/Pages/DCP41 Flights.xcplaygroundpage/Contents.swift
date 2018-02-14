@@ -15,13 +15,12 @@ import Foundation
 
 // MARK: Solution
 
-func itinerary(start: String, flights: [(origin: String, destination: String)]) -> [String]? {
+func buildItinerary(start: String, flights: [(origin: String, destination: String)]) -> [String]? {
+
+	var itinerary: [String] = [start]
+	var next = start
 
 	var oldFlights = flights
-
-	var newFlights: [String] = [start]
-
-	var next = start
 
 	while !oldFlights.isEmpty {
 		var index = 0
@@ -30,14 +29,14 @@ func itinerary(start: String, flights: [(origin: String, destination: String)]) 
 			guard flight.origin == next else { continue }
 			next = flight.destination
 			index = i
-			newFlights.append(next)
+			itinerary.append(next)
 			break
 		}
 
 		oldFlights.remove(at: index)
 	}
 
-	return newFlights.count == (flights.count + 1) ? newFlights : nil
+	return itinerary.count == (flights.count + 1) ? itinerary : nil
 }
 
 // MARK: Tests
@@ -50,7 +49,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = itinerary(start: input.start, flights: input.flights)
+	let actual = buildItinerary(start: input.start, flights: input.flights)
 
 	// Assert
 	test.assert(with: actual)
