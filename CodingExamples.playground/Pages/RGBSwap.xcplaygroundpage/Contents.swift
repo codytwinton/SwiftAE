@@ -14,12 +14,12 @@ import Foundation
 extension Array where Iterator.Element == String {
 
 	public mutating func rgbSwap() -> [String] {
-		guard !self.isEmpty else { return self }
+		guard !isEmpty else { return self }
 
-		for i in 0..<(self.count - 1) {
+		for i in 0..<(count - 1) {
 			var swapIndex = i
 
-			for j in (i + 1)..<(self.count) {
+			for j in (i + 1)..<(count) {
 				let current = self[swapIndex]
 				let next = self[j]
 
@@ -27,7 +27,7 @@ extension Array where Iterator.Element == String {
 				swapIndex = j
 			}
 
-			self.swapAt(i, swapIndex)
+			swapAt(i, swapIndex)
 		}
 
 		return self
