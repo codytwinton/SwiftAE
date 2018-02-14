@@ -19,19 +19,19 @@ func buildItinerary(start: String, flights: [(origin: String, destination: Strin
 
 	var itinerary: [String] = [start]
 
-	var oldFlights = flights
+	var unplanned = flights
 
-	while !oldFlights.isEmpty {
+	while !unplanned.isEmpty {
 		var index = 0
 
-		for (i, flight) in oldFlights.enumerated() {
+		for (i, flight) in unplanned.enumerated() {
 			guard itinerary.last == flight.origin  else { continue }
 			index = i
 			itinerary.append(flight.destination)
 			break
 		}
 
-		oldFlights.remove(at: index)
+		unplanned.remove(at: index)
 	}
 
 	return itinerary.count == (flights.count + 1) ? itinerary : nil
