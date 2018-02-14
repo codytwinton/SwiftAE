@@ -17,9 +17,10 @@ import Foundation
 
 func buildItinerary(start: String, flights: [(origin: String, destination: String)]) -> [String]? {
 
-	var itinerary: [String] = [start]
+	guard !flights.isEmpty else { return nil }
 
 	var unplanned = flights
+	var itinerary = [start]
 
 	while !unplanned.isEmpty {
 		var index = 0
@@ -34,7 +35,7 @@ func buildItinerary(start: String, flights: [(origin: String, destination: Strin
 		unplanned.remove(at: index)
 	}
 
-	return itinerary.count == (flights.count + 1) ? itinerary : nil
+	return itinerary.count == flights.count + 1 ? itinerary : nil
 }
 
 // MARK: Tests

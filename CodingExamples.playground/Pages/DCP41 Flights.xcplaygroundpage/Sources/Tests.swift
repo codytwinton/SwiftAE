@@ -3,6 +3,7 @@ import Foundation
 public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
+		TestData(input: (start: "", flights: []), expected: nil),
 		TestData(input: (start: "YUL", flights: [("SFO", "HKO"), ("YYZ", "SFO"), ("YUL", "YYZ"), ("HKO", "ORD")]), expected: ["YUL", "YYZ", "SFO", "HKO", "ORD"]),
 		TestData(input: (start: "COM", flights: [("SFO", "COM"), ("COM", "YYZ")]), expected: nil),
 		TestData(input: (start: "A", flights: [("A", "B"), ("A", "C"), ("B", "C"), ("C", "A")]), expected: ["A", "B", "C", "A", "C"]),
