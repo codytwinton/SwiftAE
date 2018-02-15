@@ -11,8 +11,31 @@ import Foundation
 
 // MARK: Solution
 
-func handleProblem(input: String) -> String {
-	return "Actual"
+extension Array where Iterator.Element == Int {
+
+	public func sumSubset(for target: Int) -> [Int] {
+		guard !isEmpty else { return self }
+
+		var vals = sorted { $0 > $1 }
+		var sum = vals.reduce(0, +)
+
+		while sum > target {
+
+			var indexRemove: Int?
+
+			for (i, num) in vals.enumerated() {
+				guard sum - num >= target else { continue }
+				indexRemove = i
+				sum -= num
+				break
+			}
+
+			guard let index = indexRemove else { break }
+			vals.remove(at: index)
+		}
+
+		return sum == target ? vals : []
+	}
 }
 
 // MARK: Tests
@@ -22,7 +45,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = handleProblem(input: input)
+	let actual = input.nums.sumSubset(for: input.target)
 
 	// Assert
 	test.assert(with: actual)
