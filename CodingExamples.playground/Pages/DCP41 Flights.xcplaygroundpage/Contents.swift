@@ -19,23 +19,25 @@ func buildItinerary(start: String, flights: [(origin: String, destination: Strin
 
 	guard !flights.isEmpty else { return nil }
 
+	var itineraries: [[String]] = [[start]]
 	var unplanned = flights
-	var itinerary = [start]
 
 	while !unplanned.isEmpty {
 		var index = 0
 
 		for (i, flight) in unplanned.enumerated() {
-			guard itinerary.last == flight.origin  else { continue }
+			guard itineraries[0].last == flight.origin else { continue }
 			index = i
-			itinerary.append(flight.destination)
+			itineraries[0].append(flight.destination)
 			break
 		}
 
 		unplanned.remove(at: index)
 	}
 
-	return itinerary.count == flights.count + 1 ? itinerary : nil
+	let sorted = itineraries.filter { $0.count == flights.count + 1 }.sorted { $0.lexicographicallyPrecedes($1) }
+	guard let itinerary = sorted.first else { return nil }
+	return itinerary
 }
 
 // MARK: Tests
