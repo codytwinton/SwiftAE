@@ -15,5 +15,6 @@
         <page name='DCP2'/>
         <page name='DCP40 Unique Integer'/>
         <page name='DCP41 Flights'/>
+        <page name='DCP42 Subset Sum'/>
     </pages>
 </playground>

@@ -23,5 +23,3 @@ for test in TestData.tests {
 	// Assert
 	test.assert(with: actual)
 }
-
-
