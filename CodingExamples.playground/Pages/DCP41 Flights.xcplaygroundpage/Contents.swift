@@ -25,6 +25,7 @@ func buildItinerary(start: String, flights: [(origin: String, destination: Strin
 	while !unplanned.isEmpty {
 		var index = 0
 
+		// TODO: Save multiple itineraries
 		for (i, flight) in unplanned.enumerated() {
 			guard itineraries[0].last == flight.origin else { continue }
 			index = i
