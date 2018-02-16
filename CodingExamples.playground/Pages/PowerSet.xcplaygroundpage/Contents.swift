@@ -19,15 +19,7 @@ extension String {
 
 		for char in self {
 			let next = String(char)
-			var add
-
-			var add: Set<String> = []
-
-			for item in set {
-				add.insert(item + next)
-			}
-
-			set.formUnion(add)
+			set.formUnion(Set(set.map { $0 + next }))
 		}
 
 		return set
