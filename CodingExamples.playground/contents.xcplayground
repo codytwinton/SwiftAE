@@ -17,5 +17,6 @@
         <page name='DCP41 Flights'/>
         <page name='DCP42 Subset Sum'/>
         <page name='Factorial'/>
+        <page name='Fibonacci Sequence'/>
     </pages>
 </playground>
