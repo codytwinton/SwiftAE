@@ -24,6 +24,24 @@ extension String {
 
 		return set
 	}
+
+	var powerSetRecursion: Set<String> {
+		return powerSetRecursion(for: self)
+	}
+
+	private func powerSetRecursion(for str: String) -> Set<String> {
+		var set: Set<String> = ["", str]
+		guard str.count > 1 else { return set }
+
+		for i in 0..<str.count {
+			let first = str.index(str.startIndex, offsetBy: i)
+			let second = str.index(first, offsetBy: 1)
+			let sub: String = String(str[str.startIndex..<first] + str[second..<str.endIndex])
+			set.formUnion(powerSetRecursion(for: sub))
+		}
+
+		return set;
+	}
 }
 
 // Test Structure
@@ -35,10 +53,10 @@ struct TestValues {
 
 var tests: [TestValues] = [
 	TestValues(input: "",  result: [""]),
-	TestValues(input: "abc",  result: ["", "a", "b", "c", "ab", "ac", "bc", "abc"]),
-	TestValues(input: "asdf",  result: ["", "a", "s", "as", "d", "ad", "sd", "asd", "f", "af", "sf", "asf", "df", "adf", "sdf", "asdf"]),
-	TestValues(input: "asdfghj",  result: ["adghj", "dfg", "sdfghj", "asdfgj", "asdfj", "df", "asdh", "dhj", "asdj", "dgh", "sfghj", "sfhj", "sdf", "sdfj", "asdghj", "ad", "sfgh", "asfghj", "", "fh", "asdgh", "adfg", "sg", "afgh", "asdf", "asg", "afgj", "adf", "sfh", "asdhj", "sgj", "adfgh", "sdfhj", "dfghj", "aghj", "ahj", "agh", "asdfghj", "ah", "f", "sdj", "fgh", "adfhj", "asdfhj", "a", "sd", "asfj", "g", "dfj", "sfg", "asj", "asghj", "sdgj", "dgj", "asgj", "ashj", "sdg", "fg", "asfgj", "afhj", "afg", "asgh", "hj", "aj", "fgj", "dg", "dghj", "j", "adfghj", "sdgh", "sdfgj", "asfhj", "dfgh", "asfgh", "asdfgh", "ghj", "fhj", "sdfgh", "adj", "as", "asd", "adgh", "adh", "sj", "adhj", "shj", "sghj", "asdgj", "sf", "fj", "ag", "dfhj", "sdhj", "sdh", "gj", "fghj", "af", "adfh", "sgh", "sh", "afj", "afh", "ash", "asdg", "h", "adgj", "adg", "adfj", "sdghj", "afghj", "asdfh", "d", "asfh", "agj", "sfgj", "sdfh", "asf", "asfg", "dfh", "adfgj", "dfgj", "asdfg", "s", "gh", "dj", "sfj", "dh", "sdfg"]
-	)
+	TestValues(input: "c",  result: ["", "c"]),
+	TestValues(input: "bc",  result: ["", "b", "bc", "c"]),
+	TestValues(input: "abc",  result: ["", "a", "ab", "ac", "abc", "b", "bc", "c"]),
+	TestValues(input: "asdfghj",  result: ["adghj", "dfg", "sdfghj", "asdfgj", "asdfj", "df", "asdh", "dhj", "asdj", "dgh", "sfghj", "sfhj", "sdf", "sdfj", "asdghj", "ad", "sfgh", "asfghj", "", "fh", "asdgh", "adfg", "sg", "afgh", "asdf", "asg", "afgj", "adf", "sfh", "asdhj", "sgj", "adfgh", "sdfhj", "dfghj", "aghj", "ahj", "agh", "asdfghj", "ah", "f", "sdj", "fgh", "adfhj", "asdfhj", "a", "sd", "asfj", "g", "dfj", "sfg", "asj", "asghj", "sdgj", "dgj", "asgj", "ashj", "sdg", "fg", "asfgj", "afhj", "afg", "asgh", "hj", "aj", "fgj", "dg", "dghj", "j", "adfghj", "sdgh", "sdfgj", "asfhj", "dfgh", "asfgh", "asdfgh", "ghj", "fhj", "sdfgh", "adj", "as", "asd", "adgh", "adh", "sj", "adhj", "shj", "sghj", "asdgj", "sf", "fj", "ag", "dfhj", "sdhj", "sdh", "gj", "fghj", "af", "adfh", "sgh", "sh", "afj", "afh", "ash", "asdg", "h", "adgj", "adg", "adfj", "sdghj", "afghj", "asdfh", "d", "asfh", "agj", "sfgj", "sdfh", "asf", "asfg", "dfh", "adfgj", "dfgj", "asdfg", "s", "gh", "dj", "sfj", "dh", "sdfg"])
 ]
 
 // Tests
@@ -59,5 +77,8 @@ for (index, test) in tests.enumerated() {
 
 	""")
 }
+
+//let test = "abcdefghijklmnop".powerSet
+//print("test: \(test.count)")
 
 print("---\n\nTests Ended:\n\telapsed: \(Date().timeIntervalSince(testDate))")
