@@ -1,6 +1,6 @@
 /* Problem Statements
 
-Given the String "Input", return "Expected"
+Return the Factorial of a number
 */
 
 import Foundation
