@@ -15,17 +15,22 @@ import Foundation
 extension String {
 
 	var powerSet: Set<String> {
-		var set: [String] = [""]
+		var set: Set<String> = [""]
 
 		for char in self {
 			let next = String(char)
+			var add
 
-			for index in 0..<set.count {
-				set.append(set[index] + next)
+			var add: Set<String> = []
+
+			for item in set {
+				add.insert(item + next)
 			}
+
+			set.formUnion(add)
 		}
 
-		return Set(set)
+		return set
 	}
 }
 
