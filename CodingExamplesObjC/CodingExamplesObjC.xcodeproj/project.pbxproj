@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52ED12812038DF1500F707BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12802038DF1500F707BF /* main.m */; };
+		52ED128E2038E00000F707BF /* CodingExamplesObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED128D2038E00000F707BF /* CodingExamplesObjCTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +26,20 @@
 /* Begin PBXFileReference section */
 		52ED127D2038DF1500F707BF /* CodingExamplesObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodingExamplesObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED12802038DF1500F707BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52ED128B2038E00000F707BF /* CodingExamplesObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingExamplesObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52ED128D2038E00000F707BF /* CodingExamplesObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodingExamplesObjCTests.m; sourceTree = "<group>"; };
+		52ED128F2038E00000F707BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		52ED127A2038DF1500F707BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52ED12882038E00000F707BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				52ED127F2038DF1500F707BF /* CodingExamplesObjC */,
+				52ED128C2038E00000F707BF /* CodingExamplesObjCTests */,
 				52ED127E2038DF1500F707BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				52ED127D2038DF1500F707BF /* CodingExamplesObjC */,
+				52ED128B2038E00000F707BF /* CodingExamplesObjCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +73,15 @@
 				52ED12802038DF1500F707BF /* main.m */,
 			);
 			path = CodingExamplesObjC;
+			sourceTree = "<group>";
+		};
+		52ED128C2038E00000F707BF /* CodingExamplesObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				52ED128D2038E00000F707BF /* CodingExamplesObjCTests.m */,
+				52ED128F2038E00000F707BF /* Info.plist */,
+			);
+			path = CodingExamplesObjCTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +104,23 @@
 			productReference = 52ED127D2038DF1500F707BF /* CodingExamplesObjC */;
 			productType = "com.apple.product-type.tool";
 		};
+		52ED128A2038E00000F707BF /* CodingExamplesObjCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52ED12902038E00000F707BF /* Build configuration list for PBXNativeTarget "CodingExamplesObjCTests" */;
+			buildPhases = (
+				52ED12872038E00000F707BF /* Sources */,
+				52ED12882038E00000F707BF /* Frameworks */,
+				52ED12892038E00000F707BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodingExamplesObjCTests;
+			productName = CodingExamplesObjCTests;
+			productReference = 52ED128B2038E00000F707BF /* CodingExamplesObjCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -92,6 +131,10 @@
 				ORGANIZATIONNAME = "Cody Winton";
 				TargetAttributes = {
 					52ED127C2038DF1500F707BF = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					52ED128A2038E00000F707BF = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -110,9 +153,20 @@
 			projectRoot = "";
 			targets = (
 				52ED127C2038DF1500F707BF /* CodingExamplesObjC */,
+				52ED128A2038E00000F707BF /* CodingExamplesObjCTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52ED12892038E00000F707BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52ED12792038DF1500F707BF /* Sources */ = {
@@ -120,6 +174,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				52ED12812038DF1500F707BF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52ED12872038E00000F707BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52ED128E2038E00000F707BF /* CodingExamplesObjCTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +309,32 @@
 			};
 			name = Release;
 		};
+		52ED12912038E00000F707BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FUC97LYJ62;
+				INFOPLIST_FILE = CodingExamplesObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codytwinton.CodingExamplesObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52ED12922038E00000F707BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FUC97LYJ62;
+				INFOPLIST_FILE = CodingExamplesObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codytwinton.CodingExamplesObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -264,6 +352,15 @@
 			buildConfigurations = (
 				52ED12852038DF1500F707BF /* Debug */,
 				52ED12862038DF1500F707BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52ED12902038E00000F707BF /* Build configuration list for PBXNativeTarget "CodingExamplesObjCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52ED12912038E00000F707BF /* Debug */,
+				52ED12922038E00000F707BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
