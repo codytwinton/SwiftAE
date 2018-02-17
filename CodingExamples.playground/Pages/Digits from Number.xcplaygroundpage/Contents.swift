@@ -35,3 +35,28 @@ powerRecursive(100, 0)
 powerRecursive(100, 1)
 powerIterative(2, 2)
 powerIterative(2, 10)
+
+func gcdRecursive(_ a: Int, _ b: Int) -> Int {
+	guard b != 0 else { return a }
+	switch a > b {
+	case true: return gcdRecursive(a - b, b)
+	case false: return gcdRecursive(b, b - a)
+	}
+}
+
+func gcdIterative(_ a: Int, _ b: Int) -> Int {
+	var a = a
+	var b = b
+
+	while b > 0 {
+		switch a > b {
+		case true: a -= b
+		case false: b -= a
+		}
+	}
+
+	return a
+}
+
+gcdIterative(2, 10)
+gcdIterative(30, 75)
