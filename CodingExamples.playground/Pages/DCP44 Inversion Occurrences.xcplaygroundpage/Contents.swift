@@ -19,12 +19,9 @@ extension Array where Iterator.Element == Int {
 		guard !isEmpty else { return 0 }
 
 		var inversions = 0
-		var iterations = 0
 
 		for (i, num) in enumerated() {
-			iterations += 1
 			for j in (i + 1)..<count {
-				iterations += 1
 				guard num > self[j] else { continue }
 				inversions += 1
 			}
