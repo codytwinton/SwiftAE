@@ -21,10 +21,7 @@ extension Array where Iterator.Element == Int {
 		var inversions = 0
 
 		for (i, num) in enumerated() {
-			for j in (i + 1)..<count {
-				guard num > self[j] else { continue }
-				inversions += 1
-			}
+			inversions += self[(i + 1)..<count].filter { num > $0 }.count
 		}
 
 		return inversions
