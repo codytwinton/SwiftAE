@@ -28,10 +28,6 @@ extension Array where Iterator.Element == Int {
 	}
 }
 
-func handleProblem(input: String) -> String {
-	return "Actual"
-}
-
 // MARK: Tests
 
 let testDate = Date()
