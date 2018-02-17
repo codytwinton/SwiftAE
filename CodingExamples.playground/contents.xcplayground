@@ -18,5 +18,6 @@
         <page name='DCP42 Subset Sum'/>
         <page name='Factorial'/>
         <page name='Fibonacci Sequence'/>
+        <page name='Digits from Number'/>
     </pages>
 </playground>
