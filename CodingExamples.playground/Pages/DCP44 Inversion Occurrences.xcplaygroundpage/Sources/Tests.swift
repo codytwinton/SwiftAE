@@ -17,6 +17,8 @@ public struct TestData: Testable {
 		TestData(input: [], expected: 0),
 		TestData(input: [2, 4, 1, 3, 5], expected: 3),
 		TestData(input: [5, 4, 3, 2, 1], expected: 10),
+		TestData(input: [4, 3, 2, 1], expected: 6),
+		TestData(input: Array(1...300).reversed(), expected: 44850),
 	]
 
 	public var input: [Int]
