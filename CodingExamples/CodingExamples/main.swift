@@ -10,6 +10,8 @@ import Foundation
 
 print("Hello, World!")
 
-let test = "abc".powerSet
+let test = "abc".powerSetRecursion
 
-print("test \(test)")
+let update: Set = String.powerSetRecursion(for: "abc")
+
+print("test \(update)")

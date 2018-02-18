@@ -32,9 +32,11 @@ class CodingTests: XCTestCase {
 
 		// Act
 		let actual: Set = start.powerSet
+		let actualRecursion: Set = start.powerSetRecursion
 
 		// Assert
 		XCTAssertEqual(actual, expected)
+		XCTAssertEqual(actualRecursion, expected)
     }
     
     func testPerformanceExample() {
