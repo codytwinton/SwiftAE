@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		52ED12812038DF1500F707BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12802038DF1500F707BF /* main.m */; };
 		52ED128E2038E00000F707BF /* CodingExamplesObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED128D2038E00000F707BF /* CodingExamplesObjCTests.m */; };
+		52ED12972038E1AF00F707BF /* NSString_PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12962038E1AF00F707BF /* NSString_PowerSet.m */; };
+		52ED12982038E44900F707BF /* NSString_PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12962038E1AF00F707BF /* NSString_PowerSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,8 @@
 		52ED128B2038E00000F707BF /* CodingExamplesObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingExamplesObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED128D2038E00000F707BF /* CodingExamplesObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodingExamplesObjCTests.m; sourceTree = "<group>"; };
 		52ED128F2038E00000F707BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52ED12952038E1AF00F707BF /* NSString_PowerSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSString_PowerSet.h; sourceTree = "<group>"; };
+		52ED12962038E1AF00F707BF /* NSString_PowerSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSString_PowerSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				52ED12802038DF1500F707BF /* main.m */,
+				52ED12952038E1AF00F707BF /* NSString_PowerSet.h */,
+				52ED12962038E1AF00F707BF /* NSString_PowerSet.m */,
 			);
 			path = CodingExamplesObjC;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52ED12972038E1AF00F707BF /* NSString_PowerSet.m in Sources */,
 				52ED12812038DF1500F707BF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52ED12982038E44900F707BF /* NSString_PowerSet.m in Sources */,
 				52ED128E2038E00000F707BF /* CodingExamplesObjCTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
