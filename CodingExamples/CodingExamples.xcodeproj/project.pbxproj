@@ -79,10 +79,8 @@
 		52ED12A420391B8C00F707BF /* CodingExamples */ = {
 			isa = PBXGroup;
 			children = (
+				52ED12C120392D3B00F707BF /* PowerSet */,
 				52ED12A520391B8C00F707BF /* main.swift */,
-				52ED12B820391D3B00F707BF /* String+Extensions.swift */,
-				52ED12BB20391D9F00F707BF /* NSString+Extensions.h */,
-				52ED12BC20391D9F00F707BF /* NSString+Extensions.m */,
 			);
 			path = CodingExamples;
 			sourceTree = "<group>";
@@ -94,6 +92,16 @@
 				52ED12B420391BEF00F707BF /* Info.plist */,
 			);
 			path = CodingTests;
+			sourceTree = "<group>";
+		};
+		52ED12C120392D3B00F707BF /* PowerSet */ = {
+			isa = PBXGroup;
+			children = (
+				52ED12B820391D3B00F707BF /* String+Extensions.swift */,
+				52ED12BB20391D9F00F707BF /* NSString+Extensions.h */,
+				52ED12BC20391D9F00F707BF /* NSString+Extensions.m */,
+			);
+			path = PowerSet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
