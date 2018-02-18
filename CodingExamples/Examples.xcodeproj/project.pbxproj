@@ -89,10 +89,10 @@
 		52ED12C120392D3B00F707BF /* PowerSet */ = {
 			isa = PBXGroup;
 			children = (
+				52ED12C5203937EE00F707BF /* String+PowerSet.swift */,
 				52ED12BB20391D9F00F707BF /* NSString+PowerSet.h */,
 				52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */,
 				52ED12C22039312700F707BF /* README.md */,
-				52ED12C5203937EE00F707BF /* String+PowerSet.swift */,
 			);
 			path = PowerSet;
 			sourceTree = "<group>";
