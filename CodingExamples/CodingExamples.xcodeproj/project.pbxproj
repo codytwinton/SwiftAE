@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		52ED12A620391B8C00F707BF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12A520391B8C00F707BF /* main.swift */; };
 		52ED12B320391BEF00F707BF /* CodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B220391BEF00F707BF /* CodingTests.swift */; };
+		52ED12B920391D3B00F707BF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B820391D3B00F707BF /* String+Extensions.swift */; };
+		52ED12BD20391D9F00F707BF /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,10 @@
 		52ED12B020391BEF00F707BF /* CodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED12B220391BEF00F707BF /* CodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTests.swift; sourceTree = "<group>"; };
 		52ED12B420391BEF00F707BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52ED12B820391D3B00F707BF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodingExamples-Bridging-Header.h"; sourceTree = "<group>"; };
+		52ED12BB20391D9F00F707BF /* NSString+Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
+		52ED12BC20391D9F00F707BF /* NSString+Extensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,10 @@
 			isa = PBXGroup;
 			children = (
 				52ED12A520391B8C00F707BF /* main.swift */,
+				52ED12B820391D3B00F707BF /* String+Extensions.swift */,
+				52ED12BB20391D9F00F707BF /* NSString+Extensions.h */,
+				52ED12BC20391D9F00F707BF /* NSString+Extensions.m */,
+				52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */,
 			);
 			path = CodingExamples;
 			sourceTree = "<group>";
@@ -133,6 +143,7 @@
 				TargetAttributes = {
 					52ED12A120391B8C00F707BF = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					52ED12AF20391BEF00F707BF = {
@@ -174,6 +185,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52ED12BD20391D9F00F707BF /* NSString+Extensions.m in Sources */,
+				52ED12B920391D3B00F707BF /* String+Extensions.swift in Sources */,
 				52ED12A620391B8C00F707BF /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,9 +311,13 @@
 		52ED12AA20391B8C00F707BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FUC97LYJ62;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples/CodingExamples-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -308,9 +325,12 @@
 		52ED12AB20391B8C00F707BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FUC97LYJ62;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples/CodingExamples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

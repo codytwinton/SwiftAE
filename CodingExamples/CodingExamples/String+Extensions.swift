@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  String+Extensions.swift
 //  CodingExamples
 //
 //  Created by Cody Winton on 2/17/18.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+extension String {
 
-"testing".powerSet
+	
+}

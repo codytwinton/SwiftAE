@@ -23,6 +23,18 @@ class CodingTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+		// Arrange
+
+		var test = "abc"
+		var expected: Set = ["", "a", "ab", "ac", "abc", "b", "bc", "c"]
+
+		// Act
+
+		var actual: Set = [""]
+
+		// Assert
+		XCTAssertEqual(actual, expected)
     }
     
     func testPerformanceExample() {
