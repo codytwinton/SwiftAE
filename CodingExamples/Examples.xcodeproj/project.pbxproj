@@ -80,13 +80,13 @@
 		52ED12A420391B8C00F707BF /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				52ED12C120392D3B00F707BF /* PowerSet */,
+				52ED12C120392D3B00F707BF /* Power Set */,
 				52ED12A520391B8C00F707BF /* main.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
 		};
-		52ED12C120392D3B00F707BF /* PowerSet */ = {
+		52ED12C120392D3B00F707BF /* Power Set */ = {
 			isa = PBXGroup;
 			children = (
 				52ED12C5203937EE00F707BF /* String+PowerSet.swift */,
@@ -94,7 +94,7 @@
 				52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */,
 				52ED12C22039312700F707BF /* README.md */,
 			);
-			path = PowerSet;
+			path = "Power Set";
 			sourceTree = "<group>";
 		};
 		52ED12CC2039395800F707BF /* Tests */ = {
