@@ -10,4 +10,6 @@ import Foundation
 
 print("Hello, World!")
 
-"testing".powerSet
+let test = "abc".powerSet
+
+print("test \(test!)")
