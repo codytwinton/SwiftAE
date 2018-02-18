@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		52ED12A620391B8C00F707BF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12A520391B8C00F707BF /* main.swift */; };
-		52ED12B320391BEF00F707BF /* PowerSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B220391BEF00F707BF /* PowerSetTests.swift */; };
-		52ED12B920391D3B00F707BF /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B820391D3B00F707BF /* String+PowerSet.swift */; };
-		52ED12BD20391D9F00F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
-		52ED12BE2039228900F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
-		52ED12BF2039228C00F707BF /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B820391D3B00F707BF /* String+PowerSet.swift */; };
+		52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
+		52ED12C6203937EE00F707BF /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* String+PowerSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,25 +27,15 @@
 /* Begin PBXFileReference section */
 		52ED12A220391B8C00F707BF /* CodingExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodingExamples; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED12A520391B8C00F707BF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		52ED12B020391BEF00F707BF /* CodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		52ED12B220391BEF00F707BF /* PowerSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSetTests.swift; sourceTree = "<group>"; };
-		52ED12B420391BEF00F707BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52ED12B820391D3B00F707BF /* String+PowerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PowerSet.swift"; sourceTree = "<group>"; };
 		52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodingExamples-Bridging-Header.h"; sourceTree = "<group>"; };
 		52ED12BB20391D9F00F707BF /* NSString+PowerSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+PowerSet.h"; sourceTree = "<group>"; };
 		52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+PowerSet.m"; sourceTree = "<group>"; };
 		52ED12C22039312700F707BF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		52ED12C5203937EE00F707BF /* String+PowerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PowerSet.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		52ED129F20391B8C00F707BF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		52ED12AD20391BEF00F707BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,7 +50,6 @@
 			children = (
 				52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */,
 				52ED12A420391B8C00F707BF /* CodingExamples */,
-				52ED12B120391BEF00F707BF /* CodingTests */,
 				52ED12A320391B8C00F707BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				52ED12A220391B8C00F707BF /* CodingExamples */,
-				52ED12B020391BEF00F707BF /* CodingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,22 +71,13 @@
 			path = CodingExamples;
 			sourceTree = "<group>";
 		};
-		52ED12B120391BEF00F707BF /* CodingTests */ = {
-			isa = PBXGroup;
-			children = (
-				52ED12B220391BEF00F707BF /* PowerSetTests.swift */,
-				52ED12B420391BEF00F707BF /* Info.plist */,
-			);
-			path = CodingTests;
-			sourceTree = "<group>";
-		};
 		52ED12C120392D3B00F707BF /* PowerSet */ = {
 			isa = PBXGroup;
 			children = (
-				52ED12B820391D3B00F707BF /* String+PowerSet.swift */,
 				52ED12BB20391D9F00F707BF /* NSString+PowerSet.h */,
 				52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */,
 				52ED12C22039312700F707BF /* README.md */,
+				52ED12C5203937EE00F707BF /* String+PowerSet.swift */,
 			);
 			path = PowerSet;
 			sourceTree = "<group>";
@@ -126,23 +102,6 @@
 			productReference = 52ED12A220391B8C00F707BF /* CodingExamples */;
 			productType = "com.apple.product-type.tool";
 		};
-		52ED12AF20391BEF00F707BF /* CodingTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 52ED12B520391BEF00F707BF /* Build configuration list for PBXNativeTarget "CodingTests" */;
-			buildPhases = (
-				52ED12AC20391BEF00F707BF /* Sources */,
-				52ED12AD20391BEF00F707BF /* Frameworks */,
-				52ED12AE20391BEF00F707BF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CodingTests;
-			productName = CodingTests;
-			productReference = 52ED12B020391BEF00F707BF /* CodingTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -156,10 +115,6 @@
 					52ED12A120391B8C00F707BF = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
-					};
-					52ED12AF20391BEF00F707BF = {
-						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -177,39 +132,18 @@
 			projectRoot = "";
 			targets = (
 				52ED12A120391B8C00F707BF /* CodingExamples */,
-				52ED12AF20391BEF00F707BF /* CodingTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		52ED12AE20391BEF00F707BF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52ED129E20391B8C00F707BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52ED12BD20391D9F00F707BF /* NSString+PowerSet.m in Sources */,
-				52ED12B920391D3B00F707BF /* String+PowerSet.swift in Sources */,
 				52ED12A620391B8C00F707BF /* main.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		52ED12AC20391BEF00F707BF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52ED12B320391BEF00F707BF /* PowerSetTests.swift in Sources */,
-				52ED12BF2039228C00F707BF /* String+PowerSet.swift in Sources */,
-				52ED12BE2039228900F707BF /* NSString+PowerSet.m in Sources */,
+				52ED12C6203937EE00F707BF /* String+PowerSet.swift in Sources */,
+				52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,36 +283,6 @@
 			};
 			name = Release;
 		};
-		52ED12B620391BEF00F707BF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FUC97LYJ62;
-				INFOPLIST_FILE = CodingTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codytwinton.CodingTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		52ED12B720391BEF00F707BF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FUC97LYJ62;
-				INFOPLIST_FILE = CodingTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codytwinton.CodingTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -396,15 +300,6 @@
 			buildConfigurations = (
 				52ED12AA20391B8C00F707BF /* Debug */,
 				52ED12AB20391B8C00F707BF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		52ED12B520391BEF00F707BF /* Build configuration list for PBXNativeTarget "CodingTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				52ED12B620391BEF00F707BF /* Debug */,
-				52ED12B720391BEF00F707BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

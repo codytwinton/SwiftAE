@@ -1,5 +1,5 @@
 //
-//  String+Extensions.swift
+//  String+PowerSet.swift
 //  CodingExamples
 //
 //  Created by Cody Winton on 2/17/18.

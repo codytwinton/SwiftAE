@@ -9,7 +9,3 @@
 import Foundation
 
 print("Hello, World!")
-
-let test = "abc".powerSetRecursion
-
-print("test \(test)")
