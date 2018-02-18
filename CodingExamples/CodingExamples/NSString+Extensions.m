@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 	for (int i = 0; i < self.length; i++) {
 		NSString *next = [self substringWithRange:NSMakeRange(i, 1)];
-		NSMutableSet<NSString *> *update = [NSMutableSet setWithArray:@[@""]];
+		NSMutableSet<NSString *> *update = NSMutableSet.new;
 
 		for (NSString *pre in set) {
 			[update addObject: [pre stringByAppendingString:next]];
