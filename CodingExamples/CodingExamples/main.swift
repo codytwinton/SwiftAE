@@ -12,4 +12,4 @@ print("Hello, World!")
 
 let test = "abc".powerSet
 
-print("test \(test!)")
+print("test \(test)")

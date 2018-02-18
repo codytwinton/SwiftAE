@@ -10,5 +10,14 @@ import Foundation
 
 extension String {
 
-	
+	var powerSet: Set<String> {
+		var set: Set<String> = [""]
+
+		for char in self {
+			let next = String(char)
+			set.formUnion(Set(set.map { $0 + next }))
+		}
+
+		return set
+	}
 }

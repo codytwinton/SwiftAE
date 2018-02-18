@@ -8,15 +8,17 @@
 
 #import "NSString+Extensions.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation NSString (Extensions)
 
-- (NSSet *)powerSet {
+- (NSSet<NSString *> *) powerSet {
 
-	NSMutableSet *set = [NSMutableSet setWithArray:@[@""]];
+	NSMutableSet<NSString *> *set = [NSMutableSet setWithArray:@[@""]];
 
 	for (int i = 0; i < self.length; i++) {
 		NSString *next = [self substringWithRange:NSMakeRange(i, 1)];
-		NSMutableSet *update = [NSMutableSet setWithArray:@[@""]];
+		NSMutableSet<NSString *> *update = [NSMutableSet setWithArray:@[@""]];
 
 		for (NSString *pre in set) {
 			[update addObject: [pre stringByAppendingString:next]];
@@ -29,3 +31,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

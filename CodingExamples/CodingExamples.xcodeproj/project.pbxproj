@@ -11,6 +11,8 @@
 		52ED12B320391BEF00F707BF /* CodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B220391BEF00F707BF /* CodingTests.swift */; };
 		52ED12B920391D3B00F707BF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B820391D3B00F707BF /* String+Extensions.swift */; };
 		52ED12BD20391D9F00F707BF /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+Extensions.m */; };
+		52ED12BE2039228900F707BF /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+Extensions.m */; };
+		52ED12BF2039228C00F707BF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B820391D3B00F707BF /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -196,6 +198,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				52ED12B320391BEF00F707BF /* CodingTests.swift in Sources */,
+				52ED12BF2039228C00F707BF /* String+Extensions.swift in Sources */,
+				52ED12BE2039228900F707BF /* NSString+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

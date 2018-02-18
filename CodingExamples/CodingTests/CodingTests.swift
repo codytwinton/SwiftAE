@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import CodingExamples
+
 class CodingTests: XCTestCase {
     
     override func setUp() {
@@ -25,13 +27,11 @@ class CodingTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
 
 		// Arrange
-
-		var test = "abc"
-		var expected: Set = ["", "a", "ab", "ac", "abc", "b", "bc", "c"]
+		let start: String = "abc"
+		let expected: Set = ["", "a", "ab", "ac", "abc", "b", "bc", "c"]
 
 		// Act
-
-		var actual: Set = test.powerSet
+		let actual: Set = start.powerSet
 
 		// Assert
 		XCTAssertEqual(actual, expected)
@@ -39,8 +39,9 @@ class CodingTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
+
         self.measure {
-            // Put the code you want to measure the time of here.
+
         }
     }
     
