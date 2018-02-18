@@ -9,3 +9,7 @@
 import Foundation
 
 print("Hello, World!")
+
+print("abc".powerSet)
+
+print("abc".powerSetRecursion)
