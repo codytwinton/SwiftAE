@@ -6,7 +6,8 @@
 //  Copyright © 2018 Cody Winton. All rights reserved.
 //
 
-@testable import CodingExamples
+@testable import Examples
+
 import XCTest
 
 struct TestValues {

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5292F49320393C14006B773B /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* String+PowerSet.swift */; };
+		5292F49520393E02006B773B /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* String+PowerSet.swift */; };
 		52ED12A620391B8C00F707BF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12A520391B8C00F707BF /* main.swift */; };
 		52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
 		52ED12C6203937EE00F707BF /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* String+PowerSet.swift */; };
@@ -28,9 +28,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		52ED12A220391B8C00F707BF /* CodingExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodingExamples; sourceTree = BUILT_PRODUCTS_DIR; };
+		52ED12A220391B8C00F707BF /* Examples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Examples; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED12A520391B8C00F707BF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodingExamples-Bridging-Header.h"; sourceTree = "<group>"; };
+		52ED12BA20391D9F00F707BF /* Examples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Examples-Bridging-Header.h"; sourceTree = "<group>"; };
 		52ED12BB20391D9F00F707BF /* NSString+PowerSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+PowerSet.h"; sourceTree = "<group>"; };
 		52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+PowerSet.m"; sourceTree = "<group>"; };
 		52ED12C22039312700F707BF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -61,8 +61,8 @@
 		52ED129920391B8C00F707BF = {
 			isa = PBXGroup;
 			children = (
-				52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */,
-				52ED12A420391B8C00F707BF /* CodingExamples */,
+				52ED12BA20391D9F00F707BF /* Examples-Bridging-Header.h */,
+				52ED12A420391B8C00F707BF /* Examples */,
 				52ED12CC2039395800F707BF /* Tests */,
 				52ED12A320391B8C00F707BF /* Products */,
 			);
@@ -71,19 +71,19 @@
 		52ED12A320391B8C00F707BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52ED12A220391B8C00F707BF /* CodingExamples */,
+				52ED12A220391B8C00F707BF /* Examples */,
 				52ED12CB2039395700F707BF /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		52ED12A420391B8C00F707BF /* CodingExamples */ = {
+		52ED12A420391B8C00F707BF /* Examples */ = {
 			isa = PBXGroup;
 			children = (
 				52ED12C120392D3B00F707BF /* PowerSet */,
 				52ED12A520391B8C00F707BF /* main.swift */,
 			);
-			path = CodingExamples;
+			path = Examples;
 			sourceTree = "<group>";
 		};
 		52ED12C120392D3B00F707BF /* PowerSet */ = {
@@ -109,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		52ED12A120391B8C00F707BF /* CodingExamples */ = {
+		52ED12A120391B8C00F707BF /* Examples */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52ED12A920391B8C00F707BF /* Build configuration list for PBXNativeTarget "CodingExamples" */;
+			buildConfigurationList = 52ED12A920391B8C00F707BF /* Build configuration list for PBXNativeTarget "Examples" */;
 			buildPhases = (
 				52ED129E20391B8C00F707BF /* Sources */,
 				52ED129F20391B8C00F707BF /* Frameworks */,
@@ -121,9 +121,9 @@
 			);
 			dependencies = (
 			);
-			name = CodingExamples;
+			name = Examples;
 			productName = CodingExamples;
-			productReference = 52ED12A220391B8C00F707BF /* CodingExamples */;
+			productReference = 52ED12A220391B8C00F707BF /* Examples */;
 			productType = "com.apple.product-type.tool";
 		};
 		52ED12CA2039395700F707BF /* Tests */ = {
@@ -164,7 +164,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 52ED129D20391B8C00F707BF /* Build configuration list for PBXProject "CodingExamples" */;
+			buildConfigurationList = 52ED129D20391B8C00F707BF /* Build configuration list for PBXProject "Examples" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -176,7 +176,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52ED12A120391B8C00F707BF /* CodingExamples */,
+				52ED12A120391B8C00F707BF /* Examples */,
 				52ED12CA2039395700F707BF /* Tests */,
 			);
 		};
@@ -208,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52ED12D52039399B00F707BF /* NSString+PowerSet.m in Sources */,
-				5292F49320393C14006B773B /* String+PowerSet.swift in Sources */,
+				5292F49520393E02006B773B /* String+PowerSet.swift in Sources */,
 				52ED12D42039397400F707BF /* PowerSetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,10 +327,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = FUC97LYJ62;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_MODULE_NAME = Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Examples-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -341,10 +343,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = FUC97LYJ62;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_MODULE_NAME = Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Examples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -354,11 +358,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = FUC97LYJ62;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codytwinton.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Examples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -368,11 +374,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = FUC97LYJ62;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codytwinton.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Examples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -380,7 +388,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52ED129D20391B8C00F707BF /* Build configuration list for PBXProject "CodingExamples" */ = {
+		52ED129D20391B8C00F707BF /* Build configuration list for PBXProject "Examples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52ED12A720391B8C00F707BF /* Debug */,
@@ -389,7 +397,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52ED12A920391B8C00F707BF /* Build configuration list for PBXNativeTarget "CodingExamples" */ = {
+		52ED12A920391B8C00F707BF /* Build configuration list for PBXNativeTarget "Examples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52ED12AA20391B8C00F707BF /* Debug */,
