@@ -37,6 +37,7 @@
 		52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodingExamples-Bridging-Header.h"; sourceTree = "<group>"; };
 		52ED12BB20391D9F00F707BF /* NSString+PowerSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+PowerSet.h"; sourceTree = "<group>"; };
 		52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+PowerSet.m"; sourceTree = "<group>"; };
+		52ED12C22039312700F707BF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +101,7 @@
 				52ED12B820391D3B00F707BF /* String+PowerSet.swift */,
 				52ED12BB20391D9F00F707BF /* NSString+PowerSet.h */,
 				52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */,
+				52ED12C22039312700F707BF /* README.md */,
 			);
 			path = PowerSet;
 			sourceTree = "<group>";
