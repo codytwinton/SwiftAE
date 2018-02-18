@@ -6,11 +6,11 @@
 //  Copyright © 2018 Cody Winton. All rights reserved.
 //
 
-#import "NSString+Extensions.h"
+#import "NSString+PowerSet.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@implementation NSString (Extensions)
+@implementation NSString (PowerSet)
 
 // MARK: - Power Set
 

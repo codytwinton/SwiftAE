@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSString (Extensions)
+@interface NSString (PowerSet)
 
 @property (nonatomic, readonly, strong) NSSet<NSString *> *powerSet;
 @property (nonatomic, readonly, strong) NSSet<NSString *> *powerSetRecursion;
