@@ -12,6 +12,4 @@ print("Hello, World!")
 
 let test = "abc".powerSetRecursion
 
-let update: Set = String.powerSetRecursion(for: "abc")
-
-print("test \(update)")
+print("test \(test)")
