@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // MARK: - Power Set
 
-- (NSSet<NSString *> *) objCPowerSet {
+- (NSSet<NSString *> *) powerSetObjC {
 
 	NSMutableSet<NSString *> *set = [NSMutableSet setWithArray:@[@""]];
 
@@ -32,11 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
 	return set;
 }
 
-- (NSSet<NSString *> *) objCPowerSetRecursion {
-	return [NSString objCPowerSetRecursionForString:self];
+- (NSSet<NSString *> *) powerSetRecursionObjC {
+	return [NSString powerSetRecursionForStringObjC:self];
 }
 
-+ (NSSet<NSString *> *) objCPowerSetRecursionForString:(NSString *)str {
++ (NSSet<NSString *> *) powerSetRecursionForStringObjC:(NSString *)str {
 	NSMutableSet<NSString *> *set = [NSMutableSet setWithArray:@[@"", str]];
 	if (str.length <= 1) { return set; }
 
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 		NSString *first = [str substringWithRange:NSMakeRange(0, i)];
 		NSString *second = [str substringWithRange:NSMakeRange(i + 1, str.length - i - 1)];
 
-		NSSet<NSString *> *sub = [self objCPowerSetRecursionForString:[first stringByAppendingString:second]];
+		NSSet<NSString *> *sub = [self powerSetRecursionForStringObjC:[first stringByAppendingString:second]];
 		[set unionSet:sub];
 	}
 

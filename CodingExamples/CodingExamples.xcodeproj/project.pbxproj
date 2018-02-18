@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52ED12A620391B8C00F707BF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12A520391B8C00F707BF /* main.swift */; };
-		52ED12B320391BEF00F707BF /* CodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B220391BEF00F707BF /* CodingTests.swift */; };
+		52ED12B320391BEF00F707BF /* PowerSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B220391BEF00F707BF /* PowerSetTests.swift */; };
 		52ED12B920391D3B00F707BF /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12B820391D3B00F707BF /* String+PowerSet.swift */; };
 		52ED12BD20391D9F00F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
 		52ED12BE2039228900F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
@@ -31,7 +31,7 @@
 		52ED12A220391B8C00F707BF /* CodingExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodingExamples; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED12A520391B8C00F707BF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		52ED12B020391BEF00F707BF /* CodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		52ED12B220391BEF00F707BF /* CodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTests.swift; sourceTree = "<group>"; };
+		52ED12B220391BEF00F707BF /* PowerSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSetTests.swift; sourceTree = "<group>"; };
 		52ED12B420391BEF00F707BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52ED12B820391D3B00F707BF /* String+PowerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PowerSet.swift"; sourceTree = "<group>"; };
 		52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodingExamples-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		52ED12B120391BEF00F707BF /* CodingTests */ = {
 			isa = PBXGroup;
 			children = (
-				52ED12B220391BEF00F707BF /* CodingTests.swift */,
+				52ED12B220391BEF00F707BF /* PowerSetTests.swift */,
 				52ED12B420391BEF00F707BF /* Info.plist */,
 			);
 			path = CodingTests;
@@ -207,7 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52ED12B320391BEF00F707BF /* CodingTests.swift in Sources */,
+				52ED12B320391BEF00F707BF /* PowerSetTests.swift in Sources */,
 				52ED12BF2039228C00F707BF /* String+PowerSet.swift in Sources */,
 				52ED12BE2039228900F707BF /* NSString+PowerSet.m in Sources */,
 			);
