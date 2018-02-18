@@ -12,6 +12,10 @@
 		5292F49D203940CC006B773B /* JustifyTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F49C203940CC006B773B /* JustifyTextTests.swift */; };
 		5292F49F20394105006B773B /* Testable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F49E20394105006B773B /* Testable.swift */; };
 		5292F4A0203941EA006B773B /* JustifyText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F49A20394042006B773B /* JustifyText.swift */; };
+		5292F4A320394286006B773B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F4A120394286006B773B /* Queue.swift */; };
+		5292F4A420394286006B773B /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F4A220394286006B773B /* Stack.swift */; };
+		5292F4A5203942BB006B773B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F4A120394286006B773B /* Queue.swift */; };
+		5292F4A6203942BB006B773B /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F4A220394286006B773B /* Stack.swift */; };
 		52ED12A620391B8C00F707BF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12A520391B8C00F707BF /* main.swift */; };
 		52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
 		52ED12C6203937EE00F707BF /* PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* PowerSet.swift */; };
@@ -35,6 +39,8 @@
 		5292F49A20394042006B773B /* JustifyText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustifyText.swift; sourceTree = "<group>"; };
 		5292F49C203940CC006B773B /* JustifyTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustifyTextTests.swift; sourceTree = "<group>"; };
 		5292F49E20394105006B773B /* Testable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testable.swift; sourceTree = "<group>"; };
+		5292F4A120394286006B773B /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		5292F4A220394286006B773B /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		52ED12A220391B8C00F707BF /* Examples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Examples; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED12A520391B8C00F707BF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		52ED12BA20391D9F00F707BF /* Examples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Examples-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -73,6 +79,15 @@
 			path = "Justify Text";
 			sourceTree = "<group>";
 		};
+		5292F4A7203942D2006B773B /* General */ = {
+			isa = PBXGroup;
+			children = (
+				5292F4A120394286006B773B /* Queue.swift */,
+				5292F4A220394286006B773B /* Stack.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		52ED129920391B8C00F707BF = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +110,7 @@
 		52ED12A420391B8C00F707BF /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				5292F4A7203942D2006B773B /* General */,
 				5292F4992039400C006B773B /* Justify Text */,
 				52ED12C120392D3B00F707BF /* Power Set */,
 				52ED12A520391B8C00F707BF /* main.swift */,
@@ -215,9 +231,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5292F4A320394286006B773B /* Queue.swift in Sources */,
 				52ED12A620391B8C00F707BF /* main.swift in Sources */,
 				52ED12C6203937EE00F707BF /* PowerSet.swift in Sources */,
 				52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */,
+				5292F4A420394286006B773B /* Stack.swift in Sources */,
 				5292F49B20394042006B773B /* JustifyText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,8 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5292F49F20394105006B773B /* Testable.swift in Sources */,
+				5292F4A5203942BB006B773B /* Queue.swift in Sources */,
 				52ED12D52039399B00F707BF /* NSString+PowerSet.m in Sources */,
 				5292F49520393E02006B773B /* PowerSet.swift in Sources */,
+				5292F4A6203942BB006B773B /* Stack.swift in Sources */,
 				5292F4A0203941EA006B773B /* JustifyText.swift in Sources */,
 				52ED12D42039397400F707BF /* PowerSetTests.swift in Sources */,
 				5292F49D203940CC006B773B /* JustifyTextTests.swift in Sources */,
