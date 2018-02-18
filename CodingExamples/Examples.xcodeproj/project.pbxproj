@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5292F49520393E02006B773B /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* String+PowerSet.swift */; };
+		5292F49520393E02006B773B /* PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* PowerSet.swift */; };
 		52ED12A620391B8C00F707BF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12A520391B8C00F707BF /* main.swift */; };
 		52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
-		52ED12C6203937EE00F707BF /* String+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* String+PowerSet.swift */; };
+		52ED12C6203937EE00F707BF /* PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* PowerSet.swift */; };
 		52ED12D42039397400F707BF /* PowerSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12D32039397400F707BF /* PowerSetTests.swift */; };
 		52ED12D52039399B00F707BF /* NSString+PowerSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,7 @@
 		52ED12BB20391D9F00F707BF /* NSString+PowerSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+PowerSet.h"; sourceTree = "<group>"; };
 		52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+PowerSet.m"; sourceTree = "<group>"; };
 		52ED12C22039312700F707BF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		52ED12C5203937EE00F707BF /* String+PowerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PowerSet.swift"; sourceTree = "<group>"; };
+		52ED12C5203937EE00F707BF /* PowerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSet.swift; sourceTree = "<group>"; };
 		52ED12CB2039395700F707BF /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED12CF2039395800F707BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52ED12D32039397400F707BF /* PowerSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerSetTests.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		52ED12C120392D3B00F707BF /* Power Set */ = {
 			isa = PBXGroup;
 			children = (
-				52ED12C5203937EE00F707BF /* String+PowerSet.swift */,
+				52ED12C5203937EE00F707BF /* PowerSet.swift */,
 				52ED12BB20391D9F00F707BF /* NSString+PowerSet.h */,
 				52ED12BC20391D9F00F707BF /* NSString+PowerSet.m */,
 				52ED12C22039312700F707BF /* README.md */,
@@ -198,7 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52ED12A620391B8C00F707BF /* main.swift in Sources */,
-				52ED12C6203937EE00F707BF /* String+PowerSet.swift in Sources */,
+				52ED12C6203937EE00F707BF /* PowerSet.swift in Sources */,
 				52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52ED12D52039399B00F707BF /* NSString+PowerSet.m in Sources */,
-				5292F49520393E02006B773B /* String+PowerSet.swift in Sources */,
+				5292F49520393E02006B773B /* PowerSet.swift in Sources */,
 				52ED12D42039397400F707BF /* PowerSetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
