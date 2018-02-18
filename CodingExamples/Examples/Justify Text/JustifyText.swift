@@ -1,4 +1,10 @@
-//: Playground - noun: a place where people can play
+//
+//  JustifyText.swift
+//  Examples
+//
+//  Created by Cody Winton on 2/17/18.
+//  Copyright © 2018 Cody Winton. All rights reserved.
+//
 
 import Foundation
 
@@ -42,19 +48,3 @@ extension Array where Iterator.Element == String {
 		return words.joined(separator: " ")
 	}
 }
-
-
-// Tests
-
-for test in TestData.tests {
-	// Arrange
-	let input = test.input
-
-	// Act
-	let actual = input.words.justify(with: input.charCount)
-
-	// Assert
-	test.assert(with: actual)
-}
-
-
