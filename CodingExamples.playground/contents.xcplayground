@@ -3,9 +3,7 @@
     <pages>
         <page name='Starting'/>
         <page name='BalancedScope'/>
-        <page name='JustifyTextAlgorithm'/>
         <page name='Other'/>
-        <page name='PowerSet'/>
         <page name='ReverseLastHalf'/>
         <page name='RGBSwap'/>
         <page name='RunLengthEncoding'/>
@@ -18,8 +16,6 @@
         <page name='DCP42 Subset Sum'/>
         <page name='DCP43 Special Stack'/>
         <page name='DCP44 Inversion Occurrences'/>
-        <page name='Factorial'/>
         <page name='Fibonacci Sequence'/>
-        <page name='Digits from Number'/>
     </pages>
 </playground>

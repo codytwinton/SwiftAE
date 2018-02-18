@@ -26,6 +26,36 @@ extension Int {
 		return value * factorial(for: value - 1)
 	}
 
+	// MARK: Fibonacci
+
+	var fibonacciIterative: [Int] {
+		guard self > 0 else { return [] }
+
+		var sequence = [0, 1]
+		guard self > 1 else { return sequence }
+
+		for _ in sequence.count...self {
+			let first = sequence[sequence.count - 2]
+			let second = sequence[sequence.count - 1]
+			sequence.append(first + second)
+		}
+
+		return sequence
+	}
+
+	var fibonacciRecursive: [Int] {
+		guard self > 0 else { return [] }
+		let sequence = [0, 1]
+
+		guard self > 1 else { return sequence }
+		return sequence + Int.fibonacciRecursive(count: self - 1)
+	}
+
+	private static func fibonacciRecursive(count: Int, first: Int = 0, second: Int = 1) -> [Int] {
+		guard count > 0 else { return [] }
+		return [first + second] + fibonacciRecursive(count: count - 1, first: second, second: first + second)
+	}
+
 	// MARK: Digits from Number
 
 	var digitsIteritive: [Int] {
