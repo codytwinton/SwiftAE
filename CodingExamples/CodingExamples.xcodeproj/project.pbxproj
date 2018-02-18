@@ -58,6 +58,7 @@
 		52ED129920391B8C00F707BF = {
 			isa = PBXGroup;
 			children = (
+				52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */,
 				52ED12A420391B8C00F707BF /* CodingExamples */,
 				52ED12B120391BEF00F707BF /* CodingTests */,
 				52ED12A320391B8C00F707BF /* Products */,
@@ -80,7 +81,6 @@
 				52ED12B820391D3B00F707BF /* String+Extensions.swift */,
 				52ED12BB20391D9F00F707BF /* NSString+Extensions.h */,
 				52ED12BC20391D9F00F707BF /* NSString+Extensions.m */,
-				52ED12BA20391D9F00F707BF /* CodingExamples-Bridging-Header.h */,
 			);
 			path = CodingExamples;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 				DEVELOPMENT_TEAM = FUC97LYJ62;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples/CodingExamples-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -330,7 +330,7 @@
 				DEVELOPMENT_TEAM = FUC97LYJ62;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples/CodingExamples-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -345,6 +345,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codytwinton.CodingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -359,6 +360,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codytwinton.CodingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingExamples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

@@ -31,7 +31,7 @@ class CodingTests: XCTestCase {
 
 		// Act
 
-		var actual: Set = [""]
+		var actual: Set = test.powerSet
 
 		// Assert
 		XCTAssertEqual(actual, expected)
