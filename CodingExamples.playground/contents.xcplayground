@@ -5,14 +5,9 @@
         <page name='BalancedScope'/>
         <page name='RGBSwap'/>
         <page name='RunLengthEncoding'/>
-        <page name='Toptal1'/>
-        <page name='Toptal2'/>
-        <page name='Toptal3'/>
         <page name='DCP2'/>
         <page name='DCP40 Unique Integer'/>
         <page name='DCP41 Flights'/>
         <page name='DCP42 Subset Sum'/>
-        <page name='DCP44 Inversion Occurrences'/>
-        <page name='Fibonacci Sequence'/>
     </pages>
 </playground>
