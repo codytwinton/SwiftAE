@@ -3,7 +3,6 @@
     <pages>
         <page name='Starting'/>
         <page name='BalancedScope'/>
-        <page name='ReverseLastHalf'/>
         <page name='RGBSwap'/>
         <page name='RunLengthEncoding'/>
         <page name='Toptal1'/>
@@ -13,7 +12,6 @@
         <page name='DCP40 Unique Integer'/>
         <page name='DCP41 Flights'/>
         <page name='DCP42 Subset Sum'/>
-        <page name='DCP43 Special Stack'/>
         <page name='DCP44 Inversion Occurrences'/>
         <page name='Fibonacci Sequence'/>
     </pages>
