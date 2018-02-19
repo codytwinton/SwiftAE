@@ -3,7 +3,6 @@
     <pages>
         <page name='Starting'/>
         <page name='BalancedScope'/>
-        <page name='Other'/>
         <page name='ReverseLastHalf'/>
         <page name='RGBSwap'/>
         <page name='RunLengthEncoding'/>

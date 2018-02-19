@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5281FD30203A7ABA00833572 /* ReverseLastHalf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281FD2F203A7ABA00833572 /* ReverseLastHalf.swift */; };
+		5281FD31203A7ABA00833572 /* ReverseLastHalf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281FD2F203A7ABA00833572 /* ReverseLastHalf.swift */; };
+		5281FD33203A7C9600833572 /* ReverseLastHalfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281FD32203A7C9600833572 /* ReverseLastHalfTests.swift */; };
 		5292F49520393E02006B773B /* PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED12C5203937EE00F707BF /* PowerSet.swift */; };
 		5292F49B20394042006B773B /* JustifyText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F49A20394042006B773B /* JustifyText.swift */; };
 		5292F49D203940CC006B773B /* JustifyTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F49C203940CC006B773B /* JustifyTextTests.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5281FD2E203A7A2300833572 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5281FD2F203A7ABA00833572 /* ReverseLastHalf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseLastHalf.swift; sourceTree = "<group>"; };
+		5281FD32203A7C9600833572 /* ReverseLastHalfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseLastHalfTests.swift; sourceTree = "<group>"; };
 		5292F49A20394042006B773B /* JustifyText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustifyText.swift; sourceTree = "<group>"; };
 		5292F49C203940CC006B773B /* JustifyTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustifyTextTests.swift; sourceTree = "<group>"; };
 		5292F49E20394105006B773B /* Testable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testable.swift; sourceTree = "<group>"; };
@@ -74,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5281FD2D203A79EE00833572 /* Reverse Last Half */ = {
+			isa = PBXGroup;
+			children = (
+				5281FD2E203A7A2300833572 /* README.md */,
+				5281FD2F203A7ABA00833572 /* ReverseLastHalf.swift */,
+			);
+			path = "Reverse Last Half";
+			sourceTree = "<group>";
+		};
 		5292F4992039400C006B773B /* Justify Text */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +132,7 @@
 				5292F4A7203942D2006B773B /* General */,
 				5292F4992039400C006B773B /* Justify Text */,
 				52ED12C120392D3B00F707BF /* Power Set */,
+				5281FD2D203A79EE00833572 /* Reverse Last Half */,
 				52ED12A520391B8C00F707BF /* main.swift */,
 			);
 			path = Examples;
@@ -138,6 +154,7 @@
 			children = (
 				5292F49C203940CC006B773B /* JustifyTextTests.swift */,
 				52ED12D32039397400F707BF /* PowerSetTests.swift */,
+				5281FD32203A7C9600833572 /* ReverseLastHalfTests.swift */,
 				5292F49E20394105006B773B /* Testable.swift */,
 				52ED12CF2039395800F707BF /* Info.plist */,
 			);
@@ -238,6 +255,7 @@
 				5292F4A320394286006B773B /* Queue.swift in Sources */,
 				52ED12A620391B8C00F707BF /* main.swift in Sources */,
 				52ED12C6203937EE00F707BF /* PowerSet.swift in Sources */,
+				5281FD30203A7ABA00833572 /* ReverseLastHalf.swift in Sources */,
 				52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */,
 				5292F4A420394286006B773B /* Stack.swift in Sources */,
 				5292F4A92039432F006B773B /* Number+Extensions.swift in Sources */,
@@ -252,7 +270,9 @@
 				5292F49F20394105006B773B /* Testable.swift in Sources */,
 				5292F4A5203942BB006B773B /* Queue.swift in Sources */,
 				52ED12D52039399B00F707BF /* NSString+PowerSet.m in Sources */,
+				5281FD31203A7ABA00833572 /* ReverseLastHalf.swift in Sources */,
 				5292F49520393E02006B773B /* PowerSet.swift in Sources */,
+				5281FD33203A7C9600833572 /* ReverseLastHalfTests.swift in Sources */,
 				5292F4AA2039432F006B773B /* Number+Extensions.swift in Sources */,
 				5292F4A6203942BB006B773B /* Stack.swift in Sources */,
 				5292F4A0203941EA006B773B /* JustifyText.swift in Sources */,

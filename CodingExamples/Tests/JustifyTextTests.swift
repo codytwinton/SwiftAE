@@ -8,9 +8,9 @@
 
 import XCTest
 
-struct TestData: Testable {
+fileprivate struct TestData: Testable {
 
-	public static let tests: [TestData] = [
+	static let tests: [TestData] = [
 		TestData(input:
 			(words: ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"], charCount: 16),
 				 expected: ["the  quick brown", "fox  jumps  over", "the   lazy   dog"]
