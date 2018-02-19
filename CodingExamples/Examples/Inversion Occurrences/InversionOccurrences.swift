@@ -11,7 +11,7 @@ import Foundation
 extension Array where Iterator.Element == Int {
 
 	var inversionCount: Int {
-		guard !isEmpty else { return 0 }
+		guard count > 1 else { return 0 }
 
 		var inversions = 0
 
