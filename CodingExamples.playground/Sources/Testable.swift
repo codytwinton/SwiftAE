@@ -19,7 +19,8 @@ public extension Testable {
 	/// Logs the comparison of the expected output with the actual output
 	func log(success: Bool, actual: Expected) {
 		print("""
-			\(success ? "Passed" : "Failed") Test:
+
+			\(success ? "✅ Passed" : "🛑 Failed") Test:
 				input:		\(input)
 				expected:	\(expected)
 				actual:		\(actual)

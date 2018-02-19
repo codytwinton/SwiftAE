@@ -17,15 +17,18 @@ extension String {
 		var longest: String = ""
 
 		for (i, left) in enumerated() {
+			guard count - i > longest.count else { return longest }
 			let iIndex = index(startIndex, offsetBy: i)
 
-			for (j, right) in enumerated() {
-				guard j > i, left == right else { continue }
+			for j in ((i + 1)..<count).reversed() {
 				let jIndex = index(startIndex, offsetBy: j)
-				let possible: String = String(self[iIndex...jIndex])
+				guard left == self[jIndex] else { continue }
+
+				let possible = String(self[iIndex...jIndex])
 
 				guard possible.count > longest.count, possible == String(possible.reversed()) else { continue }
 				longest = possible
+				break
 			}
 		}
 
@@ -39,6 +42,7 @@ let testDate = Date()
 print("Tests Started\n\n---\n")
 
 for test in TestData.tests {
+
 	// Arrange
 	let input = test.input
 
