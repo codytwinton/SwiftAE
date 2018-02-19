@@ -15,6 +15,7 @@ public struct TestData: Testable {
 		TestData(input: "civiccar", expected: "civic"),
 		TestData(input: "civic", expected: "civic"),
 		TestData(input: "abababababababababababababababababababababababababababababababababababababababababab", expected: "abababababababababababababababababababababababababababababababababababababababababa"),
+		TestData(input: repeatElement("abcdefghijklmnopqrstuvwxyz", count: 5).joined(), expected: ""),
 	]
 
 	public var input: String
