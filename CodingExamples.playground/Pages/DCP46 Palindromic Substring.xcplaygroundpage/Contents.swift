@@ -13,7 +13,23 @@ extension String {
 
 	var longestPalindromic: String {
 		guard !isEmpty else { return self }
-		return self
+
+		var longest: String = ""
+
+		for (i, left) in enumerated() {
+			let iIndex = index(startIndex, offsetBy: i)
+
+			for (j, right) in enumerated() {
+				guard j > i, left == right else { continue }
+				let jIndex = index(startIndex, offsetBy: j)
+				let possible: String = String(self[iIndex...jIndex])
+
+				guard possible.count > longest.count, possible == String(possible.reversed()) else { continue }
+				longest = possible
+			}
+		}
+
+		return longest
 	}
 }
 
