@@ -12,7 +12,7 @@ import Foundation
 extension String {
 
 	var longestPalindromic: String {
-		guard !isEmpty else { return self }
+		guard !isEmpty, self != String(reversed()) else { return self }
 
 		var longest: String = ""
 

@@ -4,7 +4,10 @@ public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
 		TestData(input: "", expected: ""),
+		TestData(input: "a", expected: "a"),
+		TestData(input: "ab", expected: ""),
 		TestData(input: "abc", expected: ""),
+		TestData(input: "aba", expected: "aba"),
 		TestData(input: "aabcdcb", expected: "bcdcb"),
 		TestData(input: "bananas", expected: "anana"),
 		TestData(input: "myracecarhere", expected: "racecar"),
