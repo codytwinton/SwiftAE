@@ -11,6 +11,7 @@ public struct TestData: Testable {
 		TestData(input: "testnoon", expected: "noon"),
 		TestData(input: "civiccar", expected: "civic"),
 		TestData(input: "civic", expected: "civic"),
+		TestData(input: "abababababababababababababababababababababababababababababababababababababababababab", expected: "abababababababababababababababababababababababababababababababababababababababababa"),
 	]
 
 	public var input: String
