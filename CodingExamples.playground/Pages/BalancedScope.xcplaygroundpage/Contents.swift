@@ -5,34 +5,22 @@ import Foundation
 extension String {
 
 	var hasBalancedScope: Bool {
-		let closedChars = "})]"
-		var count = (open: 0, closed: 0)
+		let scopes: [String: String] = ["}" : "{", ")" : "(", "]": "["]
 
-		for (i, char) in self.enumerated() {
+		var openStack: [String] = []
 
-			guard closedChars.contains(char) else {
-				count.open += 1
+		for (i, char) in enumerated() {
+			let str = String(char)
+			guard !scopes.values.contains(str) else {
+				openStack.append(str)
 				continue
 			}
 
-			guard i > 0 else { return false }
-
-			count.closed += 1
-			let previous = self[i - 1]
-
-			guard !closedChars.contains(previous) else { continue }
-
-			switch char {
-			case "}" where previous == "{",
-				 ")" where previous == "(",
-				 "]" where previous == "[":
-				continue
-			default:
-				return false
-			}
+			let hasOpeningBrace = !openStack.isEmpty && openStack.removeLast() == scopes[str]
+			if !hasOpeningBrace { return false }
 		}
 
-		return count.open == count.closed;
+		return openStack.isEmpty
 	}
 
 	subscript (i: Int) -> Character {
@@ -58,7 +46,7 @@ var tests: [TestValues] = [
 
 for test in tests {
 	let result = test.data.hasBalancedScope
-	guard result != test.result else { continue }
-	print("data: \(test.data) expected: \(test.result) actual: \(result)")
+	let success = result == test.result
+	print("data: \(test.data) success: \(success) expected: \(test.result) actual: \(result)")
 }
 
