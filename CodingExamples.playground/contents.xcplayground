@@ -9,5 +9,6 @@
         <page name='DCP40 Unique Integer'/>
         <page name='DCP41 Flights'/>
         <page name='DCP42 Subset Sum'/>
+        <page name='DCP46 Palindromic Substring'/>
     </pages>
 </playground>
