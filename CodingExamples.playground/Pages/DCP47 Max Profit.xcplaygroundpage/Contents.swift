@@ -10,26 +10,21 @@ import Foundation
 // MARK: Solution
 
 extension Array where Iterator.Element == Int {
+
 	var maxSalePrice: Int {
 		guard count > 1 else { return 0 }
 
-		var max: Int?
+		var max = self[1] - self[0]
 
 		for (i, left) in enumerated() {
 			for j in ((i + 1)..<count).reversed() {
 				let right = self[j]
-				switch max {
-				case nil:
-					max = right - left
-				case let m? where right - left > m:
-					max = right - left
-				default:
-					continue
-				}
+				guard right - left > max else { continue }
+				max = right - left
 			}
 		}
 
-		return max ?? 0
+		return max
 	}
 }
 
