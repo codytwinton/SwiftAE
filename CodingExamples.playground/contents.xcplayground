@@ -10,5 +10,6 @@
         <page name='DCP41 Flights'/>
         <page name='DCP42 Subset Sum'/>
         <page name='DCP46 Palindromic Substring'/>
+        <page name='DCP47 Max Profit'/>
     </pages>
 </playground>
