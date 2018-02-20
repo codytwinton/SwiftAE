@@ -14,14 +14,19 @@ extension Array where Iterator.Element == Int {
 	var maxSalePrice: Int {
 		guard count > 1 else { return 0 }
 
-		var max = self[1] - self[0]
+		var maxProfit = self[1] - self[0]
+		guard count > 2 else { return maxProfit }
+
+		var maxPrice: Int?
 
 		for (i, left) in enumerated() {
-			guard let right = self[(i + 1)...].sorted().last, right - left > max else { continue }
-			max = right - left
+			guard maxPrice == nil || (maxPrice ?? 0) - left > maxProfit else { continue }
+			guard let right = self[(i + 1)...].sorted().last, right - left > maxProfit else { continue }
+			maxProfit = right - left
+			maxPrice = right
 		}
 
-		return max
+		return maxProfit
 	}
 }
 

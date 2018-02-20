@@ -5,7 +5,9 @@ public struct TestData: Testable {
 	public static let tests: [TestData] = [
 		TestData(input: [], expected: 0),
 		TestData(input: [10], expected: 0),
+		TestData(input: [2, 4], expected: 2),
 		TestData(input: [10, 8, 6, 4, 2], expected: -2),
+		TestData(input: [2, 4, 6, 8, 10], expected: 8),
 		TestData(input: [9, 11, 8, 5, 7, 10], expected: 5),
 		TestData(input: [9, 11, 8, 5, 7, 10, 4, 8], expected: 5),
 		TestData(input: Array(1...500), expected: 499),
