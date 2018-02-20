@@ -17,11 +17,8 @@ extension Array where Iterator.Element == Int {
 		var max = self[1] - self[0]
 
 		for (i, left) in enumerated() {
-			for j in ((i + 1)..<count).reversed() {
-				let right = self[j]
-				guard right - left > max else { continue }
-				max = right - left
-			}
+			guard let right = self[(i + 1)...].sorted().last, right - left > max else { continue }
+			max = right - left
 		}
 
 		return max
