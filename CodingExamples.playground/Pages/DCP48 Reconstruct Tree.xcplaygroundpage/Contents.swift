@@ -31,7 +31,7 @@ import Foundation
 
 // MARK: Solution
 
-func constructBinaryTree(preOrder: [Int], inOrder: [Int]) -> BinaryNode {
+func constructBinaryTree(preOrder: [Int], inOrder: [Int]) -> BinaryNode<Int> {
 	var first = BinaryNode(value: 0)
 	guard !preOrder.isEmpty, preOrder.count == inOrder.count else { return first }
 	return first
