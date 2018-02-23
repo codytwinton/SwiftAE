@@ -1,45 +1,69 @@
 import Foundation
 
 /*
-0
-/ \
-1   2
-/ \ / \
-3  4 5  6
+For example, given the following tree:
 
-7
-/ \
-2   10
-/ \ / \
-1  5 9  11
+    *
+   / \
+  +   +
+ / \ / \
+3  2 4  5
+
+(3 + 2) * (4 + 5) = 45
+
+  +
+ / \
+7   *
+   / \
+  4   /
+     / \
+    3   2
+
+7 + (4 * (3/2)) = 13
 */
+
+public enum MathNode {
+	case add, subtract, multiply, divide
+	case operand(Int)
+}
 
 public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
-		TestData(input: (preOrder: [6], inOrder: [6]), expected: BinaryNode(value: 6)),
-		TestData(input: (preOrder: [0, 1, 3, 4, 2, 5, 6], inOrder: [3, 1, 4, 0, 5, 2, 6]), expected: expectedNode)
+		TestData(input: firstNode, expected: 45),
+		TestData(input: secondNode, expected: 13)
 	]
 
-	public static let expectedNode: BinaryNode<Int> = {
+	public static let firstNode: BinaryNode<MathNode> = {
 
-		let node = BinaryNode(value: 0)
-		node.left = BinaryNode(value: 1)
-		node.right = BinaryNode(value: 2)
+		let node = BinaryNode<MathNode>(value: .multiply)
+		node.left = BinaryNode(value: .add)
+		node.right = BinaryNode(value: .add)
 
-		node.left?.left = BinaryNode(value: 3)
-		node.left?.right = BinaryNode(value: 4)
+		node.left?.left = BinaryNode(value: .operand(3))
+		node.left?.right = BinaryNode(value: .operand(2))
 
-		node.right?.left = BinaryNode(value: 5)
-		node.right?.right = BinaryNode(value: 6)
+		node.right?.left = BinaryNode(value: .operand(4))
+		node.right?.right = BinaryNode(value: .operand(5))
 
 		return node
 	}()
 
-	public var input: (preOrder: [Int], inOrder: [Int])
-	public let expected: BinaryNode<Int>
+	public static let secondNode: BinaryNode<MathNode> = {
 
-	public func assert(with actual: BinaryNode<Int>) {
-		log(success: actual.description == expected.description, actual: actual)
-	}
+		let node = BinaryNode<MathNode>(value: .add)
+		node.left = BinaryNode(value: .operand(7))
+		node.right = BinaryNode(value: .multiply)
+
+		node.right?.left = BinaryNode(value: .operand(4))
+		node.right?.right = BinaryNode(value: .divide)
+
+		node.right?.right?.left = BinaryNode(value: .operand(3))
+		node.right?.right?.right = BinaryNode(value: .operand(2))
+
+		return node
+	}()
+
+	public var input: BinaryNode<MathNode>
+	public let expected: Int
 }

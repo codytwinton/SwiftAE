@@ -20,6 +20,13 @@ In order traversal would be
 
 import Foundation
 
+extension BinaryNode where T == MathNode {
+
+	var expressionResult: Int {
+		return 0
+	}
+}
+
 // MARK: Tests
 
 let testDate = Date()
@@ -30,12 +37,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let tree = BinaryTree<Int>(inOrder: input.inOrder, preOrder: input.preOrder)
-
-	guard let actual = tree.root else {
-		print("actual is nil")
-		continue
-	}
+	let actual = input.expressionResult
 
 	// Assert
 	test.assert(with: actual)
