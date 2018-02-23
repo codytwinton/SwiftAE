@@ -22,8 +22,19 @@ import Foundation
 
 extension BinaryNode where T == MathNode {
 
-	var expressionResult: Int {
-		return 0
+	var result: Int {
+		switch value {
+		case .operand(let num):
+			return num
+		case .add:
+			return (left?.result ?? 0) + (right?.result ?? 0)
+		case .subtract:
+			return (left?.result ?? 0) - (right?.result ?? 0)
+		case .multiply:
+			return (left?.result ?? 1) * (right?.result ?? 1)
+		case .divide:
+			return (left?.result ?? 1) / (right?.result ?? 1)
+		}
 	}
 }
 
@@ -37,7 +48,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = input.expressionResult
+	let actual = input.result
 
 	// Assert
 	test.assert(with: actual)

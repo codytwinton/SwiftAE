@@ -10,16 +10,6 @@ For example, given the following tree:
 3  2 4  5
 
 (3 + 2) * (4 + 5) = 45
-
-  +
- / \
-7   *
-   / \
-  4   /
-     / \
-    3   2
-
-7 + (4 * (3/2)) = 13
 */
 
 public enum MathNode {
@@ -49,16 +39,31 @@ public struct TestData: Testable {
 		return node
 	}()
 
+	/*
+	Tree:
+
+	   +
+	  / \
+	 7   *
+	    / \
+	   3   /
+	      / \
+	     4   2
+
+	A + (B * (C / D) )
+
+	7 + (3 * ( 4 / 2)) = 13
+	*/
 	public static let secondNode: BinaryNode<MathNode> = {
 
 		let node = BinaryNode<MathNode>(value: .add)
 		node.left = BinaryNode(value: .operand(7))
 		node.right = BinaryNode(value: .multiply)
 
-		node.right?.left = BinaryNode(value: .operand(4))
+		node.right?.left = BinaryNode(value: .operand(3))
 		node.right?.right = BinaryNode(value: .divide)
 
-		node.right?.right?.left = BinaryNode(value: .operand(3))
+		node.right?.right?.left = BinaryNode(value: .operand(4))
 		node.right?.right?.right = BinaryNode(value: .operand(2))
 
 		return node

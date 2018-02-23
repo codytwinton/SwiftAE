@@ -7,7 +7,7 @@ import Foundation
 
 // MARK: Solution
 
-func handleProblem(input: String) -> String {
+func handleProblem(for input: String) -> String {
 	return "Actual"
 }
 
@@ -21,7 +21,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = handleProblem(input: input)
+	let actual = handleProblem(for: input)
 
 	// Assert
 	test.assert(with: actual)
