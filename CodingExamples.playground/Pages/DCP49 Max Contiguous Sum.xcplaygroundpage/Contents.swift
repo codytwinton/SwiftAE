@@ -17,20 +17,11 @@ extension Array where Iterator.Element == Int {
 
 	var maxContiguousSum: Int {
 		guard !isEmpty else { return 0 }
-
 		var maxSum = 0, maxCurrent = 0
 
-		for i in 0..<self.count {
-
-			print("\(i): maxSum: \(maxSum) maxCurrent: \(maxCurrent)")
-
-			maxCurrent += self[i]
-
-			if (maxCurrent < 0) {
-				maxCurrent = 0
-			} else if (maxSum < maxCurrent) {
-				maxSum = maxCurrent
-			}
+		for num in self {
+			maxCurrent = Swift.max(maxCurrent + num, 0)
+			maxSum = Swift.max(maxCurrent, maxSum)
 		}
 
 		return maxSum
