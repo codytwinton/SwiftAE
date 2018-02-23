@@ -13,9 +13,6 @@ For example, given the following tree:
 3  2 4  5
 
 You should return 45, as it is (3 + 2) * (4 + 5).
-
-In order traversal would be
-["3", "+", "2", "*", "4", "+", "5"]
 */
 
 import Foundation
