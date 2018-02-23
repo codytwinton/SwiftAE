@@ -12,5 +12,6 @@
         <page name='DCP46 Palindromic Substring'/>
         <page name='DCP47 Max Profit'/>
         <page name='DCP48 Reconstruct Tree'/>
+        <page name='DCP49 Max Contiguous Sum'/>
     </pages>
 </playground>
