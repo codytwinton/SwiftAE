@@ -18,8 +18,7 @@ extension Array where Iterator.Element == Int {
 	var maxContiguousSum: Int {
 		guard !isEmpty else { return 0 }
 
-		var maxSum = 0
-		var maxCurrent = 0
+		var maxSum = 0, maxCurrent = 0
 
 		for i in 0..<self.count {
 
