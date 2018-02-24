@@ -14,5 +14,6 @@
         <page name='DCP48 Reconstruct Tree'/>
         <page name='DCP49 Max Contiguous Sum'/>
         <page name='DCP50 Binary Tree Arithmetic'/>
+        <page name='DCP51 Shuffle Cards'/>
     </pages>
 </playground>
