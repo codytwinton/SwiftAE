@@ -28,6 +28,7 @@ class QueueStackTests: XCTestCase {
 		queue.enqueue(3)
 		queue.enqueue(6)
 		queue.enqueue(9)
+		queue.enqueue(nil)
 
 		XCTAssertEqual(queue.count, 3)
 		XCTAssertEqual(queue.items.count, 3)
@@ -43,6 +44,9 @@ class QueueStackTests: XCTestCase {
 		XCTAssertEqual(queue.count, 0)
 		XCTAssertEqual(queue.items.count, 0)
 		XCTAssert(queue.isEmpty)
+
+		XCTAssertNil(queue.dequeue())
+		XCTAssertNil(queue.peek())
 	}
 
     func testCWQueue() {
@@ -50,6 +54,7 @@ class QueueStackTests: XCTestCase {
 		cwQueue.enqueue(3)
 		cwQueue.enqueue(6)
 		cwQueue.enqueue(9)
+		cwQueue.enqueue(nil)
 
 		XCTAssertEqual(cwQueue.count, 3)
 		XCTAssertEqual(cwQueue.items.count, 3)
@@ -65,5 +70,8 @@ class QueueStackTests: XCTestCase {
 		XCTAssertEqual(cwQueue.count, 0)
 		XCTAssertEqual(cwQueue.items.count, 0)
 		XCTAssert(cwQueue.isEmpty)
+
+		XCTAssertNil(cwQueue.dequeue())
+		XCTAssertNil(cwQueue.peek())
     }
 }

@@ -1,20 +1,6 @@
 import Foundation
 
-public protocol Stackable {
-	associatedtype Element
-
-	var count: Int { get }
-	var isEmpty: Bool { get }
-	var items: [Element] { get }
-
-	func peek() -> Element?
-	mutating func push(_ item: Element?)
-	mutating func pop() -> Element?
-
-	init(_ items: [Element])
-}
-
-public struct Stack<T>: Stackable {
+public struct Stack<T> {
 
 	public typealias Element = T
 

@@ -28,6 +28,7 @@ class StackTests: XCTestCase {
 		stack.push(3)
 		stack.push(6)
 		stack.push(9)
+		stack.push(nil)
 
 		XCTAssertEqual(stack.count, 3)
 		XCTAssertEqual(stack.items.count, 3)
@@ -43,6 +44,9 @@ class StackTests: XCTestCase {
 		XCTAssertEqual(stack.count, 0)
 		XCTAssertEqual(stack.items.count, 0)
 		XCTAssert(stack.isEmpty)
+
+		XCTAssertNil(stack.pop())
+		XCTAssertNil(stack.peek())
 	}
 
 	func testCWStack() {
@@ -65,5 +69,8 @@ class StackTests: XCTestCase {
 		XCTAssertEqual(cwStack.count, 0)
 		XCTAssertEqual(cwStack.items.count, 0)
 		XCTAssert(cwStack.isEmpty)
+
+		XCTAssertNil(cwStack.pop())
+		XCTAssertNil(cwStack.peek())
 	}
 }
