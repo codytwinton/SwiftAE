@@ -25,7 +25,7 @@ extension CountableClosedRange where Bound == Int {
 		let seedRange = lowerBound...seed
 
 		let permutations: Int = upperBound / seed + 1
-		var randMax: Int = (permutations * 2) * seedRange.random() + seedRange.random() - (permutations * 2)
+		let randMax: Int = (permutations * 2) * seedRange.random() + seedRange.random() - (permutations * 2)
 
 		guard randMax < upperBound * 2 else { return random(seed: seed) }
 
