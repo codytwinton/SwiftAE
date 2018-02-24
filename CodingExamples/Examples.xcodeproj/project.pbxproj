@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521B17F02040DCED001A3957 /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 521B17EF2040DCEC001A3957 /* CWQueue.m */; };
+		521B17F22040E158001A3957 /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B17F12040E158001A3957 /* QueueTests.swift */; };
+		521B17F32040E18D001A3957 /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 521B17EF2040DCEC001A3957 /* CWQueue.m */; };
 		5281FD30203A7ABA00833572 /* ReverseLastHalf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281FD2F203A7ABA00833572 /* ReverseLastHalf.swift */; };
 		5281FD31203A7ABA00833572 /* ReverseLastHalf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281FD2F203A7ABA00833572 /* ReverseLastHalf.swift */; };
 		5281FD33203A7C9600833572 /* ReverseLastHalfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281FD32203A7C9600833572 /* ReverseLastHalfTests.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		521B17EE2040DCEC001A3957 /* CWQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWQueue.h; sourceTree = "<group>"; };
+		521B17EF2040DCEC001A3957 /* CWQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWQueue.m; sourceTree = "<group>"; };
+		521B17F12040E158001A3957 /* QueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
 		5281FD2E203A7A2300833572 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5281FD2F203A7ABA00833572 /* ReverseLastHalf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseLastHalf.swift; sourceTree = "<group>"; };
 		5281FD32203A7C9600833572 /* ReverseLastHalfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseLastHalfTests.swift; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 				5292F4A82039432F006B773B /* Number+Extensions.swift */,
 				5292F4A120394286006B773B /* Queue.swift */,
 				5292F4A220394286006B773B /* Stack.swift */,
+				521B17EE2040DCEC001A3957 /* CWQueue.h */,
+				521B17EF2040DCEC001A3957 /* CWQueue.m */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 				52ED12D32039397400F707BF /* PowerSetTests.swift */,
 				5281FD32203A7C9600833572 /* ReverseLastHalfTests.swift */,
 				5281FD39203A805B00833572 /* InversionOccurrencesTests.swift */,
+				521B17F12040E158001A3957 /* QueueTests.swift */,
 				5292F49E20394105006B773B /* Testable.swift */,
 				52ED12CF2039395800F707BF /* Info.plist */,
 			);
@@ -276,6 +285,7 @@
 				52ED12C3203935B200F707BF /* NSString+PowerSet.m in Sources */,
 				5292F4A420394286006B773B /* Stack.swift in Sources */,
 				5292F4A92039432F006B773B /* Number+Extensions.swift in Sources */,
+				521B17F02040DCED001A3957 /* CWQueue.m in Sources */,
 				5292F49B20394042006B773B /* JustifyText.swift in Sources */,
 				5281FD37203A801500833572 /* InversionOccurrences.swift in Sources */,
 			);
@@ -287,9 +297,11 @@
 			files = (
 				5292F49F20394105006B773B /* Testable.swift in Sources */,
 				5292F4A5203942BB006B773B /* Queue.swift in Sources */,
+				521B17F32040E18D001A3957 /* CWQueue.m in Sources */,
 				5281FD38203A801500833572 /* InversionOccurrences.swift in Sources */,
 				52ED12D52039399B00F707BF /* NSString+PowerSet.m in Sources */,
 				5281FD31203A7ABA00833572 /* ReverseLastHalf.swift in Sources */,
+				521B17F22040E158001A3957 /* QueueTests.swift in Sources */,
 				5292F49520393E02006B773B /* PowerSet.swift in Sources */,
 				5281FD3A203A805B00833572 /* InversionOccurrencesTests.swift in Sources */,
 				5281FD33203A7C9600833572 /* ReverseLastHalfTests.swift in Sources */,
