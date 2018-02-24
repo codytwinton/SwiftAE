@@ -43,10 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (nullable id) dequeue {
-	id first = [self peek];
-	if (first == nil) { return nil; }
+	id item = [self peek];
+	if (item == nil) { return nil; }
 	[_theItems removeObjectAtIndex:0];
-	return first;
+	return item;
 }
 
 - (void)enqueue:(nullable id)item {

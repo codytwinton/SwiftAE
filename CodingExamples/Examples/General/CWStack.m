@@ -43,10 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (nullable id) pop {
-	id last = [self peek];
-	if (last == nil) { return nil; }
+	id item = [self peek];
+	if (item == nil) { return nil; }
 	[_theItems removeLastObject];
-	return last;
+	return item;
 }
 
 - (void)push:(nullable id)item {
