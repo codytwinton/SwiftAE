@@ -128,8 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				5292F4A82039432F006B773B /* Number+Extensions.swift */,
-				5292F4A120394286006B773B /* Queue.swift */,
-				5292F4A220394286006B773B /* Stack.swift */,
 				521B17EE2040DCEC001A3957 /* CWQueue.h */,
 				521B17EF2040DCEC001A3957 /* CWQueue.m */,
 				521B17F42040E607001A3957 /* CWStack.h */,
@@ -142,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				52ED12BA20391D9F00F707BF /* Examples-Bridging-Header.h */,
+				5292F4A120394286006B773B /* Queue.swift */,
+				5292F4A220394286006B773B /* Stack.swift */,
 				52ED12A420391B8C00F707BF /* Examples */,
 				52ED12CC2039395800F707BF /* Tests */,
 				52ED12A320391B8C00F707BF /* Products */,
