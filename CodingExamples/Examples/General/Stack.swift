@@ -5,11 +5,11 @@ public protocol Stackable {
 
 	var count: Int { get }
 	var isEmpty: Bool { get }
+	var items: [Element] { get }
 
 	func peek() -> Element?
 	mutating func push(_ item: Element?)
 	mutating func pop() -> Element?
-	func all() -> [Element]
 
 	init(_ items: [Element])
 }
@@ -21,7 +21,11 @@ public struct Stack<T>: Stackable {
 	public var count: Int { return items.count }
 	public var isEmpty: Bool { return items.isEmpty }
 
-	private var items: [T]
+	public private(set) var items: [T]
+
+	public mutating func clear() {
+		items.removeAll()
+	}
 
 	public func peek() -> T? {
 		return items.last
@@ -35,10 +39,6 @@ public struct Stack<T>: Stackable {
 	public mutating func pop() -> T? {
 		guard !items.isEmpty else { return nil }
 		return items.removeLast()
-	}
-
-	public func all() -> [T] {
-		return items
 	}
 
 	public init(_ items: [T] = []) {

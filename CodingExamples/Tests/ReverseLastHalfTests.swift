@@ -46,7 +46,7 @@ class ReverseLastHalfTests: XCTestCase {
 			stack.reverseLastHalf()
 
 			// Assert
-			XCTAssertEqual(stack.all(), test.expected)
+			XCTAssertEqual(stack.items, test.expected)
 		}
     }
 }
