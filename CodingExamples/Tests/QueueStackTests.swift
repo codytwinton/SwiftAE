@@ -8,8 +8,9 @@
 
 import XCTest
 
-class QueueTests: XCTestCase {
+class QueueStackTests: XCTestCase {
 
+	var queue: Queue<Int> = Queue()
 	var cwQueue: CWQueue = CWQueue()
 
     override func setUp() {
@@ -21,6 +22,28 @@ class QueueTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
+	func testQueue() {
+
+		queue.enqueue(3)
+		queue.enqueue(6)
+		queue.enqueue(9)
+
+		XCTAssertEqual(queue.count, 3)
+		XCTAssertEqual(queue.items.count, 3)
+		XCTAssertFalse(queue.isEmpty)
+
+		let dequeue = queue.dequeue()
+		let peek = queue.peek()
+
+		XCTAssertEqual(dequeue, 3)
+		XCTAssertEqual(peek, 6)
+
+		queue.clear()
+		XCTAssertEqual(queue.count, 0)
+		XCTAssertEqual(queue.items.count, 0)
+		XCTAssert(queue.isEmpty)
+	}
 
     func testCWQueue() {
 
