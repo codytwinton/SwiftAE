@@ -12,50 +12,48 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CWStack()
 
-@property (strong) NSMutableArray *theItems;
+@property (strong) NSMutableArray *items;
 
 @end
 
 @implementation CWStack
 
+@synthesize items;
+
 -(id)init {
 	if (self = [super init]) {
-		_theItems = NSMutableArray.new;
+		items = NSMutableArray.new;
 	}
 
 	return  self;
 }
 
 - (NSUInteger) count {
-	return _theItems.count;
-}
-
-- (NSArray *) items {
-	return _theItems;
+	return items.count;
 }
 
 - (BOOL) isEmpty {
-	return _theItems.count == 0;
+	return items.count == 0;
 }
 
 - (nullable id) peek {
-	return [_theItems lastObject];
+	return [items lastObject];
 }
 
 - (nullable id) pop {
 	id item = [self peek];
 	if (item == nil) { return nil; }
-	[_theItems removeLastObject];
+	[items removeLastObject];
 	return item;
 }
 
 - (void)push:(nullable id)item {
 	if (item == nil) { return; }
-	[_theItems addObject:item];
+	[items addObject:item];
 }
 
 - (void)clear {
-	[_theItems removeAllObjects];
+	[items removeAllObjects];
 }
 
 @end

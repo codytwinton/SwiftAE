@@ -12,50 +12,48 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CWQueue()
 
-@property (strong) NSMutableArray *theItems;
+@property (strong) NSMutableArray *items;
 
 @end
 
 @implementation CWQueue
 
+@synthesize items;
+
 -(id)init {
 	if (self = [super init]) {
-		_theItems = NSMutableArray.new;
+		items = NSMutableArray.new;
 	}
 
 	return  self;
 }
 
 - (NSUInteger) count {
-	return _theItems.count;
-}
-
-- (NSArray *) items {
-	return _theItems;
+	return items.count;
 }
 
 - (BOOL) isEmpty {
-	return _theItems.count == 0;
+	return items.count == 0;
 }
 
 - (nullable id) peek {
-	return [_theItems firstObject];
+	return [items firstObject];
 }
 
 - (nullable id) dequeue {
 	id item = [self peek];
 	if (item == nil) { return nil; }
-	[_theItems removeObjectAtIndex:0];
+	[items removeObjectAtIndex:0];
 	return item;
 }
 
 - (void)enqueue:(nullable id)item {
 	if (item == nil) { return; }
-	[_theItems addObject:item];
+	[items addObject:item];
 }
 
 - (void)clear {
-	[_theItems removeAllObjects];
+	[items removeAllObjects];
 }
 
 @end
