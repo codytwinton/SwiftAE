@@ -15,5 +15,6 @@
         <page name='DCP49 Max Contiguous Sum'/>
         <page name='DCP50 Binary Tree Arithmetic'/>
         <page name='DCP51 Shuffle Cards'/>
+        <page name='DCP52 LRU Cache'/>
     </pages>
 </playground>
