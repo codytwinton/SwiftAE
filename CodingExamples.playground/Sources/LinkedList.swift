@@ -34,7 +34,7 @@ public class LinkedList<H: Hashable, T>: CustomStringConvertible {
 
 public class ListNode<H: Hashable, T> {
 	public let key: H
-	public let value: T
+	public var value: T
 	public var next: ListNode<H, T>?
 	public weak var previous: ListNode<H, T>?
 
