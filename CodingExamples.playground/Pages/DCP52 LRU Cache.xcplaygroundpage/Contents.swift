@@ -24,15 +24,12 @@ struct LRUCache<T> {
 	}
 
 	mutating func set(_ value: T, for key: String) {
-		let didExist = items[key] != nil
 		items[key] = value
 
-		if didExist {
-			for (index, itemKey) in itemKeys.enumerated() {
-				guard key == itemKey, index != 0 else { continue }
-				itemKeys.remove(at: index)
-				break
-			}
+		for (index, itemKey) in itemKeys.enumerated() {
+			guard key == itemKey, index != 0 else { continue }
+			itemKeys.remove(at: index)
+			break
 		}
 
 		itemKeys.insert(key, at: 0)
@@ -43,6 +40,8 @@ struct LRUCache<T> {
 	}
 
 	mutating func get(for key: String) -> T? {
+		guard key != itemKeys.first else { return items[key] }
+
 		for (index, itemKey) in itemKeys.enumerated() {
 			guard key == itemKey, index != 0 else { continue }
 			itemKeys.remove(at: index)
