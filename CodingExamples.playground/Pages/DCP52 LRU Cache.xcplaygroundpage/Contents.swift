@@ -18,9 +18,28 @@ import Foundation
 struct LRUCache<H: Hashable, T> {
 	let capacity: Int
 
+	private var start: ListNode<H, T>?
+
 	private(set) var items: [H: ListNode<H, T>] = [:]
-	private(set) var head: ListNode<H, T>?
 	private(set) var tail: ListNode<H, T>?
+
+	private(set) var head: ListNode<H, T>? {
+		get { return start }
+		set {
+			newValue?.next = start
+			newValue?.previous = nil
+
+			if let start = start {
+				start.previous = newValue
+			}
+
+			start = newValue
+
+			if tail == nil {
+				tail = start
+			}
+		}
+	}
 
 	init(capacity: Int) {
 		self.capacity = capacity
@@ -29,58 +48,41 @@ struct LRUCache<H: Hashable, T> {
 	mutating func get(for key: H) -> T? {
 		guard let item = items[key] else { return nil }
 		remove(node: item)
-		setHead(node: item)
+		head = item
 		return item.value
 	}
 
 	mutating func set(_ value: T, for key: H) {
 
-		if let old = items[key] {
+		switch items[key] {
+		case let old?:
 			old.value = value
 			remove(node: old)
-			setHead(node: old)
-		} else {
-			var created = ListNode(key: key, value: value)
+			head = old
+		case nil:
+			let created = ListNode(key: key, value: value)
 
 			if items.count >= capacity, let tail = tail {
 				items.removeValue(forKey: tail.key)
 				remove(node: tail)
-				setHead(node: created)
-			} else{
-				setHead(node: created)
 			}
 
+			head = created
 			items[key] = created
 		}
 	}
 
 	mutating func remove(node: ListNode<H, T>) {
 
-		if let previous = node.previous {
-			previous.next = node.next
-		} else {
-			head = node.next
+		switch node.previous {
+		case let previous?: previous.next = node.next
+		case nil: head = node.next
 		}
 
-		if let next = node.next {
-			next.previous = node.previous
-		} else {
-			tail = node.previous
+		switch node.next {
+		case let next?: next.previous = node.previous
+		case nil: tail = node.previous
 		}
-	}
-
-	mutating func setHead(node: ListNode<H, T>) {
-		node.next = head
-		node.previous = nil
-
-		if let head = head {
-			head.previous = node
-		}
-
-		head = node
-
-		guard tail == nil else { return }
-		tail = head
 	}
 }
 
@@ -89,39 +91,27 @@ struct LRUCache<H: Hashable, T> {
 let testDate = Date()
 print("Tests Started\n\n---\n")
 
-for test in TestData.tests {
-	// Arrange
-	let input = test.input
-	var cache = LRUCache<String, Int>(capacity: 10)
+// Arrange
+var cache = LRUCache<String, Int>(capacity: 10)
 
-	// Act
+// Act
 
-	let setNums = [1, 3, 2, 5, 4, 7, 6, 9, 8, 10, 12, 11]
+let setNums = [1, 3, 2, 5, 4, 7, 6, 9, 8, 10, 12, 11]
 
-	print("\n\nGet test\n\n")
+print("\n\nGet test\n\n")
 
-	for i in setNums {
-		cache.set(i, for: "\(i)")
-		print("\(i) will set head \(cache.head?.value) tail \(cache.tail?.value)")
-	}
+for i in setNums {
+	cache.set(i, for: "\(i)")
+	print("\(i) will set head \(cache.head?.value) tail \(cache.tail?.value)")
+}
 
-	let getNums = Array(1...12)
+let getNums = Array(1...12)
 
-	print("\n\nGet test\n\n")
+print("\n\nGet test\n\n")
 
-	for i in getNums {
-		let val = cache.get(for: "\(i)")
-
-		print("\(i) will get head \(cache.head?.value) tail \(cache.tail?.value)")
-
-		if i == 1 || i == 3, val == nil {
-			//print("worked for deletion")
-		}
-
-		if let val = val {
-			//print("val valid for i \(i)")
-		}
-	}
+for i in getNums {
+	let val = cache.get(for: "\(i)")
+	print("\(val) will get head \(cache.head?.value) tail \(cache.tail?.value)")
 }
 
 print("---\n\nTests Ended:\n\telapsed: \(Date().timeIntervalSince(testDate))")
