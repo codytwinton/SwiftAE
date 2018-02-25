@@ -66,30 +66,41 @@ for test in TestData.tests {
 
 	// Act
 
-	let nums = [1, 3, 2, 5, 4, 7, 6, 9, 8, 10, 12, 11]
-	let numKeys = nums.filter {$0 != 1 && $0 != 3}.map {"\($0)"}
+	let setNums = [1, 3, 2, 5, 4, 7, 6, 9, 8, 10, 12, 11]
+	let setNumKeys: [String] = setNums.filter {$0 != 1 && $0 != 3}.map {"\($0)"}.reversed()
 
-	for i in [1, 3, 2, 5, 4, 7, 6, 9, 8, 10, 12, 11] {
+	for i in setNums {
 		cache.set(i, for: "\(i)")
-		print("itemKeys \(cache.itemKeys)")
+		//print("itemKeys \(cache.itemKeys)")
 	}
 
-	if cache.itemKeys == numKeys.reversed() {
-		print("Worked here")
+	if cache.itemKeys == setNumKeys {
+		print("\n\n✅ Worked for Setting\n\n")
+	} else {
+		print("\n\n🛑 Failed for Setting\n\n")
 	}
 
-	for i in Array(1...12) {
+	let getNums = Array(1...12)
+	let getNumKeys: [String] = getNums.filter {$0 != 1 && $0 != 3}.map {"\($0)"}.reversed()
+
+	for i in getNums {
 		let val = cache.get(for: "\(i)")
 
-		print("cache.itemKeys after i fetch \(i) \(cache.itemKeys)")
+		//print("cache.itemKeys after i fetch \(i) \(cache.itemKeys)")
 
 		if i == 1 || i == 3, val == nil {
-			print("worked for deletion")
+			//print("worked for deletion")
 		}
 
 		if let val = val {
-			print("val valid for i \(i)")
+			//print("val valid for i \(i)")
 		}
+	}
+
+	if (cache.itemKeys == getNumKeys) {
+		print("\n\n✅ Worked for Getting\n\n")
+	} else {
+		print("\n\n🛑 Failed for Setting\n\n")
 	}
 
 	//let actual = handleProblem(for: input)
