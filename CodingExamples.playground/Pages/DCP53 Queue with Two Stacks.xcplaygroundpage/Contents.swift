@@ -1,41 +1,73 @@
-/* Problem Statements
+/* This problem was asked by Apple.
 
-Given the String "Input", return "Expected"
+Implement a queue using two stacks. Recall that a queue is a FIFO (first-in, first-out) data structure with the following methods: enqueue, which inserts an element into the queue, and dequeue, which removes it.
 */
 
 import Foundation
 
 // MARK: Solution
 
-struct StackQueue<T>: Queueable {
+struct StackQueue<T> {
 
-	public typealias Element = T
+	public var count: Int { return enqueuedStack.count + dequeuedStack.count }
+	public var isEmpty: Bool { return enqueuedStack.isEmpty && dequeuedStack.isEmpty }
 
-	public var count: Int { return items.count }
-	public var isEmpty: Bool { return items.isEmpty }
+	private var enqueuedStack: Stack<T>
+	private var dequeuedStack: Stack<T> = Stack()
 
-	public private(set) var items: [T]
+	private mutating func swapStacks() {
+		guard !enqueuedStack.isEmpty || !dequeuedStack.isEmpty else { return }
 
-	public func peek() -> T? {
-		return items.first
+		switch enqueuedStack.isEmpty {
+		case true:
+			while !dequeuedStack.isEmpty {
+				enqueuedStack.push(dequeuedStack.pop())
+			}
+		case false:
+			while !enqueuedStack.isEmpty {
+				dequeuedStack.push(enqueuedStack.pop())
+			}
+		}
+	}
+
+	public mutating func items() -> [T] {
+		if !dequeuedStack.isEmpty {
+			swapStacks()
+		}
+
+		return enqueuedStack.items
+	}
+
+	public mutating func peek() -> T? {
+		return items().first
 	}
 
 	public mutating func clear() {
-		items.removeAll()
+		enqueuedStack.clear()
+		dequeuedStack.clear()
 	}
 
 	public mutating func enqueue(_ item: T?) {
 		guard let item = item else { return }
-		items.append(item)
+		if !dequeuedStack.isEmpty {
+			swapStacks()
+		}
+
+		enqueuedStack.push(item)
 	}
 
 	public mutating func dequeue() -> T? {
-		guard !items.isEmpty else { return nil }
-		return items.removeFirst()
+
+		if !enqueuedStack.isEmpty {
+			swapStacks()
+		}
+
+		guard !dequeuedStack.isEmpty else { return nil }
+		return dequeuedStack.pop()
 	}
 
 	public init(_ items: [T] = []) {
-		self.items = items
+		self.enqueuedStack = Stack(items)
 	}
 }
 
@@ -47,7 +79,7 @@ for i in 1...10 {
 	queue.enqueue(i)
 }
 
-print("enqueue: \(queue.items == Array(1...10) ? "✅" : "🛑")")
+print("enqueue: \(queue.items() == Array(1...10) ? "✅" : "🛑")")
 
 var dequeued: [Int] = []
 
@@ -56,5 +88,5 @@ for _ in 1...5 {
 	dequeued.append(i)
 }
 
-print("dequeue queue: \(queue.items == Array(6...10) ? "✅" : "🛑")")
+print("dequeue queue: \(queue.items() == Array(6...10) ? "✅" : "🛑")")
 print("dequeued: \(dequeued == Array(1...5) ? "✅" : "🛑")")

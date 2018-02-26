@@ -1,22 +1,4 @@
-public protocol Queueable {
-	associatedtype Element
-
-	var count: Int { get }
-	var isEmpty: Bool { get }
-	var items: [Element] { get }
-
-	func peek() -> Element?
-
-	mutating func clear()
-	mutating func enqueue(_ item: Element?)
-	mutating func dequeue() -> Element?
-
-	init(_ items: [Element])
-}
-
-public struct Queue<T>: Queueable {
-
-	public typealias Element = T
+public struct Queue<T> {
 
 	public var count: Int { return items.count }
 	public var isEmpty: Bool { return items.isEmpty }
