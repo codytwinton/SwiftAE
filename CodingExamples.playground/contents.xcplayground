@@ -16,5 +16,6 @@
         <page name='DCP50 Binary Tree Arithmetic'/>
         <page name='DCP51 Shuffle Cards'/>
         <page name='DCP52 LRU Cache'/>
+        <page name='DCP53 Queue with Two Stacks'/>
     </pages>
 </playground>
