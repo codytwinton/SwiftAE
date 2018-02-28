@@ -41,23 +41,21 @@ extension Array where Iterator.Element == [Int] {
 		for index in emptyIndexs {
 			let rowIndex = index / 9
 			let colIndex = index % 9
-			let gridRowIndexStart = rowIndex / 3
-			let gridColIndexStart = colIndex / 3
+			let gridRowStart = rowIndex / 3
+			let gridColStart = colIndex / 3
 
-			let row = solution[rowIndex]
-			let col = solution.reduce([], +).enumerated().filter { $0.offset % 9 == colIndex }.map { $0.element }
+			var taken = solution[rowIndex].filter { $0 != 0 }
 
-			var grid: [Int] = []
-
-			for (rI, row) in solution.enumerated() {
-				guard rI >= gridRowIndexStart, rI < gridRowIndexStart + 3 else { continue }
-				for (cI, item) in row.enumerated() {
-					guard cI >= gridColIndexStart, cI < gridColIndexStart + 3 else { continue }
-					grid.append(item)
+			for (i, row) in solution.enumerated() {
+				for (j, item) in row.enumerated() {
+					guard j == colIndex || (i >= gridRowStart && i < gridRowStart + 2 && j >= gridColStart && j < gridColStart + 2) else { continue }
+					guard item != 0 else { continue }
+					taken.append(item)
 				}
 			}
 
-			let options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !row.contains($0) && !col.contains($0) && !grid.contains($0) }
+			let options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !taken.contains($0) }
+			//print("options for rowIndex \(rowIndex) and colIndex \(colIndex) \(options)")
 		}
 
 		return solution
