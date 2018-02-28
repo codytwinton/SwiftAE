@@ -5,6 +5,7 @@
         <page name='BalancedScope'/>
         <page name='RGBSwap'/>
         <page name='RunLengthEncoding'/>
+        <page name='FB1 Ranges Intersect'/>
         <page name='DCP2 Products Except i'/>
         <page name='DCP40 Unique Integer'/>
         <page name='DCP41 Flights'/>
@@ -17,6 +18,6 @@
         <page name='DCP51 Shuffle Cards'/>
         <page name='DCP52 LRU Cache'/>
         <page name='DCP53 Queue with Two Stacks'/>
-        <page name='FB1 Ranges Intersect'/>
+        <page name='DCP54 Sudoku'/>
     </pages>
 </playground>
