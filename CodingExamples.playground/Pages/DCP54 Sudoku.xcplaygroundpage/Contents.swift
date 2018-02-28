@@ -29,61 +29,91 @@ var expected = [
 	[6, 9, 2, 3, 5, 1, 8, 7, 4],
 	[7, 4, 5, 2, 8, 6, 3, 1, 9]
 ]
-*/
 
-enum SudokuError: Error {
-	case unsolvable
-}
+Solution: https://www.geeksforgeeks.org/backtracking-set-7-suduku/
+*/
 
 struct Sudoku {
 	let unsolved: [[Int]]
-	private var solvedSolution: [[Int]] = []
-	private var currentSolution: [[Int]]
+	private(set) var solution: [[Int]]
 
 	init(unsolved: [[Int]]) {
 		self.unsolved = unsolved
-		self.currentSolution = unsolved
+		self.solution = unsolved
 	}
 
-	mutating func solve() throws -> [[Int]] {
-		guard solvedSolution.isEmpty else { return solvedSolution }
+	mutating func solveSudoku() -> Bool {
+		var row = 0
+		var col = 0
 
-		let emptyIndexs = currentSolution.reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
-		var emptyPossiblities: [[Int]] = []
-
-		for index in emptyIndexs {
-			let rowIndex = index / 9
-			let colIndex = index % 9
-			let gridRowStart = rowIndex - (rowIndex % 3)
-			let gridColStart = colIndex - (colIndex % 3)
-			let gridRow = gridRowStart...(gridRowStart + 2)
-			let gridCol = gridColStart...(gridColStart + 2)
-
-			var taken = currentSolution[rowIndex].filter { $0 != 0 }
-
-			for (i, row) in currentSolution.enumerated() {
-				for (j, item) in row.enumerated() {
-					guard j == colIndex || (gridRow.contains(i) && gridCol.contains(j)) else { continue }
-					guard item != 0 else { continue }
-					taken.append(item)
-				}
-			}
-
-			var options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !taken.contains($0) }
-			guard !options.isEmpty else { throw SudokuError.unsolvable }
-
-			if options.count == 1 {
-				currentSolution[rowIndex][colIndex] = options.removeFirst()
-			}
-
-			emptyPossiblities.append(options)
+		if !findUnassignedLocation(grid: solution, row: &row, col: &col) {
+			return true
 		}
 
-		solvedSolution = currentSolution
-		return solvedSolution
+		for num in 1...9 {
+			guard isSafe(grid: solution, row: row, col: col, num: num) else { continue }
+			solution[row][col] = num
+
+			if solveSudoku() {
+				return true
+			}
+
+			solution[row][col] = 0
+		}
+
+		return false
 	}
 
+	func findUnassignedLocation(grid: [[Int]], row: inout Int, col: inout Int) -> Bool {
 
+		for i in 0..<9 {
+			for j in 0..<9 {
+				guard grid[i][j] == 0 else { continue }
+				row = i
+				col = j
+				return true
+			}
+		}
+
+		row = 8
+		col = 8
+		return false
+	}
+
+	func usedInRow(grid: [[Int]], row: Int, num: Int) -> Bool {
+		for col in 0..<9 {
+			guard grid[row][col] == num else { continue }
+			return true
+		}
+
+		return false
+	}
+
+	func usedInCol(grid: [[Int]], col: Int, num: Int) -> Bool {
+		for row in 0..<9 {
+			guard grid[row][col] == num else { continue }
+			return true
+		}
+
+		return false
+	}
+
+	func usedInBox(grid: [[Int]], boxStartRow: Int, boxStartCol: Int, num: Int) -> Bool {
+		for row in boxStartRow...(boxStartRow + 2) {
+			for col in boxStartCol...(boxStartCol + 2) {
+				guard grid[row][col] == num else { continue }
+				return true
+			}
+		}
+
+		return false
+	}
+
+	func isSafe(grid: [[Int]], row: Int, col: Int, num: Int) -> Bool {
+		return !usedInRow(grid: grid, row: row, num: num) &&
+			!usedInCol(grid: grid, col: col, num: num) &&
+			!usedInBox(grid: grid, boxStartRow: row - row%3, boxStartCol: col - col%3, num: num)
+	}
 }
 
 // MARK: Tests
@@ -94,18 +124,14 @@ print("Tests Started\n\n---\n")
 for test in TestData.tests {
 	// Arrange
 	let input = test.input
+	var sudoku = Sudoku(unsolved: input)
 
-	do {
-		var sudoku = Sudoku(unsolved: input)
+	// Act
+	sudoku.solveSudoku()
+	let actual = sudoku.solution
 
-		// Act
-		let actual = try sudoku.solve()
-
-		// Assert
-		test.assert(with: actual)
-	} catch let error as SudokuError {
-		print("error \(error)")
-	}
+	// Assert
+	test.assert(with: actual)
 }
 
 print("---\n\nTests Ended:\n\telapsed: \(Date().timeIntervalSince(testDate))")
