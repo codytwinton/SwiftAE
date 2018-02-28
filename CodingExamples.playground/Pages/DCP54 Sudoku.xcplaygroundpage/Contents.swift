@@ -61,7 +61,7 @@ struct Sudoku {
 		var row = 0
 		var col = 0
 
-		guard findUnassignedLocation(row: &row, col: &col) else { return true }
+		guard findNextEmpty(row: &row, col: &col) else { return true }
 
 		for num in 1...gridSize {
 			guard isSafe(num, row: row, col: col) else { continue }
@@ -74,7 +74,7 @@ struct Sudoku {
 		return false
 	}
 
-	private func findUnassignedLocation(row: inout Int, col: inout Int) -> Bool {
+	private func findNextEmpty(row: inout Int, col: inout Int) -> Bool {
 		for i in 0..<gridSize {
 			for j in 0..<gridSize {
 				guard solution[i][j] == 0 else { continue }
@@ -132,8 +132,8 @@ for test in TestData.tests {
 	let input = test.input
 	var sudoku = Sudoku(unsolved: input)
 
-	// Act
 	do {
+		// Act
 		let actual = try sudoku.solve()
 
 		// Assert
