@@ -31,26 +31,25 @@ var expected = [
 ]
 */
 
+enum SudokuError: Error {
+	case unsolvable
+}
+
 struct Sudoku {
 	let unsolved: [[Int]]
-	private var solvedSolution: [[Int]]?
+	private var solvedSolution: [[Int]] = []
+	private var currentSolution: [[Int]]
 
 	init(unsolved: [[Int]]) {
 		self.unsolved = unsolved
+		self.currentSolution = unsolved
 	}
 
-	mutating func solve() -> [[Int]] {
-		if let solved = solvedSolution { return solved }
-		var solution = solved()
-		solvedSolution = solution
-		return solution
-	}
+	mutating func solve() throws -> [[Int]] {
+		guard solvedSolution.isEmpty else { return solvedSolution }
 
-	func solved() -> [[Int]] {
-		if let solved = solvedSolution { return solved }
-
-		var solution = unsolved
-		let emptyIndexs = solution.reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
+		let emptyIndexs = currentSolution.reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
+		var emptyPossiblities: [[Int]] = []
 
 		for index in emptyIndexs {
 			let rowIndex = index / 9
@@ -60,9 +59,9 @@ struct Sudoku {
 			let gridRow = gridRowStart...(gridRowStart + 2)
 			let gridCol = gridColStart...(gridColStart + 2)
 
-			var taken = solution[rowIndex].filter { $0 != 0 }
+			var taken = currentSolution[rowIndex].filter { $0 != 0 }
 
-			for (i, row) in solution.enumerated() {
+			for (i, row) in currentSolution.enumerated() {
 				for (j, item) in row.enumerated() {
 					guard j == colIndex || (gridRow.contains(i) && gridCol.contains(j)) else { continue }
 					guard item != 0 else { continue }
@@ -70,16 +69,21 @@ struct Sudoku {
 				}
 			}
 
-			let options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !taken.contains($0) }
-			//print("options for rowIndex \(rowIndex) and colIndex \(colIndex) \(options)")
+			var options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !taken.contains($0) }
+			guard !options.isEmpty else { throw SudokuError.unsolvable }
 
-			if (options.count == 1) {
-				solution[rowIndex][colIndex] = options[0]
+			if options.count == 1 {
+				currentSolution[rowIndex][colIndex] = options.removeFirst()
 			}
+
+			emptyPossiblities.append(options)
 		}
 
-		return solution
+		solvedSolution = currentSolution
+		return solvedSolution
 	}
+
+
 }
 
 // MARK: Tests
@@ -90,13 +94,18 @@ print("Tests Started\n\n---\n")
 for test in TestData.tests {
 	// Arrange
 	let input = test.input
-	var sudoku = Sudoku(unsolved: input)
 
-	// Act
-	let actual = sudoku.solve()
+	do {
+		var sudoku = Sudoku(unsolved: input)
 
-	// Assert
-	test.assert(with: actual)
+		// Act
+		let actual = try sudoku.solve()
+
+		// Assert
+		test.assert(with: actual)
+	} catch let error as SudokuError {
+		print("error \(error)")
+	}
 }
 
 print("---\n\nTests Ended:\n\telapsed: \(Date().timeIntervalSince(testDate))")
