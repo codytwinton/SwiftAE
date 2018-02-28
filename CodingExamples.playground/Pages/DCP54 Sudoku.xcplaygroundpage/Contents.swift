@@ -55,14 +55,16 @@ struct Sudoku {
 		for index in emptyIndexs {
 			let rowIndex = index / 9
 			let colIndex = index % 9
-			let gridRowStart = rowIndex / 3
-			let gridColStart = colIndex / 3
+			let gridRowStart = rowIndex - (rowIndex % 3)
+			let gridColStart = colIndex - (colIndex % 3)
+			let gridRow = gridRowStart...(gridRowStart + 2)
+			let gridCol = gridColStart...(gridColStart + 2)
 
 			var taken = solution[rowIndex].filter { $0 != 0 }
 
 			for (i, row) in solution.enumerated() {
 				for (j, item) in row.enumerated() {
-					guard j == colIndex || (i >= gridRowStart && i < gridRowStart + 2 && j >= gridColStart && j < gridColStart + 2) else { continue }
+					guard j == colIndex || (gridRow.contains(i) && gridCol.contains(j)) else { continue }
 					guard item != 0 else { continue }
 					taken.append(item)
 				}
