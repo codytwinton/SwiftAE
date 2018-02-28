@@ -33,18 +33,31 @@ var expected = [
 Solution: https://www.geeksforgeeks.org/backtracking-set-7-suduku/
 */
 
+enum SudokuError: Error {
+	case unsolvable
+}
+
 struct Sudoku {
-	let gridSize: Int
 	let unsolved: [[Int]]
-	private(set) var solution: [[Int]]
+
+	private let gridSize: Int = 9
+	private let boxSize: Int = 3
+	private var solution: [[Int]]
 
 	init(unsolved: [[Int]]) {
-		self.gridSize = unsolved.count
 		self.unsolved = unsolved
 		self.solution = unsolved
 	}
 
-	mutating func solveSudoku() -> Bool {
+	mutating func solve() throws -> [[Int]] {
+		guard solveSudoku() else {
+			throw SudokuError.unsolvable
+		}
+
+		return solution
+	}
+
+	mutating private func solveSudoku() -> Bool {
 		var row = 0
 		var col = 0
 
@@ -70,14 +83,13 @@ struct Sudoku {
 			}
 		}
 
-		(row, col) = (8, 8)
 		return false
 	}
 
 	func isSafe(_ num: Int, row: Int, col: Int) -> Bool {
 		return !isUsed(num, inRow: row)
 			&& !isUsed(num, inCol: col)
-			&& !isUsed(num, inRowBox: row - row % 3, colBox: col - col % 3)
+			&& !isUsed(num, inRowBox: row - row % boxSize, colBox: col - col % boxSize)
 	}
 
 	func isUsed(_ num: Int, inRow row: Int) -> Bool {
@@ -99,8 +111,8 @@ struct Sudoku {
 	}
 
 	func isUsed(_ num: Int, inRowBox rowBox: Int, colBox: Int) -> Bool {
-		for row in rowBox...(rowBox + 2) {
-			for col in colBox...(colBox + 2) {
+		for row in rowBox..<(rowBox + boxSize) {
+			for col in colBox..<(colBox + boxSize) {
 				guard solution[row][col] == num else { continue }
 				return true
 			}
@@ -121,11 +133,14 @@ for test in TestData.tests {
 	var sudoku = Sudoku(unsolved: input)
 
 	// Act
-	sudoku.solveSudoku()
-	let actual = sudoku.solution
+	do {
+		let actual = try sudoku.solve()
 
-	// Assert
-	test.assert(with: actual)
+		// Assert
+		test.assert(with: actual)
+	} catch let error as SudokuError {
+		print("error: \(error)")
+	}
 }
 
 print("---\n\nTests Ended:\n\telapsed: \(Date().timeIntervalSince(testDate))")
