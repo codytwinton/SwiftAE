@@ -31,12 +31,19 @@ var expected = [
 ]
 */
 
-extension Array where Iterator.Element == [Int] {
+struct Sudoku {
+	let unsolved: [[Int]]
+	private var solvedSolution: [[Int]]?
 
-	func solveSudoku() -> [Element] {
-		var solution = self
+	init(unsolved: [[Int]]) {
+		self.unsolved = unsolved
+	}
 
-		let emptyIndexs = reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
+	func solved() -> [[Int]] {
+		if let solved = solvedSolution { return solved }
+
+		var solution = unsolved
+		let emptyIndexs = solution.reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
 
 		for index in emptyIndexs {
 			let rowIndex = index / 9
@@ -60,6 +67,13 @@ extension Array where Iterator.Element == [Int] {
 
 		return solution
 	}
+
+	mutating func solve() -> [[Int]] {
+		if let solved = solvedSolution { return solved }
+		var solution = solved()
+		solvedSolution = solution
+		return solution
+	}
 }
 
 // MARK: Tests
@@ -70,9 +84,10 @@ print("Tests Started\n\n---\n")
 for test in TestData.tests {
 	// Arrange
 	let input = test.input
+	var sudoku = Sudoku(unsolved: input)
 
 	// Act
-	let actual = input.solveSudoku()
+	let actual = sudoku.solve()
 
 	// Assert
 	test.assert(with: actual)
