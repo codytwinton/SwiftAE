@@ -36,23 +36,23 @@ extension Array where Iterator.Element == [Int] {
 	func solveSudoku() -> [Element] {
 		var solution = self
 
-		let empty = reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
+		let emptyIndexs = reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
 
-		for index in empty {
+		for index in emptyIndexs {
 			let rowIndex = index / 9
 			let colIndex = index % 9
+			let gridRowIndexStart = rowIndex / 3
+			let gridColIndexStart = colIndex / 3
 
 			let row = solution[rowIndex]
 			let col = solution.reduce([], +).enumerated().filter { $0.offset % 9 == colIndex }.map { $0.element }
 
-			let gridRowIndexStart = rowIndex / 3
-			let gridColumnIndexStart = colIndex / 3
 			var grid: [Int] = []
 
 			for (rI, row) in solution.enumerated() {
 				guard rI >= gridRowIndexStart, rI < gridRowIndexStart + 3 else { continue }
 				for (cI, item) in row.enumerated() {
-					guard cI >= gridColumnIndexStart, cI < gridColumnIndexStart + 3 else { continue }
+					guard cI >= gridColIndexStart, cI < gridColIndexStart + 3 else { continue }
 					grid.append(item)
 				}
 			}
