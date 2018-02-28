@@ -12,9 +12,20 @@ For example, given the following tree:
 (3 + 2) * (4 + 5) = 45
 */
 
-public enum MathNode {
+public enum MathNode: Equatable {
 	case add, subtract, multiply, divide
 	case operand(Int)
+
+	public static func == (lhs: MathNode, rhs: MathNode) -> Bool {
+		switch (lhs, rhs) {
+		case let (.operand(l), .operand(r)): return l == r
+		case (.add, .add),
+			 (.subtract, .subtract),
+			 (.multiply, .multiply),
+			 (.divide, .divide): return true
+		default: return false
+		}
+	}
 }
 
 public struct TestData: Testable {

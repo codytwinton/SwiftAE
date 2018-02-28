@@ -1,52 +1,102 @@
 import Foundation
 
-public class BinaryNode<T>: CustomStringConvertible {
+public enum BinaryTreeTraversal {
+	case inOrder
+	case preOrder
+	case postOrder
+}
+
+private var preIndex: Int = 0
+
+public class BinaryNode<T: Equatable>: CustomStringConvertible {
+
+	// MARK: - Variables
 	public let value: T
 	public var left: BinaryNode?
 	public var right: BinaryNode?
 
 	public var description: String {
-		var leftStr = "nil"
-		if let left = left { leftStr = "\(left)" }
+		var values: [String] = []
 
-		var rightStr = "nil"
-		if let right = right { rightStr = "\(right)" }
+		self.traverse(.inOrder) {
+			values.append("\($0)")
+		}
 
-		return "\(value), \(leftStr), \(rightStr)"
+		return values.joined(separator:", ")
 	}
+
+	// MARK: Inits
 
 	public init(value: T) {
 		self.value = value
 	}
-}
 
-public class BinaryTree<T: Equatable> {
-
-	public var root: BinaryNode<T>?
-	private var preIndex: Int = 0
-
-	public init(inOrder: [T], preOrder: [T]) {
-		root = construct(inOrder: inOrder, preOrder: preOrder, startIndex: 0, endIndex: preOrder.count - 1)
+	convenience public init?(inOrder: [T], preOrder: [T]) {
+		preIndex = 0
+		self.init(inOrder: inOrder, preOrder: preOrder, startIndex: 0, endIndex: preOrder.count - 1)
 	}
 
-	private func construct(inOrder: [T], preOrder: [T], startIndex: Int, endIndex: Int) -> BinaryNode<T>? {
+	private init?(inOrder: [T], preOrder: [T], startIndex: Int, endIndex: Int) {
 		guard !preOrder.isEmpty, preOrder.count == inOrder.count, startIndex <= endIndex else { return nil }
 
-		let tRoot = BinaryNode<T>(value: preOrder[preIndex])
+		self.value = preOrder[preIndex]
 		preIndex += 1
-		guard startIndex != endIndex else { return tRoot }
+		guard startIndex != endIndex else { return }
 
 		var inIndex = endIndex
 
 		for i in startIndex..<endIndex {
-			guard inOrder[i] == tRoot.value else { continue }
+			guard inOrder[i] == self.value else { continue }
 			inIndex = i
 			break
 		}
 
-		tRoot.left = construct(inOrder: inOrder, preOrder: preOrder, startIndex: startIndex, endIndex: inIndex - 1)
-		tRoot.right = construct(inOrder: inOrder, preOrder: preOrder, startIndex: inIndex + 1, endIndex: endIndex)
+		self.left = BinaryNode(inOrder: inOrder, preOrder: preOrder, startIndex: startIndex, endIndex: inIndex - 1)
+		self.right = BinaryNode(inOrder: inOrder, preOrder: preOrder, startIndex: inIndex + 1, endIndex: endIndex)
+	}
 
-		return tRoot
+	// MARK: Functions
+
+	public func traverse(_ order: BinaryTreeTraversal, block: (T) -> Void) {
+		switch order {
+		case .inOrder:
+			left?.traverse(order, block: block)
+			block(value)
+			right?.traverse(order, block: block)
+		case .preOrder:
+			block(value)
+			left?.traverse(order, block: block)
+			right?.traverse(order, block: block)
+		case .postOrder:
+			left?.traverse(order, block: block)
+			right?.traverse(order, block: block)
+			block(value)
+		}
+	}
+
+	public func values(_ order: BinaryTreeTraversal) -> [T] {
+		var nodes: [T] = []
+
+		traverse(order) {
+			nodes.append($0)
+		}
+
+		return nodes
+	}
+}
+
+extension BinaryNode where T: Hashable {
+
+	public func uniqueValues(_ order: BinaryTreeTraversal) -> [T] {
+		var uniqueNodes: Set<T> = []
+		var nodes: [T] = []
+
+		traverse(order) {
+			guard !uniqueNodes.contains($0) else { return }
+			uniqueNodes.insert($0)
+			nodes.append($0)
+		}
+
+		return nodes
 	}
 }

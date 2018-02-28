@@ -50,15 +50,17 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let tree = BinaryTree<Int>(inOrder: input.inOrder, preOrder: input.preOrder)
-
-	guard let actual = tree.root else {
+	guard let actual = BinaryNode<Int>(inOrder: input.inOrder, preOrder: input.preOrder) else {
 		print("actual is nil")
 		continue
 	}
 
+	let inOrder = actual.uniqueValues(.inOrder)
+
 	// Assert
 	test.assert(with: actual)
+
+	print("testing: \(inOrder) test \(input.inOrder)")
 }
 
 print("---\n\nTests Ended:\n\telapsed: \(Date().timeIntervalSince(testDate))")
