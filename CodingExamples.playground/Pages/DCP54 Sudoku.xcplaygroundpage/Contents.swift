@@ -57,7 +57,7 @@ struct Sudoku {
 		return solution
 	}
 
-	mutating private func solveSudoku() -> Bool {
+	private mutating func solveSudoku() -> Bool {
 		var row = 0
 		var col = 0
 
@@ -74,7 +74,7 @@ struct Sudoku {
 		return false
 	}
 
-	func findUnassignedLocation(row: inout Int, col: inout Int) -> Bool {
+	private func findUnassignedLocation(row: inout Int, col: inout Int) -> Bool {
 		for i in 0..<gridSize {
 			for j in 0..<gridSize {
 				guard solution[i][j] == 0 else { continue }
@@ -86,13 +86,13 @@ struct Sudoku {
 		return false
 	}
 
-	func isSafe(_ num: Int, row: Int, col: Int) -> Bool {
+	private func isSafe(_ num: Int, row: Int, col: Int) -> Bool {
 		return !isUsed(num, inRow: row)
 			&& !isUsed(num, inCol: col)
 			&& !isUsed(num, inRowBox: row - row % boxSize, colBox: col - col % boxSize)
 	}
 
-	func isUsed(_ num: Int, inRow row: Int) -> Bool {
+	private func isUsed(_ num: Int, inRow row: Int) -> Bool {
 		for col in 0..<gridSize {
 			guard solution[row][col] == num else { continue }
 			return true
@@ -101,7 +101,7 @@ struct Sudoku {
 		return false
 	}
 
-	func isUsed(_ num: Int, inCol col: Int) -> Bool {
+	private func isUsed(_ num: Int, inCol col: Int) -> Bool {
 		for row in 0..<gridSize {
 			guard solution[row][col] == num else { continue }
 			return true
@@ -110,7 +110,7 @@ struct Sudoku {
 		return false
 	}
 
-	func isUsed(_ num: Int, inRowBox rowBox: Int, colBox: Int) -> Bool {
+	private func isUsed(_ num: Int, inRowBox rowBox: Int, colBox: Int) -> Bool {
 		for row in rowBox..<(rowBox + boxSize) {
 			for col in colBox..<(colBox + boxSize) {
 				guard solution[row][col] == num else { continue }
