@@ -34,10 +34,12 @@ Solution: https://www.geeksforgeeks.org/backtracking-set-7-suduku/
 */
 
 struct Sudoku {
+	let gridSize: Int
 	let unsolved: [[Int]]
 	private(set) var solution: [[Int]]
 
 	init(unsolved: [[Int]]) {
+		self.gridSize = unsolved.count
 		self.unsolved = unsolved
 		self.solution = unsolved
 	}
@@ -48,14 +50,11 @@ struct Sudoku {
 
 		guard findUnassignedLocation(row: &row, col: &col) else { return true }
 
-		for num in 1...9 {
+		for num in 1...gridSize {
 			guard isSafe(num, row: row, col: col) else { continue }
 			solution[row][col] = num
 
-			if solveSudoku() {
-				return true
-			}
-
+			if solveSudoku() { return true }
 			solution[row][col] = 0
 		}
 
@@ -63,9 +62,8 @@ struct Sudoku {
 	}
 
 	func findUnassignedLocation(row: inout Int, col: inout Int) -> Bool {
-
-		for i in 0..<9 {
-			for j in 0..<9 {
+		for i in 0..<gridSize {
+			for j in 0..<gridSize {
 				guard solution[i][j] == 0 else { continue }
 				(row, col) = (i, j)
 				return true
@@ -77,13 +75,13 @@ struct Sudoku {
 	}
 
 	func isSafe(_ num: Int, row: Int, col: Int) -> Bool {
-		return !isUsed(num, inRow: row) &&
-			!isUsed(num, inCol: col) &&
-			!isUsed(num, inRowBox: row - row%3, colBox: col - col%3)
+		return !isUsed(num, inRow: row)
+			&& !isUsed(num, inCol: col)
+			&& !isUsed(num, inRowBox: row - row % 3, colBox: col - col % 3)
 	}
 
 	func isUsed(_ num: Int, inRow row: Int) -> Bool {
-		for col in 0..<9 {
+		for col in 0..<gridSize {
 			guard solution[row][col] == num else { continue }
 			return true
 		}
@@ -92,7 +90,7 @@ struct Sudoku {
 	}
 
 	func isUsed(_ num: Int, inCol col: Int) -> Bool {
-		for row in 0..<9 {
+		for row in 0..<gridSize {
 			guard solution[row][col] == num else { continue }
 			return true
 		}
