@@ -39,13 +39,14 @@ extension Array where Iterator.Element == [Int] {
 		let empty = reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
 
 		for index in empty {
-			let cell = (rowIndex: index / 9, columnIndex: index % 9)
+			let rowIndex = index / 9
+			let colIndex = index % 9
 
-			let row = solution[cell.rowIndex]
-			let column = solution.reduce([], +).enumerated().filter { $0.offset % 9 == cell.columnIndex }.map { $0.element }
+			let row = solution[rowIndex]
+			let col = solution.reduce([], +).enumerated().filter { $0.offset % 9 == colIndex }.map { $0.element }
 
-			let gridRowIndexStart = cell.rowIndex / 3
-			let gridColumnIndexStart = cell.columnIndex / 3
+			let gridRowIndexStart = rowIndex / 3
+			let gridColumnIndexStart = colIndex / 3
 			var grid: [Int] = []
 
 			for (rI, row) in solution.enumerated() {
@@ -56,7 +57,7 @@ extension Array where Iterator.Element == [Int] {
 				}
 			}
 
-			let options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !row.contains($0) && !column.contains($0) && !grid.contains($0) }
+			let options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !row.contains($0) && !col.contains($0) && !grid.contains($0) }
 		}
 
 		return solution
