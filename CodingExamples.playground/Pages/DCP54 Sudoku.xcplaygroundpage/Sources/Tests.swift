@@ -40,7 +40,7 @@ public struct TestData: Testable {
 			}
 
 			let act = actual[index]
-			guard item == act else { continue }
+			guard item != act else { continue }
 			success = false
 			break
 		}
