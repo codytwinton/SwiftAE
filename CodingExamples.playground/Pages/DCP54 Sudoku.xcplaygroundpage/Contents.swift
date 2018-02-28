@@ -9,8 +9,11 @@ import Foundation
 
 // MARK: Solution
 
-func handleProblem(for input: String) -> String {
-	return "Actual"
+extension Array where Iterator.Element == [Int] {
+
+	func test() -> [Element] {
+		return [[]]
+	}
 }
 
 // MARK: Tests
@@ -23,7 +26,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = handleProblem(for: input)
+	let actual = input.test()
 
 	// Assert
 	test.assert(with: actual)
