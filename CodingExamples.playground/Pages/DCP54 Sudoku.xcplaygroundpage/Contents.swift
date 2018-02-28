@@ -46,12 +46,12 @@ struct Sudoku {
 		var row = 0
 		var col = 0
 
-		if !findUnassignedLocation(grid: solution, row: &row, col: &col) {
+		if !findUnassignedLocation(row: &row, col: &col) {
 			return true
 		}
 
 		for num in 1...9 {
-			guard isSafe(grid: solution, row: row, col: col, num: num) else { continue }
+			guard isSafe(num, row: row, col: col) else { continue }
 			solution[row][col] = num
 
 			if solveSudoku() {
@@ -64,11 +64,11 @@ struct Sudoku {
 		return false
 	}
 
-	func findUnassignedLocation(grid: [[Int]], row: inout Int, col: inout Int) -> Bool {
+	func findUnassignedLocation(row: inout Int, col: inout Int) -> Bool {
 
 		for i in 0..<9 {
 			for j in 0..<9 {
-				guard grid[i][j] == 0 else { continue }
+				guard solution[i][j] == 0 else { continue }
 				row = i
 				col = j
 				return true
@@ -80,39 +80,39 @@ struct Sudoku {
 		return false
 	}
 
-	func usedInRow(grid: [[Int]], row: Int, num: Int) -> Bool {
+	func isSafe(_ num: Int, row: Int, col: Int) -> Bool {
+		return !isUsed(num, inRow: row) &&
+			!isUsed(num, inCol: col) &&
+			!isUsed(num, inRowBox: row - row%3, colBox: col - col%3)
+	}
+
+	func isUsed(_ num: Int, inRow row: Int) -> Bool {
 		for col in 0..<9 {
-			guard grid[row][col] == num else { continue }
+			guard solution[row][col] == num else { continue }
 			return true
 		}
 
 		return false
 	}
 
-	func usedInCol(grid: [[Int]], col: Int, num: Int) -> Bool {
+	func isUsed(_ num: Int, inCol col: Int) -> Bool {
 		for row in 0..<9 {
-			guard grid[row][col] == num else { continue }
+			guard solution[row][col] == num else { continue }
 			return true
 		}
 
 		return false
 	}
 
-	func usedInBox(grid: [[Int]], boxStartRow: Int, boxStartCol: Int, num: Int) -> Bool {
-		for row in boxStartRow...(boxStartRow + 2) {
-			for col in boxStartCol...(boxStartCol + 2) {
-				guard grid[row][col] == num else { continue }
+	func isUsed(_ num: Int, inRowBox rowBox: Int, colBox: Int) -> Bool {
+		for row in rowBox...(rowBox + 2) {
+			for col in colBox...(colBox + 2) {
+				guard solution[row][col] == num else { continue }
 				return true
 			}
 		}
 
 		return false
-	}
-
-	func isSafe(grid: [[Int]], row: Int, col: Int, num: Int) -> Bool {
-		return !usedInRow(grid: grid, row: row, num: num) &&
-			!usedInCol(grid: grid, col: col, num: num) &&
-			!usedInBox(grid: grid, boxStartRow: row - row%3, boxStartCol: col - col%3, num: num)
 	}
 }
 
