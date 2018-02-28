@@ -39,6 +39,13 @@ struct Sudoku {
 		self.unsolved = unsolved
 	}
 
+	mutating func solve() -> [[Int]] {
+		if let solved = solvedSolution { return solved }
+		var solution = solved()
+		solvedSolution = solution
+		return solution
+	}
+
 	func solved() -> [[Int]] {
 		if let solved = solvedSolution { return solved }
 
@@ -65,13 +72,6 @@ struct Sudoku {
 			//print("options for rowIndex \(rowIndex) and colIndex \(colIndex) \(options)")
 		}
 
-		return solution
-	}
-
-	mutating func solve() -> [[Int]] {
-		if let solved = solvedSolution { return solved }
-		var solution = solved()
-		solvedSolution = solution
 		return solution
 	}
 }
