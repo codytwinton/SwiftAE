@@ -17,5 +17,6 @@
         <page name='DCP51 Shuffle Cards'/>
         <page name='DCP52 LRU Cache'/>
         <page name='DCP53 Queue with Two Stacks'/>
+        <page name='FB1 Ranges Intersect'/>
     </pages>
 </playground>
