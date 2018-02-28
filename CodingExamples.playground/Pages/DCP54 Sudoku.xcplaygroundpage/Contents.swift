@@ -46,9 +46,7 @@ struct Sudoku {
 		var row = 0
 		var col = 0
 
-		if !findUnassignedLocation(row: &row, col: &col) {
-			return true
-		}
+		guard findUnassignedLocation(row: &row, col: &col) else { return true }
 
 		for num in 1...9 {
 			guard isSafe(num, row: row, col: col) else { continue }
@@ -69,14 +67,12 @@ struct Sudoku {
 		for i in 0..<9 {
 			for j in 0..<9 {
 				guard solution[i][j] == 0 else { continue }
-				row = i
-				col = j
+				(row, col) = (i, j)
 				return true
 			}
 		}
 
-		row = 8
-		col = 8
+		(row, col) = (8, 8)
 		return false
 	}
 
