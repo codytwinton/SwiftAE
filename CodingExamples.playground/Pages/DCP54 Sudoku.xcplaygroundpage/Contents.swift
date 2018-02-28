@@ -72,6 +72,10 @@ struct Sudoku {
 
 			let options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !taken.contains($0) }
 			//print("options for rowIndex \(rowIndex) and colIndex \(colIndex) \(options)")
+
+			if (options.count == 1) {
+				solution[rowIndex][colIndex] = options[0]
+			}
 		}
 
 		return solution
