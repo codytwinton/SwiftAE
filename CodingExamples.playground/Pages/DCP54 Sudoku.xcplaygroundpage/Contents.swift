@@ -33,8 +33,33 @@ var expected = [
 
 extension Array where Iterator.Element == [Int] {
 
-	func test() -> [Element] {
-		return [[]]
+	func solveSudoku() -> [Element] {
+		var solution = self
+
+		let empty = reduce([], +).enumerated().filter { $0.element == 0 }.map { $0.offset }
+
+		for index in empty {
+			let cell = (rowIndex: index / 9, columnIndex: index % 9)
+
+			let row = solution[cell.rowIndex]
+			let column = solution.reduce([], +).enumerated().filter { $0.offset % 9 == cell.columnIndex }.map { $0.element }
+
+			let gridRowIndexStart = cell.rowIndex / 3
+			let gridColumnIndexStart = cell.columnIndex / 3
+			var grid: [Int] = []
+
+			for (rI, row) in solution.enumerated() {
+				guard rI >= gridRowIndexStart, rI < gridRowIndexStart + 3 else { continue }
+				for (cI, item) in row.enumerated() {
+					guard cI >= gridColumnIndexStart, cI < gridColumnIndexStart + 3 else { continue }
+					grid.append(item)
+				}
+			}
+
+			let options = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter { !row.contains($0) && !column.contains($0) && !grid.contains($0) }
+		}
+
+		return solution
 	}
 }
 
@@ -48,7 +73,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = input.test()
+	let actual = input.solveSudoku()
 
 	// Assert
 	test.assert(with: actual)
