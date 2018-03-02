@@ -13,7 +13,9 @@ public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
 		TestData(input: (length: 10, text: "the quick brown fox jumps over the lazy dog"), expected: ["the quick", "brown fox", "jumps over", "the lazy", "dog"]),
+		TestData(input: (length: 10, text: "the quick brown fox jumps overs the lazy dog"), expected: ["the quick", "brown fox", "jumps", "overs the", "lazy dog"]),
 		TestData(input: (length: 10, text: "the testingsetseio te seg"), expected: []),
+		TestData(input: (length: 10, text: ""), expected: []),
 	]
 
 	public var input: (length: Int, text: String)

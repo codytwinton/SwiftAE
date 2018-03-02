@@ -25,10 +25,7 @@ extension String {
 			current = word
 		}
 
-		if current.count > 0 {
-			breakdown.append(current)
-		}
-
+		if current.count > 0 { breakdown.append(current) }
 		return breakdown
 	}
 }
