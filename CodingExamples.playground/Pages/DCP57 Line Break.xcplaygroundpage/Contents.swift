@@ -9,7 +9,27 @@ import Foundation
 
 extension String {
 	func breakWords(length: Int) -> [String] {
-		return []
+		guard !isEmpty else { return [] }
+
+		var breakdown: [String] = []
+		var current = ""
+
+		for word in components(separatedBy: " ") {
+			guard word.count <= length else { return [] }
+			guard current.count + word.count >= length else {
+				current += (current.isEmpty ? "" : " ") + word
+				continue
+			}
+
+			breakdown.append(current)
+			current = word
+		}
+
+		if current.count > 0 {
+			breakdown.append(current)
+		}
+
+		return breakdown
 	}
 }
 
