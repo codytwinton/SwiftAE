@@ -16,6 +16,9 @@ import Foundation
 extension Array where Iterator.Element == Int {
 
 	func indexInRotatedSorted(of element: Int) -> Int {
+		guard !isEmpty else { return -1 }
+		guard count > 1 else { return first == element ? 0 : -1 }
+
 		return -1
 	}
 }

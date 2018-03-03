@@ -3,6 +3,9 @@ import Foundation
 public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
+		TestData(input: (array: [], element: 1), expected: -1),
+		TestData(input: (array: [0], element: 1), expected: -1),
+		TestData(input: (array: [1], element: 1), expected: 0),
 		TestData(input: (array: [13, 18, 25, 2, 8, 10], element: 13), expected: 0),
 		TestData(input: (array: [13, 18, 25, 2, 8, 10], element: 18), expected: 1),
 		TestData(input: (array: [13, 18, 25, 2, 8, 10], element: 25), expected: 2),
