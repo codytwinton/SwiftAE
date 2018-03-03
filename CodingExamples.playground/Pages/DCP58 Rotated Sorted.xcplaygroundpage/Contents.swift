@@ -27,7 +27,7 @@ extension Array where Iterator.Element == Int {
 			let middle = self[middleIndex]
 			guard middle != element else { return middleIndex }
 
-			var leanLeft: Bool = false
+			let leanLeft: Bool
 
 			if middle > firstVal {
 				leanLeft = firstVal...middle ~= element
