@@ -17,7 +17,36 @@ extension Array where Iterator.Element == Int {
 
 	func indexInRotatedSorted(of element: Int) -> Int {
 		guard !isEmpty else { return -1 }
-		guard count > 1 else { return first == element ? 0 : -1 }
+		guard count > 1, let firstVal = first, let lastVal = last else { return first == element ? 0 : -1 }
+
+		var leftIndex = 0
+		var rightIndex = count - 1
+
+		while leftIndex < rightIndex {
+			let middleIndex = (leftIndex + rightIndex) / 2
+			let middle = self[middleIndex]
+			guard middle != element else { return middleIndex }
+
+			var leanLeft: Bool = false
+
+			if middle > firstVal {
+				leanLeft = firstVal...middle ~= element
+			} else if middle < lastVal {
+				leanLeft = middle...lastVal ~= element
+			} else {
+				leanLeft = middle != firstVal
+			}
+
+			switch leanLeft {
+			case true:
+				rightIndex = middleIndex - 1
+			case false:
+				leftIndex = middleIndex + 1
+			}
+
+			guard self[leftIndex] != element else { return leftIndex }
+			guard self[rightIndex] != element else { return rightIndex }
+		}
 
 		return -1
 	}
