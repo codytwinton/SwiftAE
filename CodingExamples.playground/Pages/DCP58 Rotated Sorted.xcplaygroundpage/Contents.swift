@@ -19,36 +19,56 @@ extension Array where Iterator.Element == Int {
 		guard !isEmpty else { return -1 }
 		guard count > 1, let firstVal = first, let lastVal = last else { return first == element ? 0 : -1 }
 
-		var leftIndex = 0
-		var rightIndex = count - 1
+		guard let pivotIndex = findPivotIndex() else { return -1 }
 
-		while leftIndex < rightIndex {
-			let middleIndex = (leftIndex + rightIndex) / 2
-			let middle = self[middleIndex]
-			guard middle != element else { return middleIndex }
+		let largest = self[pivotIndex]
+		guard largest != element else { return pivotIndex }
 
-			let leanLeft: Bool
+		var low = firstVal...largest ~= element ? 0 : pivotIndex + 1
+		var high = low == 0 ? pivotIndex : count - 1
 
-			if middle > firstVal {
-				leanLeft = firstVal...middle ~= element
-			} else if middle < lastVal {
-				leanLeft = middle...lastVal ~= element
-			} else {
-				leanLeft = middle != firstVal
-			}
+		while low <= high {
+			let midIndex = (low + high) / 2
+			let mid = self[midIndex]
+			guard mid != element else { return midIndex }
 
-			switch leanLeft {
+			switch mid > element {
 			case true:
-				rightIndex = middleIndex - 1
+				high = midIndex - 1
 			case false:
-				leftIndex = middleIndex + 1
+				low = midIndex + 1
 			}
-
-			guard self[leftIndex] != element else { return leftIndex }
-			guard self[rightIndex] != element else { return rightIndex }
 		}
 
 		return -1
+	}
+
+	private func findPivotIndex() -> Int? {
+		guard !isEmpty else { return nil }
+		guard count > 1 else { return 0 }
+
+		var low = 0
+		var high = count - 1
+
+		while low < high {
+			let mid = (low + high)/2
+
+			if mid < high && self[mid] > self[mid + 1] {
+				return mid
+			}
+
+			if mid > low && self[mid] < self[mid - 1] {
+				return mid - 1
+			}
+
+			if self[low] >= self[mid] {
+				high = mid - 1
+			} else {
+				low = mid + 1
+			}
+		}
+
+		return nil
 	}
 }
 
