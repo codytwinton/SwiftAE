@@ -17,7 +17,7 @@ import Foundation
 extension Array where Element == Int {
 
 	var isSumOfSubsetsSame: Bool {
-		
+
 		var rightSum = reduce(0, +)
 		guard rightSum > 0, rightSum % 2 == 0 else { return false }
 
