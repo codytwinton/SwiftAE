@@ -15,11 +15,21 @@ import Foundation
 // MARK: Solution
 
 extension Array where Element == Int {
-	var isSumOfSubsetsSame: Bool {
-		guard count > 1 else { return false }
 
-		let totalSum = reduce(0, +)
-		guard totalSum % 2 == 0 else { return false }
+	var isSumOfSubsetsSame: Bool {
+		
+		var rightSum = reduce(0, +)
+		guard rightSum > 0, rightSum % 2 == 0 else { return false }
+
+		var leftSum = 0
+
+		for num in self {
+			guard leftSum + num <= rightSum else { continue }
+			leftSum += num
+			rightSum -= num
+
+			if leftSum == rightSum { return true }
+		}
 
 		return false
 	}

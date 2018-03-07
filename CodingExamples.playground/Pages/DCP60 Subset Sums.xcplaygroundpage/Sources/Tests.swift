@@ -18,6 +18,7 @@ public struct TestData: Testable {
 		TestData(input: [], expected: false),
 		TestData(input: [2], expected: false),
 		TestData(input: [2, 4, 6], expected: true),
+		TestData(input: [6, 2, 4], expected: true),
 		TestData(input: [15, 5, 20, 10, 35, 25, 10], expected: true),
 	]
 
