@@ -38,6 +38,28 @@ func matrixFactorial(n: Int, m: Int) -> Int {
 	return (n - 1 + m - 1).factorial / ((n - 1).factorial * (m - 1).factorial)
 }
 
+func matrixDynamic(n: Int, m: Int) -> Int {
+	guard n > 1 || m > 1 else { return 0 }
+
+	var count: [[Int]] = Array(repeating: Array(repeating: 0, count: n), count: m)
+
+	for i in 0..<m {
+		count[i][0] = 1
+	}
+
+	for i in 0..<n {
+		count[0][i] = 1
+	}
+
+	for i in 1..<m {
+		for j in 1..<n {
+			count[i][j] = count[i - 1][j] + count[i][j - 1]
+		}
+	}
+
+	return count[m - 1][n - 1]
+}
+
 // MARK: Tests
 
 let testDate = Date()
@@ -48,7 +70,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actualRecursive = matrixFactorial(n: input.n, m: input.m)
+	let actualRecursive = matrixDynamic(n: input.n, m: input.m)
 
 	// Assert
 	test.assert(with: actualRecursive)

@@ -21,6 +21,7 @@ public struct TestData: Testable {
 		TestData(input: (n: 2, m: 2), expected: 2),
 		TestData(input: (n: 3, m: 3), expected: 6),
 		TestData(input: (n: 5, m: 5), expected: 70),
+		TestData(input: (n: 10, m: 10), expected: 48620),
 	]
 
 	public var input: (n: Int, m: Int)
