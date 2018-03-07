@@ -14,10 +14,23 @@ import Foundation
 
 // MARK: Solution
 
+extension Int {
+
+	var factorial: Int {
+		guard self > 1 else { return 1 }
+		return self * (self - 1).factorial
+	}
+}
+
 func matrixRecursive(n: Int, m: Int) -> Int {
 	guard n > 1 || m > 1 else { return 0 }
 	guard n > 1, m > 1 else { return 1 }
 	return matrixRecursive(n: n - 1, m: m) + matrixRecursive(n: n, m: m - 1)
+}
+
+func matrixFactorial(n: Int, m: Int) -> Int {
+	guard n > 1 || m > 1 else { return 0 }
+	return (n - 1 + m - 1).factorial / ((n - 1).factorial * (m - 1).factorial)
 }
 
 // MARK: Tests
@@ -30,7 +43,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actualRecursive = matrixRecursive(n: input.n, m: input.m)
+	let actualRecursive = matrixFactorial(n: input.n, m: input.m)
 
 	// Assert
 	test.assert(with: actualRecursive)
