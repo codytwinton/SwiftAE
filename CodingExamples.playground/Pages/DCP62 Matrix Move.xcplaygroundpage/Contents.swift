@@ -14,8 +14,9 @@ import Foundation
 
 // MARK: Solution
 
-func handleProblem(for input: String) -> String {
-	return "Actual"
+func matrixRecursive(n: Int, m: Int) -> Int {
+	guard n > 1, m > 1 else { return 1 }
+	return matrixRecursive(n: n - 1, m: m) + matrixRecursive(n: n, m: m - 1)
 }
 
 // MARK: Tests
@@ -28,10 +29,10 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = handleProblem(for: input)
+	let actualRecursive = matrixRecursive(n: input.n, m: input.m)
 
 	// Assert
-	test.assert(with: actual)
+	test.assert(with: actualRecursive)
 }
 
 print("---\n\nTests Ended:\n\telapsed: \(Date().timeIntervalSince(testDate))")

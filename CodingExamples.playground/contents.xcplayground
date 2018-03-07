@@ -22,5 +22,6 @@
         <page name='DCP54 Sudoku'/>
         <page name='DCP57 Line Break'/>
         <page name='DCP58 Rotated Sorted'/>
+        <page name='DCP62 Matrix Move'/>
     </pages>
 </playground>
