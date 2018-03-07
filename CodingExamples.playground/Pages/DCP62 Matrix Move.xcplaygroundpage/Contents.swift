@@ -15,6 +15,7 @@ import Foundation
 // MARK: Solution
 
 func matrixRecursive(n: Int, m: Int) -> Int {
+	guard n > 1 || m > 1 else { return 0 }
 	guard n > 1, m > 1 else { return 1 }
 	return matrixRecursive(n: n - 1, m: m) + matrixRecursive(n: n, m: m - 1)
 }

@@ -16,6 +16,7 @@ import Foundation
 public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
+		TestData(input: (n: 1, m: 1), expected: 0),
 		TestData(input: (n: 1, m: 2), expected: 1),
 		TestData(input: (n: 2, m: 2), expected: 2),
 		TestData(input: (n: 3, m: 3), expected: 6),
