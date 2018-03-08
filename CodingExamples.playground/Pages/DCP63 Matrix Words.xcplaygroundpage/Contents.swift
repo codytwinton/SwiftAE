@@ -21,6 +21,16 @@ import Foundation
 extension Array where Element == [Character] {
 
 	func contains(_ str: String) -> Bool {
+		guard str.count <= count else { return false }
+
+		for (i, row) in enumerated() {
+			let rowString = row.map { String($0) }.joined()
+			guard !rowString.contains(str) else { return true }
+
+			let colString = (0..<row.count).map { String(self[$0][i]) }.joined()
+			guard !colString.contains(str) else { return true }
+		}
+
 		return false
 	}
 }

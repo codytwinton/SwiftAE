@@ -19,6 +19,7 @@ import Foundation
 public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
+		TestData(input: (matrix: [], word: "TEST"), expected: false),
 		TestData(input: (matrix: [["F", "A", "C", "I"],
 								  ["O", "B", "Q", "P"],
 								  ["A", "N", "O", "B"],
@@ -30,15 +31,15 @@ public struct TestData: Testable {
 		TestData(input: (matrix: [["F", "A", "C", "I"],
 								  ["O", "B", "Q", "P"],
 								  ["A", "N", "O", "B"],
-								  ["M", "A", "S", "S"]], word: "FOAM"), expected: true),
-		TestData(input: (matrix: [["F", "A", "C", "I"],
-								  ["O", "B", "Q", "P"],
-								  ["A", "N", "O", "B"],
 								  ["M", "A", "S", "S"]], word: "MASS"), expected: true),
 		TestData(input: (matrix: [["F", "A", "C", "I"],
 								  ["O", "B", "Q", "P"],
 								  ["A", "N", "O", "B"],
 								  ["M", "A", "S", "S"]], word: "AN"), expected: true),
+		TestData(input: (matrix: [["F", "A", "C", "I"],
+								  ["O", "B", "Q", "P"],
+								  ["A", "N", "O", "B"],
+								  ["M", "A", "S", "S"]], word: "FOAM"), expected: true),
 	]
 
 	public var input: (matrix: [[Character]], word: String)
