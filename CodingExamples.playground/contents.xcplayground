@@ -24,5 +24,6 @@
         <page name='DCP58 Rotated Sorted'/>
         <page name='DCP60 Subset Sums'/>
         <page name='DCP62 Matrix Move'/>
+        <page name='DCP63 Matrix Words'/>
     </pages>
 </playground>
