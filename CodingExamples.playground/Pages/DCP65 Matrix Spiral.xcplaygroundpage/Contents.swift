@@ -22,7 +22,36 @@ import Foundation
 extension Array where Element == [Int] {
 
 	var spiralMatrix: [Int] {
-		return []
+		guard !isEmpty else { return [] }
+
+		var modified = self
+		var matrix: [Int] = []
+
+		// 0 = right, 1 = down, 2 = left, 3 = up
+		var direction = 0
+
+		while !modified.isEmpty {
+			switch direction {
+			case 0, 2:
+				matrix += direction == 0 ? modified.removeFirst() : modified.removeLast().reversed()
+			default:
+				let left = direction == 3
+
+				for i in stride(from: left ? (modified.count - 1) : 0, to: left ? 0 : (modified.count - 1), by: left ? -1 : 1) {
+					var num = direction == 1 ? modified[i].removeLast() : modified[i].removeFirst()
+					matrix.append(num)
+				}
+			}
+
+			switch direction {
+			case 0..<3:
+				direction += 1
+			default:
+				direction = 0
+			}
+		}
+
+		return matrix
 	}
 }
 
