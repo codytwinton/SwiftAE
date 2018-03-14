@@ -25,5 +25,7 @@
         <page name='DCP60 Subset Sums'/>
         <page name='DCP62 Matrix Move'/>
         <page name='DCP63 Matrix Words'/>
+        <page name='DCP65 Matrix Spiral'/>
+        <page name='DCP68 Bishops'/>
     </pages>
 </playground>
