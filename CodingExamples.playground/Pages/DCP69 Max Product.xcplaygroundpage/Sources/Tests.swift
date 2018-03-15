@@ -12,9 +12,12 @@ import Foundation
 public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
-		TestData(input: [-15, -10, -20, -5], expected: -1500),
+		TestData(input: [-15, -10, -20, 0], expected: 0),
+		TestData(input: [-15, -10, -20, -5], expected: -750),
+		TestData(input: [-10, -10, 5, 2, 2], expected: 500),
 		TestData(input: [-10, -10, 5, 2], expected: 500),
 		TestData(input: [40, 10, 20, 30], expected: 24000),
+		TestData(input: [10, 20, 30], expected: 6000),
 	]
 
 	public var input: [Int]

@@ -14,7 +14,10 @@ import Foundation
 extension Array where Element == Int {
 
 	var largestTriProduct: Int {
-		return 0
+		guard count >= 3 else { return 0 }
+		let sorted = self.sorted()
+
+		return Swift.max(sorted[0] * sorted[1] * sorted[count - 1], sorted[count - 3] * sorted[count - 2] * sorted[count - 1])
 	}
 }
 
