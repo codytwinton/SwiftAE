@@ -11,8 +11,11 @@ import Foundation
 
 // MARK: Solution
 
-func handleProblem(for input: [Int]) -> Int {
-	return 0
+extension Array where Element == Int {
+
+	var largestTriProduct: Int {
+		return 0
+	}
 }
 
 // MARK: Tests
@@ -25,7 +28,7 @@ for test in TestData.tests {
 	let input = test.input
 
 	// Act
-	let actual = handleProblem(for: input)
+	let actual = input.largestTriProduct
 
 	// Assert
 	test.assert(with: actual)
