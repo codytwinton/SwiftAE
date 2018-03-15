@@ -17,7 +17,8 @@ extension Array where Element == Int {
 		guard count >= 3 else { return 0 }
 		let sorted = self.sorted()
 
-		return Swift.max(sorted[0] * sorted[1] * sorted[count - 1], sorted[count - 3] * sorted[count - 2] * sorted[count - 1])
+		return Swift.max(sorted[0] * sorted[1] * sorted[count - 1],
+						 sorted[count - 3] * sorted[count - 2] * sorted[count - 1])
 	}
 }
 
