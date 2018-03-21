@@ -5,10 +5,45 @@ Given the head of a singly linked list, reverse it in-place.
 
 import Foundation
 
-// MARK: Solution
+// MARK: Singly Linked List
 
-func handleProblem(for input: [Int]) -> [Int] {
-	return input
+// MARK: -
+
+class SinglyLinkedNode<T> {
+
+	// MARK: Variables
+
+	var value: T
+	var next: SinglyLinkedNode<T>?
+
+	// MARK: Inits
+
+	init?(list: [T]) {
+		guard let first = list.first else { return nil }
+		value = first
+
+		var previous: SinglyLinkedNode? = self
+
+		for i in 1..<list.count {
+			previous?.next = SinglyLinkedNode(value: list[i])
+			previous = previous?.next
+		}
+	}
+
+	init(value: T) {
+		self.value = value
+	}
+
+	// MARK: Functions
+
+	func reverseInPlace() {
+
+	}
+
+	func traverse(_ block: (T) -> Void) {
+		block(value)
+		next?.traverse(block)
+	}
 }
 
 // MARK: Tests
@@ -18,10 +53,13 @@ print("Tests Started\n\n---\n")
 
 for test in TestData.tests {
 	// Arrange
-	let input = test.input
+	var head = SinglyLinkedNode<Int>(list: test.input)
+
+	var actual: [Int] = []
 
 	// Act
-	let actual = handleProblem(for: input)
+	head?.reverseInPlace()
+	head?.traverse { actual.append($0) }
 
 	// Assert
 	test.assert(with: actual)
