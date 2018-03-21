@@ -27,5 +27,6 @@
         <page name='DCP63 Matrix Words'/>
         <page name='DCP65 Matrix Spiral'/>
         <page name='DCP69 Max Product'/>
+        <page name='DCP73 Reverse Singly Linked List'/>
     </pages>
 </playground>
