@@ -3,6 +3,9 @@ import Foundation
 public struct TestData: Testable {
 
 	public static let tests: [TestData] = [
+		TestData(input: [], expected: []),
+		TestData(input: [1], expected: [1]),
+		TestData(input: [1, 2], expected: [1, 2].reversed()),
 		TestData(input: [0, 7, 18, 3, 8, 17], expected: [0, 7, 18, 3, 8, 17].reversed()),
 	]
 
