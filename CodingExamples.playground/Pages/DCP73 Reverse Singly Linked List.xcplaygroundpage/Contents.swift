@@ -46,9 +46,13 @@ class SinglyLinkedNode<T> {
 		return currentHead
 	}
 
-	func traverse(_ block: (SinglyLinkedNode) -> Void) {
+	func traverse(nodeBlock block: (SinglyLinkedNode) -> Void) {
 		block(self)
-		next?.traverse(block)
+		next?.traverse(nodeBlock: block)
+	}
+
+	func traverse(valueBlock block: (T) -> Void) {
+		traverse { block($0.value) }
 	}
 }
 
@@ -64,7 +68,7 @@ for test in TestData.tests {
 
 	// Act
 	let newHead = head?.reverseInPlace()
-	newHead?.traverse { actual.append($0.value) }
+	newHead?.traverse { actual.append($0) }
 
 	// Assert
 	test.assert(with: actual)
