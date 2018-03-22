@@ -37,8 +37,8 @@ class SinglyLinkedNode<T> {
 	func reverseInPlace() -> SinglyLinkedNode {
 		var currentHead = self
 
-		while let nextHead = next {
-			next = nextHead.next
+		while let nextHead = self.next {
+			self.next = nextHead.next
 			nextHead.next = currentHead
 			currentHead = nextHead
 		}
@@ -60,7 +60,6 @@ print("Tests Started\n\n---\n")
 for test in TestData.tests {
 	// Arrange
 	let head = SinglyLinkedNode<Int>(list: test.input)
-
 	var actual: [Int] = []
 
 	// Act
