@@ -5,8 +5,6 @@ Given the head of a singly linked list, reverse it in-place.
 
 import Foundation
 
-// MARK: Singly Linked List
-
 // MARK: -
 
 class SinglyLinkedNode<T> {
@@ -14,7 +12,7 @@ class SinglyLinkedNode<T> {
 	// MARK: Variables
 
 	var value: T
-	var next: SinglyLinkedNode<T>?
+	var next: SinglyLinkedNode?
 
 	// MARK: Inits
 
@@ -22,11 +20,11 @@ class SinglyLinkedNode<T> {
 		guard let first = list.first else { return nil }
 		value = first
 
-		var previous: SinglyLinkedNode? = self
+		var current: SinglyLinkedNode? = self
 
-		for i in 1..<list.count {
-			previous?.next = SinglyLinkedNode(value: list[i])
-			previous = previous?.next
+		for value in list[1...] {
+			current?.next = SinglyLinkedNode(value: value)
+			current = current?.next
 		}
 	}
 
@@ -39,8 +37,8 @@ class SinglyLinkedNode<T> {
 	func reverseInPlace() -> SinglyLinkedNode {
 		var currentHead = self
 
-		while let nextHead = self.next {
-			self.next = nextHead.next
+		while let nextHead = next {
+			next = nextHead.next
 			nextHead.next = currentHead
 			currentHead = nextHead
 		}
