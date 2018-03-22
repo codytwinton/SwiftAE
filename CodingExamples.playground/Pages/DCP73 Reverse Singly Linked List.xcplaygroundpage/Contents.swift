@@ -36,12 +36,20 @@ class SinglyLinkedNode<T> {
 
 	// MARK: Functions
 
-	func reverseInPlace() {
+	func reverseInPlace() -> SinglyLinkedNode {
+		var currentHead = self
 
+		while let nextHead = self.next {
+			self.next = nextHead.next
+			nextHead.next = currentHead
+			currentHead = nextHead
+		}
+
+		return currentHead
 	}
 
-	func traverse(_ block: (T) -> Void) {
-		block(value)
+	func traverse(_ block: (SinglyLinkedNode) -> Void) {
+		block(self)
 		next?.traverse(block)
 	}
 }
@@ -53,13 +61,13 @@ print("Tests Started\n\n---\n")
 
 for test in TestData.tests {
 	// Arrange
-	var head = SinglyLinkedNode<Int>(list: test.input)
+	let head = SinglyLinkedNode<Int>(list: test.input)
 
 	var actual: [Int] = []
 
 	// Act
-	head?.reverseInPlace()
-	head?.traverse { actual.append($0) }
+	let newHead = head?.reverseInPlace()
+	newHead?.traverse { actual.append($0.value) }
 
 	// Assert
 	test.assert(with: actual)
