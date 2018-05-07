@@ -18,12 +18,12 @@ extension Int {
 	}
 
 	var factorialRecursive: Int {
-		return factorial(for: self)
+		return factorial()
 	}
 
-	private func factorial(for value: Int) -> Int {
-		guard value > 1 else { return 1 }
-		return value * factorial(for: value - 1)
+	private func factorial() -> Int {
+		guard self > 1 else { return 1 }
+		return self * (self - 1).factorial()
 	}
 
 	// MARK: Fibonacci
@@ -78,7 +78,7 @@ extension Int {
 
 	private func digitsRecursive(for number: Int) -> [Int] {
 		guard number >= 10 else { return [number] }
-		return digitsRecursive(for: number / 10) + [number % 10]
+		return [number % 10] + digitsRecursive(for: number / 10)
 	}
 
 	// MARK: GCD
