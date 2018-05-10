@@ -10,7 +10,10 @@ import Foundation
 extension Array where Element == Int {
 
 	mutating func rotate(by k: Int) {
-
+		guard count > 1 else { return }
+		for _ in 0..<k {
+			append(removeFirst())
+		}
 	}
 }
 
