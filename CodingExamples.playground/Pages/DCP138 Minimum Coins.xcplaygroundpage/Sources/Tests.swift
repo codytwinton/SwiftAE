@@ -19,6 +19,7 @@ public struct TestData: Testable {
 		TestData(input: 31, expected: 3),
 		TestData(input: 16, expected: 3),
 		TestData(input: 18, expected: 5),
+		TestData(input: 13456, expected: 540),
 	]
 
 	public var input: Int
