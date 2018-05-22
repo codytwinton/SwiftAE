@@ -29,5 +29,6 @@
         <page name='DCP69 Max Product'/>
         <page name='DCP73 Reverse Singly Linked List'/>
         <page name='DCP126 Rotate Elements'/>
+        <page name='DCP138 Minimum Coins'/>
     </pages>
 </playground>
