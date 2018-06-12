@@ -30,5 +30,6 @@
         <page name='DCP73 Reverse Singly Linked List'/>
         <page name='DCP126 Rotate Elements'/>
         <page name='DCP138 Minimum Coins'/>
+        <page name='DCP157 Palindrome Permutation'/>
     </pages>
 </playground>
