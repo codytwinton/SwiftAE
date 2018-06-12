@@ -7,8 +7,21 @@ import Foundation
 
 // MARK: Solution
 
-func handleProblem(for input: String) -> Bool {
-	return false
+extension String {
+	var hasPalindrome: Bool {
+		var set: Set<Character> = []
+		
+		for c in self {
+			switch set.contains(c) {
+			case true:
+				set.remove(c)
+			case false:
+				set.insert(c)
+			}
+		}
+		
+		return set.count < 2
+	}
 }
 
 // MARK: Tests
@@ -21,7 +34,7 @@ for test in TestData.tests {
 	let input = test.input
 	
 	// Act
-	let actual = handleProblem(for: input)
+	let actual = input.hasPalindrome
 	
 	// Assert
 	test.assert(with: actual)
